@@ -108,8 +108,8 @@ export default function HomePage() {
           faqSchema(homeFaq.map(({ question, answer }) => ({ question, answer }))),
         ]}
       />
-      <section className="relative overflow-hidden border-b border-separator">
-        <div aria-hidden="true" className="docs-grid-lines docs-grid-fade pointer-events-none absolute inset-0" />
+      <section className="hero-backdrop relative overflow-hidden border-b border-separator">
+        <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
         <div className="container-page relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,27rem)] lg:py-20 xl:grid-cols-[minmax(0,1fr)_30rem] xl:gap-20">
           <div className="flex min-w-0 flex-col items-start">
             <Link
@@ -128,7 +128,7 @@ export default function HomePage() {
               The building blocks behind better applications.
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">
+            <p className="text-lead mt-5 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
               Accessible React components and design tokens, installed by your own CLI as source you
               own, or imported from npm. Built for Aback products, engineered for reuse, released for
               everyone.
@@ -150,7 +150,7 @@ export default function HomePage() {
               <PackageCommand args={buttonCommand} className="bg-background" />
             </div>
 
-            <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+            <ul className="text-lead mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
               {["React 19", "Tailwind CSS v4", "Radix UI", "MIT licensed"].map((fact) => (
                 <li key={fact} className="flex items-center gap-2">
                   <span aria-hidden="true" className="size-1 bg-primary-500" />
@@ -354,14 +354,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="cta-heading" className="relative overflow-hidden border-t border-separator bg-brand-wash">
-        <div aria-hidden="true" className="docs-grid-lines pointer-events-none absolute inset-0" />
+      <section aria-labelledby="cta-heading" className="hero-backdrop relative overflow-hidden border-t border-separator">
+        <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
         <div className="container-page relative flex flex-col items-start gap-8 py-16 md:flex-row md:items-center md:justify-between lg:py-20">
           <div className="max-w-xl">
             <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Start with one component.
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="text-lead mt-3 text-base leading-relaxed sm:text-lg">
               Read the docs, copy the source, and make it yours.
             </p>
           </div>
