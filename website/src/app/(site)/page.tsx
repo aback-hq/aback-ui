@@ -353,7 +353,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="cta-heading" className="hero-backdrop relative overflow-hidden border-t border-separator">
+      <section aria-labelledby="cta-heading" className="relative overflow-hidden border-t border-separator bg-brand-wash">
         <div className="container-page relative flex flex-col items-start gap-8 py-16 md:flex-row md:items-center md:justify-between lg:py-20">
           <div className="max-w-xl">
             <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
