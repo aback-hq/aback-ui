@@ -9,88 +9,37 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packageDir = path.join(root, "packages", "ui");
 const dist = path.join(packageDir, "dist");
 
-const requiredExports = [
-  "Accordion",
-  "AccordionContent",
-  "AccordionItem",
-  "AccordionTrigger",
-  "Alert",
-  "AlertDescription",
-  "AlertTitle",
-  "AlertDialog",
-  "AlertDialogAction",
-  "AlertDialogCancel",
-  "AlertDialogContent",
-  "Avatar",
-  "AvatarFallback",
-  "AvatarImage",
-  "Badge",
-  "Breadcrumbs",
-  "Button",
-  "Calendar",
-  "Card",
-  "CardContent",
-  "CardDescription",
-  "CardFooter",
-  "CardHeader",
-  "CardTitle",
-  "Checkbox",
-  "Collapsible",
-  "Combobox",
-  "CollapsibleContent",
-  "CollapsibleTrigger",
-  "Command",
-  "CommandDialog",
-  "CommandInput",
-  "CommandItem",
-  "CommandList",
-  "DatePicker",
-  "DateRangePicker",
-  "Dialog",
-  "DialogContent",
-  "DropdownMenu",
-  "DropdownMenuContent",
-  "EmptyState",
-  "Field",
-  "HoverCard",
-  "HoverCardContent",
-  "HoverCardTrigger",
-  "Input",
-  "Kbd",
-  "formatCalendarDate",
-  "Label",
-  "PageHeader",
-  "Pagination",
-  "Popover",
-  "PopoverContent",
-  "Progress",
-  "RadioGroup",
-  "RadioGroupItem",
-  "ScrollArea",
-  "Select",
-  "Separator",
-  "Sheet",
-  "SheetContent",
-  "SheetTitle",
-  "Skeleton",
-  "Slider",
-  "Spinner",
-  "Switch",
-  "Table",
-  "Tabs",
-  "Textarea",
-  "Toaster",
-  "toast",
-  "ToggleGroup",
-  "ToggleGroupItem",
-  "Tooltip",
-  "cn",
-];
-
 function fail(message) {
   console.error(`Package check failed: ${message}`);
   process.exit(1);
 }
+
+const sourceDir = path.join(packageDir, "src", "components");
+const sourceFiles = (await readdir(sourceDir)).filter(
+  (file) => file.endsWith(".tsx") && !file.endsWith(".test.tsx"),
+);
+
+// Read the public names from the source, so a new component is checked the
+// day it is added instead of when someone remembers to list it.
+const requiredExports = ["cn"];
+const clientComponents = [];
+for (const file of sourceFiles) {
+  const source = await readFile(path.join(sourceDir, file), "utf8");
+  if (source.startsWith('"use client";')) clientComponents.push(file.replace(/\.tsx$/, ""));
+  for (const block of source.matchAll(/^export\s*\{([^}]+)\}/gm)) {
+    for (const entry of block[1].split(",")) {
+      const name = entry.trim().split(/\s+as\s+/).pop()?.trim();
+      if (name && !name.startsWith("type ")) requiredExports.push(name);
+    }
+  }
+  for (const match of source.matchAll(/^export\s+(?:async\s+)?(?:function|const)\s+(\w+)/gm)) {
+    requiredExports.push(match[1]);
+  }
+}
+if (requiredExports.length < 100 || clientComponents.length < 20) {
+  fail(`found ${requiredExports.length} exports and ${clientComponents.length} client modules in the source; the patterns no longer match it`);
+}
+
 
 if (!existsSync(path.join(dist, "index.js"))) fail("dist/index.js is missing. Run build:ui.");
 if (!existsSync(path.join(dist, "index.d.ts"))) fail("dist/index.d.ts is missing.");
@@ -102,31 +51,6 @@ for (const name of requiredExports) {
   if (!(name in module)) fail(`missing export: ${name}`);
 }
 
-const clientComponents = [
-  "accordion",
-  "alert-dialog",
-  "avatar",
-  "calendar",
-  "checkbox",
-  "collapsible",
-  "combobox",
-  "command",
-  "date-picker",
-  "dialog",
-  "dropdown-menu",
-  "hover-card",
-  "popover",
-  "progress",
-  "radio-group",
-  "scroll-area",
-  "sheet",
-  "slider",
-  "switch",
-  "tabs",
-  "toaster",
-  "toggle-group",
-  "tooltip",
-];
 for (const component of clientComponents) {
   const source = await readFile(path.join(dist, "components", `${component}.js`), "utf8");
   if (!source.startsWith('"use client";')) {
