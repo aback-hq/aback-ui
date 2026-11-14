@@ -2,7 +2,7 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
-## Unreleased
+## 0.4.0 - November 2026
 
 Six components drawn from patterns in Aback Chess, Aback Group, and Dronacharya, and two more Aback products on the site. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.
 
@@ -20,6 +20,7 @@ Six components drawn from patterns in Aback Chess, Aback Group, and Dronacharya,
 ### Changed
 
 - The home page's pricing card uses Segmented Control for the billing period, the status card adds Status Indicators, and section links use Arrow Link.
+- The home page's opening and closing sections have a blue backdrop after Aback Launch's hero: a wash of the lightest brand blue, two soft glows of the same hue, and a faint blue grid, in light and dark. Text on it uses a darker secondary colour so it keeps at least 4.5:1 contrast where the wash is strongest.
 - Development dependencies are updated within their ranges, and Wrangler to 4.162.0. `bun audit` went from nine advisories (four high) to one moderate, in a dependency of ESLint 9. None of them were in a package `@aback-ui/ui`, `@aback-ui/tokens`, or `aback-ui` installs.
 - The repository has issue forms for bug reports and component proposals, and a pull request checklist.
 
