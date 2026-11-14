@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://abackui.com/docs
+    about: Installation, theming, and every component's API and keyboard notes.
+  - name: Report a security vulnerability
+    url: https://github.com/devvrat-hans/aback-ui/blob/main/SECURITY.md
+    about: Report privately. Do not open a public issue.

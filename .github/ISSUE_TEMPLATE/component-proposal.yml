@@ -1,0 +1,39 @@
+name: Component proposal
+description: Suggest a component or block that solves a repeated interface problem.
+labels: ["proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Aback UI adds a component when it solves a problem that repeats across real applications. The [contributing guide](https://github.com/devvrat-hans/aback-ui/blob/main/CONTRIBUTING.md) lists what a component needs before it ships.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Segmented Control
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem it solves
+      description: Where you have built this by hand, and how often it comes up.
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Why the existing components do not cover it
+      description: Name the closest components you tried.
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Behaviour and accessibility
+      description: Keyboard behaviour, roles, and states (loading, disabled, error, empty) it needs. Link a WAI-ARIA pattern if one applies.
+  - type: textarea
+    id: api
+    attributes:
+      label: A sketch of the API
+      render: tsx
