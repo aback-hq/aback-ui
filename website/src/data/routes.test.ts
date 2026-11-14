@@ -36,10 +36,19 @@ describe("routes", () => {
 
   it("keeps titles and descriptions inside search snippet limits", () => {
     for (const route of routes) {
-      // The layout appends " | Aback UI" (11 characters) to every title but the home page's.
-      expect(route.title.length + (route.path === "/" ? 0 : 11), route.path).toBeLessThanOrEqual(70);
+      // The layout appends " | Aback UI" (11 characters) unless the title already names Aback UI.
+      expect(route.title.length + (route.title.includes("Aback UI") ? 0 : 11), route.path).toBeLessThanOrEqual(70);
       expect(route.description.length, route.path).toBeGreaterThanOrEqual(70);
       expect(route.description.length, route.path).toBeLessThanOrEqual(170);
+    }
+  });
+
+  it("leads every title with the page's own name, not a generic word", () => {
+    // A tab shows the first 20 or so characters, so a row of tabs that all
+    // start with "React" or "Install" cannot be told apart.
+    for (const route of routes) {
+      expect(route.title, route.path).not.toMatch(/^(React |Install |Use the |Introduction to )/);
+      expect(route.title.split(" | ").length, route.path).toBe(1);
     }
   });
 

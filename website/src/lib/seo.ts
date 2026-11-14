@@ -25,13 +25,15 @@ export function pageMetadata(path: string, overrides: Partial<Pick<SiteRoute, "t
   if (!route) throw new Error(`No route entry for ${path}. Add it to src/data/routes.ts.`);
   const title = overrides.title ?? route.title;
   const description = overrides.description ?? route.description;
-  // The home page carries its full title; the layout template appends the site name elsewhere.
-  const socialTitle = path === "/" ? title : `${title} | ${site.name}`;
+  // A title that already names the site, such as the home page's, is used as
+  // it is. Every other title gets the layout's " | Aback UI" suffix.
+  const named = title.includes(site.name);
+  const socialTitle = named ? title : `${title} | ${site.name}`;
   const image = { url: ogImagePath(path), width: 1200, height: 630, alt: socialTitle };
   const isArticle = route.kind === "post";
 
   return {
-    title: path === "/" ? { absolute: title } : title,
+    title: named ? { absolute: title } : title,
     description,
     keywords: route.keywords,
     alternates: {

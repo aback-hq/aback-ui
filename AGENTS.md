@@ -11,7 +11,7 @@
 > **Initial business model:** Free and open source; do not introduce paid gates or monetization flows without explicit owner approval  
 > **Primary audience:** Developers building Aback Group applications  
 > **Secondary audience:** External developers and teams seeking reusable, accessible, customizable UI components and application blocks  
-> **Working product promise:** The building blocks behind better applications.  
+> **Working product promise:** The building blocks for serious applications.  
 > **Product philosophy:** Build it for Aback, engineer it for reuse, release it for everyone.  
 > **Design authority:** The repository's `DESIGN.md` is authoritative for Aback brand identity, color roles, typography, spacing, shape, layout, motion, component states, accessibility, and visual conventions.  
 > **Reference files:** The supplied `AGENTS.md`, `DESIGN.md`, and `AGENTS-aback-analytics.md` are ecosystem references. Their product-specific requirements do not automatically apply to Aback UI.
@@ -65,7 +65,7 @@ The library should support both centralized maintenance and developer ownership.
 
 ## 1.2 Working positioning
 
-> **Aback UI — The building blocks behind better applications.**
+> **Aback UI — The building blocks for serious applications.**
 
 The core proposition is consistency without lock-in: use the shared Aback design language, reuse well-engineered components, and customize the implementation when a product requires it.
 
