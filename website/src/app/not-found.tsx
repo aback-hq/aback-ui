@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { IconArrowRight, IconHome, IconSearch } from "@tabler/icons-react";
 
 import { Badge, Button } from "@aback-ui/ui";
 
 import { SiteChrome } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

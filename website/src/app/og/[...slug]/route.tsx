@@ -4,6 +4,7 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 
 import { getRoute, routes } from "@/data/routes";
+import { site } from "@/data/site";
 
 /**
  * One 1200x630 social card per indexable page, rendered at build time into
@@ -29,10 +30,17 @@ const assets = Promise.all([
   readFile(path.join(process.cwd(), "public", "aback-logo-128.png")),
 ]);
 
-/** Social cards stay legible at thumbnail size, so long text is cut at a word. */
+/**
+ * Social cards stay legible at thumbnail size, so long text is cut: at the
+ * end of a sentence when one ends past halfway, otherwise at a word with an
+ * ellipsis.
+ */
 function clip(text: string, max: number) {
   if (text.length <= max) return text;
-  return `${text.slice(0, text.lastIndexOf(" ", max - 1))}…`;
+  const head = text.slice(0, max);
+  const sentence = head.lastIndexOf(". ");
+  if (sentence > max / 2) return head.slice(0, sentence + 1);
+  return `${text.slice(0, text.lastIndexOf(" ", max - 1)).replace(/[.,;:]$/, "")}…`;
 }
 
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string[] }> }) {
@@ -43,7 +51,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
 
   const [regular, semibold, bold, logo] = await assets;
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
-  const title = route.path === "/" ? "The building blocks behind better applications." : route.title;
+  const title = route.path === "/" ? site.tagline : route.title;
   const titleSize = title.length > 48 ? 60 : 72;
 
   return new ImageResponse(

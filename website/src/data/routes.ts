@@ -14,7 +14,11 @@ export type RouteKind = "home" | "guide" | "catalog" | "component" | "block" | "
  */
 export interface SiteRoute {
   path: string;
-  /** The <title> before the " | Aback UI" suffix. Aim for 60 characters with the suffix. */
+  /**
+   * The browser tab and search title. Lead with the page's own name, so a row
+   * of tabs can be told apart. " | Aback UI" is appended unless the title
+   * already names Aback UI. Aim for 60 characters in all.
+   */
   title: string;
   /** The meta description. Aim for 120 to 160 characters. */
   description: string;
@@ -43,13 +47,13 @@ const staticRoutes: RouteInput[] = [
     description:
       "Open-source React components, blocks, and design tokens for Tailwind CSS v4. Copy the source with the aback-ui CLI or import @aback-ui/ui from npm. MIT licensed.",
     kind: "home",
-    eyebrow: "Aback UI",
+    eyebrow: "Design system",
     sources: [app("page.tsx"), "website/src/components/home-showcase.tsx"],
     keywords: ["React component library", "React components", "Tailwind CSS components", "design system", "accessible components"],
   },
   {
     path: "/docs",
-    title: "Introduction to Aback UI",
+    title: "Introduction",
     description:
       "Aback UI is an open-source React design system: accessible components, blocks, semantic tokens, a CLI that copies source into your project, and an npm package.",
     kind: "guide",
@@ -58,7 +62,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/installation",
-    title: "Installation: add Aback UI to a React project",
+    title: "Installation",
     description:
       "Set up Aback UI in a Next.js, Vite, or other React project with Tailwind CSS v4, then add your first component with npx aback-ui@latest add.",
     kind: "guide",
@@ -68,7 +72,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/installation/next",
-    title: "Install Aback UI in Next.js",
+    title: "Next.js installation",
     description:
       "Step-by-step setup for Aback UI in a Next.js App Router project: create the app, run aback-ui init, add components, and wire up dark mode without a flash.",
     kind: "guide",
@@ -78,7 +82,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/installation/vite",
-    title: "Install Aback UI in Vite + React",
+    title: "Vite installation",
     description:
       "Set up Aback UI in a Vite React TypeScript project: Tailwind CSS v4 plugin, the @/ path alias in tsconfig and vite.config, then aback-ui init and add.",
     kind: "guide",
@@ -88,7 +92,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/package",
-    title: "Use the @aback-ui/ui npm package",
+    title: "npm package: @aback-ui/ui",
     description:
       "Install @aback-ui/ui and @aback-ui/tokens from npm, set up Tailwind CSS v4, and import Aback UI components instead of copying their source.",
     kind: "guide",
@@ -97,7 +101,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/cli",
-    title: "aback-ui CLI reference",
+    title: "CLI reference",
     description:
       "Reference for the aback-ui command line: init, add, diff, doctor, list, and view, every option, and the aback-ui.json configuration file.",
     kind: "guide",
@@ -106,7 +110,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/components",
-    title: "React components",
+    title: "Components for React and Tailwind CSS",
     description:
       "Every Aback UI React component, grouped by layer, with live previews, copyable source, API references, keyboard tables, and accessibility notes.",
     kind: "catalog",
@@ -116,7 +120,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/docs/blocks",
-    title: "React and Tailwind CSS blocks",
+    title: "Blocks for React and Tailwind CSS",
     description:
       "Composed Aback UI sections: site headers, footers, hero, pricing, FAQ, sign-in, settings, dashboards, and tables that install with their component dependencies.",
     kind: "catalog",
@@ -245,7 +249,7 @@ const staticRoutes: RouteInput[] = [
   },
   {
     path: "/about",
-    title: "About the project",
+    title: "About Aback UI",
     description:
       "Why Aback Group built Aback UI, the principles behind it, how it is maintained, and how it relates to the Aback products that use it.",
     kind: "page",
@@ -267,7 +271,7 @@ const componentRoutes: RouteInput[] = components.map((item) => {
   const source = item.files.find((file) => file.startsWith("components/ui/"));
   return {
     path: `/docs/components/${item.name}`,
-    title: `React ${item.title} component`,
+    title: `${item.title} component for React`,
     description: clampDescription(
       `${item.description.replace(/\.$/, "")}. An accessible React ${item.title.toLowerCase()} for Tailwind CSS v4 with a live preview, API reference, and keyboard notes.`,
     ),

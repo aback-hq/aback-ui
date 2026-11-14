@@ -2,6 +2,21 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
+## Unreleased
+
+Website only; the npm packages are unchanged.
+
+### Changed
+
+- The tagline is now "The building blocks for serious applications.", on the home page, in the site description, on the social card, and in the README.
+- The default social image is the generated home card. The old static one still said 24 components, two products, and "shadcn registry".
+- The home page's blue backdrop no longer has a grid over it. DESIGN.md keeps grid backgrounds for marketing art, and the wash and glows carry the blue on their own.
+- Every page's tab title leads with its own name, such as "Countdown component for React | Aback UI" instead of "React Countdown component | Aback UI", so a row of tabs can be told apart. Titles that already name Aback UI, such as "Built with Aback UI", no longer repeat it, and a route test keeps titles from starting with a generic word.
+
+### Fixed
+
+- The 404 page's tab showed the site slogan. It now reads "Page not found | Aback UI" and is marked noindex.
+
 ## 0.4.0 - November 2026
 
 Six components drawn from patterns in Aback Chess, Aback Group, and Dronacharya, and two more Aback products on the site. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.

@@ -109,7 +109,6 @@ export default function HomePage() {
         ]}
       />
       <section className="hero-backdrop relative overflow-hidden border-b border-separator">
-        <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
         <div className="container-page relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,27rem)] lg:py-20 xl:grid-cols-[minmax(0,1fr)_30rem] xl:gap-20">
           <div className="flex min-w-0 flex-col items-start">
             <Link
@@ -125,7 +124,7 @@ export default function HomePage() {
             </Link>
 
             <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance text-foreground sm:text-5xl xl:text-6xl">
-              The building blocks behind better applications.
+              The building blocks for serious applications.
             </h1>
 
             <p className="text-lead mt-5 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
@@ -355,7 +354,6 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="cta-heading" className="hero-backdrop relative overflow-hidden border-t border-separator">
-        <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
         <div className="container-page relative flex flex-col items-start gap-8 py-16 md:flex-row md:items-center md:justify-between lg:py-20">
           <div className="max-w-xl">
             <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

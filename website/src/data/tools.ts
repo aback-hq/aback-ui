@@ -15,7 +15,7 @@ export const tools: Tool[] = [
   {
     slug: "contrast-checker",
     title: "Contrast checker",
-    seoTitle: "WCAG colour contrast checker",
+    seoTitle: "Contrast checker for WCAG 2.2",
     description:
       "Check the contrast ratio of any two colours against WCAG 2.2 AA and AAA for normal text, large text, and UI components. Free, private, in your browser.",
     keywords: ["contrast checker", "WCAG contrast checker", "color contrast ratio", "accessibility color checker"],
@@ -30,7 +30,7 @@ export const tools: Tool[] = [
   {
     slug: "color-converter",
     title: "Colour converter",
-    seoTitle: "HEX to OKLCH, RGB, and HSL colour converter",
+    seoTitle: "Colour converter: HEX, RGB, HSL, OKLCH",
     description:
       "Convert any colour between HEX, RGB, HSL, and OKLCH instantly, with alpha support and CSS-ready output you can copy. Free and runs in your browser.",
     keywords: ["hex to oklch", "oklch converter", "hex to rgb", "hex to hsl", "color converter"],
@@ -44,7 +44,7 @@ export const tools: Tool[] = [
   {
     slug: "tailwind-color-generator",
     title: "Tailwind colour scale generator",
-    seoTitle: "Tailwind CSS colour scale generator (50–950)",
+    seoTitle: "Tailwind CSS colour scale generator",
     description:
       "Turn one brand colour into an 11-step Tailwind CSS palette from 50 to 950, built in OKLCH, and export it for Tailwind v4 @theme, v3 config, or CSS.",
     keywords: ["tailwind color generator", "tailwind palette generator", "tailwind color scale", "tailwind v4 colors"],

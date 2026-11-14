@@ -3,8 +3,8 @@ export const site = {
   url: "https://abackui.com",
   title: "Aback UI",
   description:
-    "The building blocks behind better applications. Accessible React components, design tokens, and a source-copy registry from Aback Group.",
-  tagline: "The building blocks behind better applications.",
+    "The building blocks for serious applications. Accessible React components, design tokens, and a source-copy registry from Aback Group.",
+  tagline: "The building blocks for serious applications.",
   registry: "https://abackui.com/r",
   /** The CLI as it is run with npx. Pinning @latest keeps the bundled registry current. */
   cli: "aback-ui@latest",
