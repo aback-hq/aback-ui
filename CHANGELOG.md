@@ -12,7 +12,7 @@ Website only; the npm packages are unchanged.
 - The default social image is the generated home card. The old static one still said 24 components, two products, and "shadcn registry".
 - The closing "Start with one component" band is one flat brand-blue tint. The hero's gradient, made for a tall section, left a patch of glow and a fade to white across the short band.
 - The home page's blue backdrop no longer has a grid over it. DESIGN.md keeps grid backgrounds for marketing art, and the wash and glows carry the blue on their own.
-- Every page's tab title leads with its own name, such as "Countdown component for React | Aback UI" instead of "React Countdown component | Aback UI", so a row of tabs can be told apart. Titles that already name Aback UI, such as "Built with Aback UI", no longer repeat it, and a route test keeps titles from starting with a generic word.
+- Every page's tab title leads with its own name, such as "Countdown component for React | Aback UI" instead of "React Countdown component | Aback UI", so a row of tabs can be told apart. Titles that already name Aback UI, such as "Built with Aback UI", no longer repeat it, and a route test keeps titles from starting with a generic word. The home page's title follows the Aback product pattern, brand first: "Aback UI | React Components for Serious Applications".
 
 ### Fixed
 
