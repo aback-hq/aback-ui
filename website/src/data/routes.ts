@@ -43,7 +43,7 @@ type RouteInput = Omit<SiteRoute, "lastModified">;
 const staticRoutes: RouteInput[] = [
   {
     path: "/",
-    title: "Aback UI: accessible React components and design system",
+    title: "Aback UI | React Components for Serious Applications",
     description:
       "Open-source React components, blocks, and design tokens for Tailwind CSS v4. Copy the source with the aback-ui CLI or import @aback-ui/ui from npm. MIT licensed.",
     kind: "home",

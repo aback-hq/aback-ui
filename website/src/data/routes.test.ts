@@ -48,8 +48,13 @@ describe("routes", () => {
     // start with "React" or "Install" cannot be told apart.
     for (const route of routes) {
       expect(route.title, route.path).not.toMatch(/^(React |Install |Use the |Introduction to )/);
-      expect(route.title.split(" | ").length, route.path).toBe(1);
+      // Only the home page puts the brand first, as "Aback UI | ...".
+      expect(route.title.split(" | ").length, route.path).toBe(route.path === "/" ? 2 : 1);
     }
+  });
+
+  it("titles the home page as the brand, then what it is", () => {
+    expect(routes.find((route) => route.path === "/")?.title).toMatch(/^Aback UI \| [A-Z]/);
   });
 
   it("gives every title and description to one page only", () => {
