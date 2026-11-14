@@ -16,7 +16,9 @@
   "docs": "https://abackui.com/docs/components/tooltip",
   "meta": {
     "status": "stable",
-    "usedIn": []
+    "usedIn": [
+      "aback-chess"
+    ]
   },
   "files": [
     {

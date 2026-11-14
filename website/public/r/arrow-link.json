@@ -1,0 +1,33 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "arrow-link",
+  "type": "registry:ui",
+  "title": "Arrow Link",
+  "description": "A text link with an arrow that says where it goes: right for this site, up and out for another.",
+  "dependencies": [
+    "@tabler/icons-react",
+    "class-variance-authority",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json"
+  ],
+  "categories": [
+    "Navigation"
+  ],
+  "docs": "https://abackui.com/docs/components/arrow-link",
+  "meta": {
+    "status": "beta",
+    "usedIn": [
+      "aback-group"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/arrow-link.tsx",
+      "content": "import * as React from \"react\";\nimport { Slot } from \"radix-ui\";\nimport { IconArrowRight, IconArrowUpRight } from \"@tabler/icons-react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst arrowLinkVariants = cva(\n  [\n    \"group/arrow-link inline-flex w-fit items-center gap-1.5 font-medium outline-none\",\n    \"transition-colors duration-200\",\n    \"focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n  ],\n  {\n    variants: {\n      tone: {\n        /** Link colour, underlined on hover. For links in running UI. */\n        link: \"text-link underline-offset-4 hover:text-link-hover hover:underline\",\n        /** Ink text over a hairline rule that darkens on hover. For editorial pages. */\n        foreground: \"border-b border-separator pb-0.5 text-foreground hover:border-foreground\",\n      },\n      size: {\n        sm: \"text-xs [&_svg]:size-3\",\n        default: \"text-sm [&_svg]:size-3.5\",\n        lg: \"text-base [&_svg]:size-4\",\n      },\n    },\n    defaultVariants: {\n      tone: \"link\",\n      size: \"default\",\n    },\n  },\n);\n\nexport interface ArrowLinkProps\n  extends React.ComponentProps<\"a\">,\n    VariantProps<typeof arrowLinkVariants> {\n  /**\n   * A link that leaves the site. The arrow points up and out, the link opens\n   * in a new tab with `rel=\"noopener noreferrer\"`, and screen readers hear\n   * \"opens in a new tab\".\n   */\n  external?: boolean;\n  /** Render the child, such as a router `Link`, instead of an anchor. */\n  asChild?: boolean;\n}\n\n/**\n * A text link with an arrow that says where it goes: right for a page on this\n * site, up and out for another site. Use it for \"View all\", \"Read more\", and\n * the last line of a section.\n */\nfunction ArrowLink({\n  external = false,\n  asChild = false,\n  tone = \"link\",\n  size = \"default\",\n  className,\n  children,\n  target,\n  rel,\n  ...props\n}: ArrowLinkProps) {\n  const Comp = asChild ? Slot.Root : \"a\";\n  const Arrow = external ? IconArrowUpRight : IconArrowRight;\n\n  return (\n    <Comp\n      data-slot=\"arrow-link\"\n      data-external={external ? \"\" : undefined}\n      className={cn(arrowLinkVariants({ tone, size }), className)}\n      target={external ? (target ?? \"_blank\") : target}\n      rel={external ? (rel ?? \"noopener noreferrer\") : rel}\n      {...props}\n    >\n      {asChild ? <Slot.Slottable>{children}</Slot.Slottable> : children}\n      {external ? <span className=\"sr-only\"> (opens in a new tab)</span> : null}\n      <Arrow\n        aria-hidden=\"true\"\n        className={cn(\n          \"shrink-0 transition-transform duration-200 motion-reduce:transition-none\",\n          external\n            ? \"group-hover/arrow-link:-translate-y-0.5 group-hover/arrow-link:translate-x-0.5\"\n            : \"group-hover/arrow-link:translate-x-0.5\",\n        )}\n      />\n    </Comp>\n  );\n}\n\nexport { ArrowLink, arrowLinkVariants };\n",
+      "type": "registry:ui",
+      "target": "components/ui/arrow-link.tsx"
+    }
+  ]
+}

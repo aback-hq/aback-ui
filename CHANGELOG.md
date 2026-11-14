@@ -2,6 +2,27 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
+## Unreleased
+
+Six components drawn from patterns in Aback Chess, Aback Group, and Dronacharya, and two more Aback products on the site. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.
+
+### Added
+
+- `ArrowLink`, a text link with an arrow that says where it goes: right for a page on this site, up and out for another site. An external link opens in a new tab with `rel="noopener noreferrer"` and tells screen readers so. It has `link` and `foreground` tones, three sizes, `asChild` for router links, and `arrowLinkVariants()` for templates.
+- `LinkList` and `LinkListItem`, a ruled list of destinations with a note under each label and an arrow at the edge, for the "where next" end of a section.
+- `StatusIndicator`, a square status mark and a word. The mark's shape (solid, half, or outline) carries the state as well as its colour, and the mark is hidden so the word is what is read.
+- `SegmentedControl` and `SegmentedControlItem`, one choice from a few short options side by side. It is a radio group on the Radix primitive: one tab stop, arrow keys, a hidden input for forms, two sizes, and `fullWidth`.
+- `TabNav` and `TabNavLink`, a row of links to sibling pages that scrolls sideways on a phone without a scrollbar, fades the edge that has more, and scrolls the current page into the middle. It watches `aria-current`, so it works with any router.
+- `Countdown` and `formatCountdown`, time left until a deadline. It is a `role="timer"` region that does not announce every tick; a status message announces the warning once and "time is up" once, and `onComplete` runs once per deadline. It shows `--:--` until hydration, so a static page does not show a stale time.
+- Each of the above has behaviour tests, an axe check, a live example, API, keyboard, and accessibility notes, and a registry item. The consumer test renders them from the packed tarball.
+- Aback Chess and Dronacharya on the Built with page and in each component's "Used in" list. Aback Chess imports ten components from the npm package; Dronacharya is listed where its own interface package has the same pattern.
+
+### Changed
+
+- The home page's pricing card uses Segmented Control for the billing period, the status card adds Status Indicators, and section links use Arrow Link.
+- Development dependencies are updated within their ranges, and Wrangler to 4.162.0. `bun audit` went from nine advisories (four high) to one moderate, in a dependency of ESLint 9. None of them were in a package `@aback-ui/ui`, `@aback-ui/tokens`, or `aback-ui` installs.
+- The repository has issue forms for bug reports and component proposals, and a pull request checklist.
+
 ## 0.3.0 - November 2026
 
 Five new components and two component upgrades, chosen by reading how Aback Tools, Aback Launch, and Aback Audit build their interfaces and what each one still writes by hand. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.

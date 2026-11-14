@@ -62,7 +62,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-chess",
+        "dronacharya"
       ]
     },
     "files": [
@@ -210,7 +212,8 @@ export const registryItems: RegistryItemSummary[] = [
       "status": "stable",
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-chess"
       ]
     },
     "files": [
@@ -263,7 +266,8 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "dronacharya"
       ]
     },
     "files": [
@@ -287,7 +291,8 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "dronacharya"
       ]
     },
     "files": [
@@ -386,7 +391,8 @@ export const registryItems: RegistryItemSummary[] = [
       "status": "stable",
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-chess"
       ]
     },
     "files": [
@@ -409,7 +415,8 @@ export const registryItems: RegistryItemSummary[] = [
       "status": "stable",
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "dronacharya"
       ]
     },
     "files": [
@@ -433,7 +440,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "status": "stable",
-      "usedIn": []
+      "usedIn": [
+        "aback-chess"
+      ]
     },
     "files": [
       "components/ui/tooltip.tsx"
@@ -459,7 +468,8 @@ export const registryItems: RegistryItemSummary[] = [
       "status": "stable",
       "usedIn": [
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-chess"
       ]
     },
     "files": [
@@ -702,7 +712,10 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta"
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
     },
     "files": [
       "components/ui/popover.tsx"
@@ -724,7 +737,10 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta"
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
     },
     "files": [
       "components/ui/progress.tsx"
@@ -773,7 +789,8 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-chess"
       ]
     },
     "files": [
@@ -797,7 +814,10 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta"
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
     },
     "files": [
       "components/ui/toggle-group.tsx"
@@ -848,7 +868,10 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta"
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
     },
     "files": [
       "components/ui/toaster.tsx"
@@ -1162,7 +1185,8 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "dronacharya"
       ]
     },
     "files": [
@@ -1585,7 +1609,8 @@ export const registryItems: RegistryItemSummary[] = [
       "status": "beta",
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "dronacharya"
       ]
     },
     "files": [
@@ -1665,6 +1690,158 @@ export const registryItems: RegistryItemSummary[] = [
     },
     "files": [
       "components/ui/listbox.tsx"
+    ]
+  },
+  {
+    "name": "arrow-link",
+    "type": "registry:ui",
+    "title": "Arrow Link",
+    "description": "A text link with an arrow that says where it goes: right for this site, up and out for another.",
+    "categories": [
+      "Navigation"
+    ],
+    "docs": "https://abackui.com/docs/components/arrow-link",
+    "dependencies": [
+      "@tabler/icons-react",
+      "class-variance-authority",
+      "radix-ui"
+    ],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "aback-group"
+      ]
+    },
+    "files": [
+      "components/ui/arrow-link.tsx"
+    ]
+  },
+  {
+    "name": "link-list",
+    "type": "registry:ui",
+    "title": "Link List",
+    "description": "A ruled list of destinations with a note under each label and an arrow at the edge.",
+    "categories": [
+      "Navigation"
+    ],
+    "docs": "https://abackui.com/docs/components/link-list",
+    "dependencies": [
+      "@tabler/icons-react",
+      "radix-ui"
+    ],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "aback-group"
+      ]
+    },
+    "files": [
+      "components/ui/link-list.tsx"
+    ]
+  },
+  {
+    "name": "status-indicator",
+    "type": "registry:ui",
+    "title": "Status Indicator",
+    "description": "A square status mark and a word, where the mark's shape carries the state as well as its colour.",
+    "categories": [
+      "Data Display"
+    ],
+    "docs": "https://abackui.com/docs/components/status-indicator",
+    "dependencies": [],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "aback-group"
+      ]
+    },
+    "files": [
+      "components/ui/status-indicator.tsx"
+    ]
+  },
+  {
+    "name": "segmented-control",
+    "type": "registry:ui",
+    "title": "Segmented Control",
+    "description": "One choice from a few short options side by side, as a radio group with arrow keys and form support.",
+    "categories": [
+      "Forms"
+    ],
+    "docs": "https://abackui.com/docs/components/segmented-control",
+    "dependencies": [
+      "radix-ui"
+    ],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
+    },
+    "files": [
+      "components/ui/segmented-control.tsx"
+    ]
+  },
+  {
+    "name": "tab-nav",
+    "type": "registry:ui",
+    "title": "Tab Nav",
+    "description": "A row of links to sibling pages that scrolls sideways on a phone and keeps the current page in view.",
+    "categories": [
+      "Navigation"
+    ],
+    "docs": "https://abackui.com/docs/components/tab-nav",
+    "dependencies": [
+      "radix-ui"
+    ],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "aback-chess"
+      ]
+    },
+    "files": [
+      "components/ui/tab-nav.tsx"
+    ]
+  },
+  {
+    "name": "countdown",
+    "type": "registry:ui",
+    "title": "Countdown",
+    "description": "Time left until a deadline, ticking once a second, with a warning state and one announcement at each change.",
+    "categories": [
+      "Data Display"
+    ],
+    "docs": "https://abackui.com/docs/components/countdown",
+    "dependencies": [
+      "@tabler/icons-react"
+    ],
+    "registryDependencies": [
+      "https://abackui.com/r/utils.json"
+    ],
+    "meta": {
+      "status": "beta",
+      "usedIn": [
+        "dronacharya",
+        "aback-chess"
+      ]
+    },
+    "files": [
+      "components/ui/countdown.tsx"
     ]
   },
   {

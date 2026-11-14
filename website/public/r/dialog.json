@@ -19,7 +19,8 @@
     "status": "stable",
     "usedIn": [
       "aback-launch",
-      "aback-group"
+      "aback-group",
+      "aback-chess"
     ]
   },
   "files": [

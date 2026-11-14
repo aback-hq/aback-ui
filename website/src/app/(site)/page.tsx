@@ -9,7 +9,7 @@ import {
   IconPalette,
 } from "@tabler/icons-react";
 
-import { Badge, Button } from "@aback-ui/ui";
+import { ArrowLink, Badge, Button } from "@aback-ui/ui";
 
 import { BlockThumbnail } from "@/components/block-thumbnail";
 import { Code } from "@/components/code";
@@ -89,16 +89,9 @@ function SectionIntro({
         </p>
       </div>
       {link ? (
-        <Link
-          href={link.href}
-          className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-link underline-offset-4 hover:underline"
-        >
-          {link.label}
-          <IconArrowRight
-            aria-hidden="true"
-            className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
-          />
-        </Link>
+        <ArrowLink asChild className="shrink-0">
+          <Link href={link.href}>{link.label}</Link>
+        </ArrowLink>
       ) : null}
     </div>
   );
@@ -314,7 +307,7 @@ export default function HomePage() {
             description="The system codifies what these interfaces needed under real forms, dense data, long content, and narrow screens."
             link={{ href: "/built-with", label: "See what ships where" }}
           />
-          <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {products.map((product) => {
               const used = components.filter((item) => item.meta?.usedIn?.includes(product.slug)).length;
               return (

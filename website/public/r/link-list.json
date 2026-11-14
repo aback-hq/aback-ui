@@ -1,0 +1,32 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "link-list",
+  "type": "registry:ui",
+  "title": "Link List",
+  "description": "A ruled list of destinations with a note under each label and an arrow at the edge.",
+  "dependencies": [
+    "@tabler/icons-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json"
+  ],
+  "categories": [
+    "Navigation"
+  ],
+  "docs": "https://abackui.com/docs/components/link-list",
+  "meta": {
+    "status": "beta",
+    "usedIn": [
+      "aback-group"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/link-list.tsx",
+      "content": "import * as React from \"react\";\nimport { Slot } from \"radix-ui\";\nimport { IconArrowRight, IconArrowUpRight } from \"@tabler/icons-react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/**\n * A ruled list of destinations: one full-width link per line, a short note\n * under the label, and an arrow at the far edge. Use it where a section ends\n * in \"where next\", or for a short index of pages.\n */\nfunction LinkList({ className, ...props }: React.ComponentProps<\"ul\">) {\n  return (\n    <ul\n      data-slot=\"link-list\"\n      className={cn(\"flex flex-col border-t border-border\", className)}\n      {...props}\n    />\n  );\n}\n\nexport interface LinkListItemProps extends Omit<React.ComponentProps<\"a\">, \"title\"> {\n  /** A short note under the label. */\n  description?: React.ReactNode;\n  /** Opens in a new tab, with an up-and-out arrow and \"opens in a new tab\" for screen readers. */\n  external?: boolean;\n  /**\n   * Render the child, such as a router `Link`, as the link. Its own content\n   * is the label: keep it to text or one element.\n   */\n  asChild?: boolean;\n  /** Props for the list item that wraps the link. */\n  itemProps?: React.ComponentProps<\"li\">;\n}\n\nfunction LinkListItem({\n  description,\n  external = false,\n  asChild = false,\n  itemProps,\n  className,\n  children,\n  target,\n  rel,\n  ...props\n}: LinkListItemProps) {\n  const Comp = asChild ? Slot.Root : \"a\";\n  const Arrow = external ? IconArrowUpRight : IconArrowRight;\n  const { className: itemClassName, ...itemRest } = itemProps ?? {};\n\n  return (\n    <li data-slot=\"link-list-item\" className={cn(\"border-b border-border\", itemClassName)} {...itemRest}>\n      <Comp\n        data-slot=\"link-list-link\"\n        className={cn(\n          // A grid, so a router link's own text lands in the first cell and\n          // the note and arrow find their places without a wrapper.\n          \"group/link-list grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 py-4 text-base font-medium leading-snug text-foreground outline-none\",\n          \"transition-colors duration-200 hover:text-link\",\n          \"focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-ring\",\n          className,\n        )}\n        target={external ? (target ?? \"_blank\") : target}\n        rel={external ? (rel ?? \"noopener noreferrer\") : rel}\n        {...props}\n      >\n        {asChild ? <Slot.Slottable>{children}</Slot.Slottable> : <span className=\"min-w-0\">{children}</span>}\n        {description ? (\n          <span className=\"col-start-1 row-start-2 mt-0.5 text-sm font-normal text-muted-foreground\">\n            {description}\n          </span>\n        ) : null}\n        {external ? <span className=\"sr-only\"> (opens in a new tab)</span> : null}\n        <Arrow\n          aria-hidden=\"true\"\n          className={cn(\n            \"col-start-2 row-span-2 row-start-1 size-4 shrink-0 self-center text-muted-foreground\",\n            \"transition-transform duration-200 group-hover/link-list:text-link motion-reduce:transition-none\",\n            external\n              ? \"group-hover/link-list:-translate-y-0.5 group-hover/link-list:translate-x-0.5\"\n              : \"group-hover/link-list:translate-x-1\",\n          )}\n        />\n      </Comp>\n    </li>\n  );\n}\n\nexport { LinkList, LinkListItem };\n",
+      "type": "registry:ui",
+      "target": "components/ui/link-list.tsx"
+    }
+  ]
+}

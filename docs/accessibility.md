@@ -28,6 +28,9 @@ Accessibility is part of correctness, not a polish phase. This document states w
 | Select | Native browser behavior (the component renders a real `select`) |
 | Listbox | Enter, Space, or an arrow opens; arrows move; Home/End jump; typing jumps to a match; Enter or Space chooses; Escape closes and focus returns to the trigger |
 | Loading button | Stays focusable with `aria-busy` and `aria-disabled`; Enter, Space, and clicks do nothing until loading ends |
+| Segmented Control | Tab enters the group at the chosen option and leaves it; arrows choose the next or previous option and skip disabled ones |
+| Tab Nav | Tab moves link to link and scrolls each into view clear of the edge fade; Enter follows the link |
+| Countdown | Not focusable; `role="timer"` with a name, read on demand, plus one status message when the warning starts and one when time is up |
 | Field | Clicking the label focuses the control, or toggles a checkbox or switch |
 | Rating | Native radio group: Tab enters, arrows change the rating, Space selects or clears |
 | Dropzone | Tab focuses the hidden file input (the frame shows the ring); Enter or Space opens the picker |

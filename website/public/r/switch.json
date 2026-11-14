@@ -18,7 +18,8 @@
     "status": "stable",
     "usedIn": [
       "aback-tools",
-      "aback-launch"
+      "aback-launch",
+      "aback-chess"
     ]
   },
   "files": [

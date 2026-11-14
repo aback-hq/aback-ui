@@ -16,7 +16,10 @@
   ],
   "docs": "https://abackui.com/docs/components/toast",
   "meta": {
-    "status": "beta"
+    "status": "beta",
+    "usedIn": [
+      "aback-chess"
+    ]
   },
   "files": [
     {

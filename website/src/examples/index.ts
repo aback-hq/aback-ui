@@ -3,6 +3,7 @@ import type { ComponentType } from "react";
 import { AccordionExample } from "./accordion";
 import { AlertExample } from "./alert";
 import { AlertDialogExample } from "./alert-dialog";
+import { ArrowLinkExample } from "./arrow-link";
 import { AvatarExample } from "./avatar";
 import { BadgeExample } from "./badge";
 import { BreadcrumbsExample } from "./breadcrumbs";
@@ -15,6 +16,7 @@ import { CollapsibleExample } from "./collapsible";
 import { ComboboxExample } from "./combobox";
 import { CommandExample } from "./command";
 import { CopyButtonExample } from "./copy-button";
+import { CountdownExample } from "./countdown";
 import { DatePickerExample } from "./date-picker";
 import { DescriptionListExample } from "./description-list";
 import { DialogExample } from "./dialog";
@@ -29,6 +31,7 @@ import { ItemExample } from "./item";
 import { KbdExample } from "./kbd";
 import { LabelExample } from "./label";
 import { LayoutExample } from "./layout";
+import { LinkListExample } from "./link-list";
 import { ListboxExample } from "./listbox";
 import { MeterExample } from "./meter";
 import { PageHeaderExample } from "./page-header";
@@ -43,6 +46,7 @@ import { ReadingProgressExample } from "./reading-progress";
 import { RelativeTimeExample } from "./relative-time";
 import { ScrollAreaExample } from "./scroll-area";
 import { SectionHeadingExample } from "./section-heading";
+import { SegmentedControlExample } from "./segmented-control";
 import { SelectExample } from "./select";
 import { SeparatorExample } from "./separator";
 import { ShareButtonsExample } from "./share-buttons";
@@ -52,8 +56,10 @@ import { SkipLinkExample } from "./skip-link";
 import { SliderExample } from "./slider";
 import { SpinnerExample } from "./spinner";
 import { StatExample } from "./stat";
+import { StatusIndicatorExample } from "./status-indicator";
 import { StepsExample } from "./steps";
 import { SwitchExample } from "./switch";
+import { TabNavExample } from "./tab-nav";
 import { TableExample } from "./table";
 import { TableOfContentsExample } from "./table-of-contents";
 import { TabsExample } from "./tabs";
@@ -67,6 +73,7 @@ export const exampleMap: Record<string, ComponentType> = {
   accordion: AccordionExample,
   alert: AlertExample,
   "alert-dialog": AlertDialogExample,
+  "arrow-link": ArrowLinkExample,
   avatar: AvatarExample,
   badge: BadgeExample,
   breadcrumbs: BreadcrumbsExample,
@@ -79,6 +86,7 @@ export const exampleMap: Record<string, ComponentType> = {
   combobox: ComboboxExample,
   command: CommandExample,
   "copy-button": CopyButtonExample,
+  countdown: CountdownExample,
   "date-picker": DatePickerExample,
   "description-list": DescriptionListExample,
   dialog: DialogExample,
@@ -93,6 +101,7 @@ export const exampleMap: Record<string, ComponentType> = {
   kbd: KbdExample,
   label: LabelExample,
   layout: LayoutExample,
+  "link-list": LinkListExample,
   listbox: ListboxExample,
   meter: MeterExample,
   "page-header": PageHeaderExample,
@@ -107,6 +116,7 @@ export const exampleMap: Record<string, ComponentType> = {
   "relative-time": RelativeTimeExample,
   "scroll-area": ScrollAreaExample,
   "section-heading": SectionHeadingExample,
+  "segmented-control": SegmentedControlExample,
   select: SelectExample,
   separator: SeparatorExample,
   "share-buttons": ShareButtonsExample,
@@ -116,8 +126,10 @@ export const exampleMap: Record<string, ComponentType> = {
   slider: SliderExample,
   spinner: SpinnerExample,
   stat: StatExample,
+  "status-indicator": StatusIndicatorExample,
   steps: StepsExample,
   switch: SwitchExample,
+  "tab-nav": TabNavExample,
   table: TableExample,
   "table-of-contents": TableOfContentsExample,
   tabs: TabsExample,
