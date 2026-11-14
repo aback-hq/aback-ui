@@ -1,0 +1,32 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "countdown",
+  "type": "registry:ui",
+  "title": "Countdown",
+  "description": "Time left until a deadline, ticking once a second, with a warning state and one announcement at each change.",
+  "dependencies": [
+    "@tabler/icons-react"
+  ],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json"
+  ],
+  "categories": [
+    "Data Display"
+  ],
+  "docs": "https://abackui.com/docs/components/countdown",
+  "meta": {
+    "status": "beta",
+    "usedIn": [
+      "dronacharya",
+      "aback-chess"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/countdown.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { IconAlarm, IconClock, IconClockCheck } from \"@tabler/icons-react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Formats a duration for a countdown: `m:ss` under an hour, `h:mm:ss` from an\n * hour. Partial seconds round up, so the clock reads 0:00 only when the time\n * is actually up.\n */\nexport function formatCountdown(milliseconds: number) {\n  const total = Math.max(0, Math.ceil(milliseconds / 1000));\n  const hours = Math.floor(total / 3600);\n  const minutes = Math.floor((total % 3600) / 60);\n  const seconds = total % 60;\n  const ss = String(seconds).padStart(2, \"0\");\n  return hours > 0 ? `${hours}:${String(minutes).padStart(2, \"0\")}:${ss}` : `${minutes}:${ss}`;\n}\n\nfunction spokenDuration(milliseconds: number) {\n  const total = Math.max(0, Math.ceil(milliseconds / 1000));\n  const hours = Math.floor(total / 3600);\n  const minutes = Math.floor((total % 3600) / 60);\n  const seconds = total % 60;\n  const parts = [\n    hours ? `${hours} ${hours === 1 ? \"hour\" : \"hours\"}` : \"\",\n    minutes ? `${minutes} ${minutes === 1 ? \"minute\" : \"minutes\"}` : \"\",\n    seconds || total === 0 ? `${seconds} ${seconds === 1 ? \"second\" : \"seconds\"}` : \"\",\n  ];\n  return parts.filter(Boolean).join(\" \");\n}\n\nfunction spokenThreshold(seconds: number) {\n  if (seconds % 60 === 0) {\n    const minutes = seconds / 60;\n    return `${minutes} ${minutes === 1 ? \"minute\" : \"minutes\"}`;\n  }\n  return `${seconds} ${seconds === 1 ? \"second\" : \"seconds\"}`;\n}\n\n// One clock for every countdown on the page. The snapshot is whole seconds,\n// so a subscriber re-renders once a second however often the clock checks.\nfunction subscribe(onChange: () => void) {\n  const id = window.setInterval(onChange, 250);\n  return () => window.clearInterval(id);\n}\n\nfunction readNow() {\n  return Math.floor(Date.now() / 1000) * 1000;\n}\n\nfunction readServerNow() {\n  return null;\n}\n\nconst sizes = {\n  sm: \"text-sm gap-1.5 [&_svg]:size-3.5\",\n  default: \"text-base gap-2 [&_svg]:size-4\",\n  lg: \"text-2xl gap-2.5 [&_svg]:size-5\",\n} as const;\n\nexport interface CountdownProps extends Omit<React.ComponentProps<\"div\">, \"children\"> {\n  /** When the time runs out, as a Date or epoch milliseconds. */\n  endsAt: Date | number;\n  /** The timer's accessible name. */\n  label?: string;\n  /**\n   * Seconds left at which the countdown turns to its warning state: an alarm\n   * icon, the danger colour, and one announcement to screen readers. `0`\n   * turns the warning off.\n   */\n  warnBelow?: number;\n  /** Runs once when the time runs out. Runs again only after `endsAt` changes. */\n  onComplete?: () => void;\n  /** Shows the clock icon, which also changes with the state. */\n  showIcon?: boolean;\n  size?: keyof typeof sizes;\n}\n\n/**\n * Time left until a deadline, ticking once a second: an exam, a reserved\n * seat, a sale, a code that expires. It is a `role=\"timer\"` region, so screen\n * readers do not read every tick; they hear one announcement when the\n * warning starts and one when the time is up.\n *\n * Before hydration it shows a placeholder, so a statically rendered page does\n * not disagree with the browser's clock.\n */\nfunction Countdown({\n  endsAt,\n  label = \"Time remaining\",\n  warnBelow = 60,\n  onComplete,\n  showIcon = true,\n  size = \"default\",\n  className,\n  ...props\n}: CountdownProps) {\n  const now = React.useSyncExternalStore(subscribe, readNow, readServerNow);\n  const end = typeof endsAt === \"number\" ? endsAt : endsAt.getTime();\n  const remaining = now === null ? null : Math.max(0, end - now);\n  const done = remaining !== null && remaining <= 0;\n  const warning = !done && remaining !== null && warnBelow > 0 && remaining <= warnBelow * 1000;\n  const state = remaining === null ? \"pending\" : done ? \"done\" : warning ? \"warning\" : \"running\";\n\n  const completeRef = React.useRef(onComplete);\n  const firedFor = React.useRef<number | null>(null);\n  React.useEffect(() => {\n    completeRef.current = onComplete;\n  });\n  React.useEffect(() => {\n    if (done && firedFor.current !== end) {\n      firedFor.current = end;\n      completeRef.current?.();\n    }\n  }, [done, end]);\n\n  const Icon = done ? IconClockCheck : warning ? IconAlarm : IconClock;\n  const announcement = done\n    ? `${label}: time is up.`\n    : warning\n      ? `${label}: less than ${spokenThreshold(warnBelow)} left.`\n      : \"\";\n\n  return (\n    <div\n      data-slot=\"countdown\"\n      data-state={state}\n      className={cn(\"inline-flex items-center\", className)}\n      {...props}\n    >\n      <span\n        role=\"timer\"\n        aria-label={label}\n        className={cn(\n          \"inline-flex items-center font-medium text-foreground\",\n          state === \"warning\" && \"text-danger\",\n          state === \"done\" && \"text-muted-foreground\",\n          sizes[size],\n        )}\n      >\n        {showIcon ? (\n          <Icon\n            aria-hidden=\"true\"\n            className={cn(\"shrink-0\", state === \"warning\" && \"animate-pulse motion-reduce:animate-none\")}\n          />\n        ) : null}\n        <span aria-hidden=\"true\" className=\"font-mono tabular-nums\">\n          {remaining === null ? \"--:--\" : formatCountdown(remaining)}\n        </span>\n        <span className=\"sr-only\">\n          {remaining === null ? \"Loading\" : `${spokenDuration(remaining)} left`}\n        </span>\n      </span>\n      <span role=\"status\" className=\"sr-only\">\n        {announcement}\n      </span>\n    </div>\n  );\n}\n\nexport { Countdown };\n",
+      "type": "registry:ui",
+      "target": "components/ui/countdown.tsx"
+    }
+  ]
+}

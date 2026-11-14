@@ -1,0 +1,31 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "tab-nav",
+  "type": "registry:ui",
+  "title": "Tab Nav",
+  "description": "A row of links to sibling pages that scrolls sideways on a phone and keeps the current page in view.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json"
+  ],
+  "categories": [
+    "Navigation"
+  ],
+  "docs": "https://abackui.com/docs/components/tab-nav",
+  "meta": {
+    "status": "beta",
+    "usedIn": [
+      "aback-chess"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/tab-nav.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Slot } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\n/** How far the edge fade reaches into the row, in pixels. Matches `scroll-px-7`. */\nconst FADE = 28;\n\nfunction setEdges(row: HTMLElement) {\n  const max = row.scrollWidth - row.clientWidth;\n  const start = row.scrollLeft > 1;\n  const end = row.scrollLeft < max - 1;\n  row.dataset.fade = start && end ? \"both\" : start ? \"start\" : end ? \"end\" : \"none\";\n}\n\nfunction centerCurrent(row: HTMLElement) {\n  const current = row.querySelector<HTMLElement>('[aria-current=\"page\"]');\n  if (!current || row.scrollWidth <= row.clientWidth) return;\n  const offset =\n    current.getBoundingClientRect().left - row.getBoundingClientRect().left + row.scrollLeft;\n  row.scrollLeft = Math.max(0, offset - (row.clientWidth - current.offsetWidth) / 2);\n}\n\n/**\n * A row of links to sibling pages: the sections of a settings area, the\n * drills of a course, the tabs of a profile. It is navigation, not a tab\n * panel: each link loads a page, and the current one has\n * `aria-current=\"page\"`.\n *\n * On a narrow screen the row scrolls sideways without a scrollbar. An edge\n * that can still scroll fades out, and the current link is scrolled into the\n * middle, so a reader on the fifth page sees where they are.\n */\nfunction TabNav({ className, children, ...props }: React.ComponentProps<\"nav\">) {\n  const ref = React.useRef<HTMLElement>(null);\n\n  React.useEffect(() => {\n    const row = ref.current;\n    if (!row) return;\n\n    centerCurrent(row);\n    setEdges(row);\n\n    const onScroll = () => setEdges(row);\n    // A link reached with the keyboard can stop under the fade; bring it clear.\n    const onFocusIn = (event: FocusEvent) => {\n      const link = event.target instanceof HTMLElement ? event.target : null;\n      if (!link || link === row) return;\n      const box = row.getBoundingClientRect();\n      const item = link.getBoundingClientRect();\n      if (item.left < box.left + FADE || item.right > box.right - FADE) {\n        link.scrollIntoView({ block: \"nearest\", inline: \"nearest\" });\n      }\n    };\n\n    const resize = new ResizeObserver(() => setEdges(row));\n    resize.observe(row);\n    if (row.firstElementChild) resize.observe(row.firstElementChild);\n\n    // A client-side navigation moves aria-current without remounting the row.\n    const mutation = new MutationObserver(() => {\n      centerCurrent(row);\n      setEdges(row);\n    });\n    mutation.observe(row, { subtree: true, attributes: true, attributeFilter: [\"aria-current\"] });\n\n    row.addEventListener(\"scroll\", onScroll, { passive: true });\n    row.addEventListener(\"focusin\", onFocusIn);\n    return () => {\n      row.removeEventListener(\"scroll\", onScroll);\n      row.removeEventListener(\"focusin\", onFocusIn);\n      resize.disconnect();\n      mutation.disconnect();\n    };\n  }, []);\n\n  return (\n    <nav\n      ref={ref}\n      data-slot=\"tab-nav\"\n      data-fade=\"none\"\n      className={cn(\n        \"relative scroll-px-7 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden\",\n        \"data-[fade=start]:[mask-image:linear-gradient(to_right,transparent,black_28px)]\",\n        \"data-[fade=end]:[mask-image:linear-gradient(to_left,transparent,black_28px)]\",\n        \"data-[fade=both]:[mask-image:linear-gradient(to_right,transparent,black_28px,black_calc(100%-28px),transparent)]\",\n        className,\n      )}\n      {...props}\n    >\n      <div\n        data-slot=\"tab-nav-list\"\n        className=\"flex w-max min-w-full gap-1 border-b border-border\"\n      >\n        {children}\n      </div>\n    </nav>\n  );\n}\n\nexport interface TabNavLinkProps extends React.ComponentProps<\"a\"> {\n  /** Marks the link as the page on screen: `aria-current=\"page\"` and the underline. */\n  active?: boolean;\n  /** Render the child, such as a router `Link`, instead of an anchor. */\n  asChild?: boolean;\n}\n\nfunction TabNavLink({\n  active,\n  asChild = false,\n  className,\n  \"aria-current\": ariaCurrent,\n  ...props\n}: TabNavLinkProps) {\n  const Comp = asChild ? Slot.Root : \"a\";\n  return (\n    <Comp\n      data-slot=\"tab-nav-link\"\n      aria-current={active ? \"page\" : ariaCurrent}\n      className={cn(\n        \"-mb-px inline-flex h-10 shrink-0 items-center gap-1.5 border-b-2 border-transparent px-3 text-sm font-medium whitespace-nowrap text-muted-foreground outline-none\",\n        \"transition-colors duration-150 motion-reduce:transition-none\",\n        \"hover:border-foreground/30 hover:text-foreground\",\n        \"focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-ring\",\n        \"aria-[current=page]:border-foreground aria-[current=page]:text-foreground\",\n        \"[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { TabNav, TabNavLink };\n",
+      "type": "registry:ui",
+      "target": "components/ui/tab-nav.tsx"
+    }
+  ]
+}

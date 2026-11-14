@@ -41,14 +41,15 @@ import {
   ListboxValue,
   Meter,
   Rating,
+  SegmentedControl,
+  SegmentedControlItem,
   Separator,
   Stat,
   StatGrid,
+  StatusIndicator,
   Step,
   Steps,
   Switch,
-  ToggleGroup,
-  ToggleGroupItem,
   cn,
   formatCalendarDate,
   formatFileSize,
@@ -281,25 +282,23 @@ function PricingCard() {
   return (
     <Card
       uses={[
-        { title: "Toggle Group", slug: "toggle-group" },
+        { title: "Segmented Control", slug: "segmented-control" },
         { title: "Badge", slug: "badge" },
       ]}
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-base font-semibold text-foreground">Team plan</p>
-        <ToggleGroup
-          type="single"
+        <SegmentedControl
           size="sm"
-          variant="outline"
           aria-label="Billing period"
           value={period}
           onValueChange={(value) => {
             if (value === "monthly" || value === "yearly") setPeriod(value);
           }}
         >
-          <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
-          <ToggleGroupItem value="yearly">Yearly</ToggleGroupItem>
-        </ToggleGroup>
+          <SegmentedControlItem value="monthly">Monthly</SegmentedControlItem>
+          <SegmentedControlItem value="yearly">Yearly</SegmentedControlItem>
+        </SegmentedControl>
       </div>
       <p className="mt-4 flex items-baseline gap-2">
         <span className="text-4xl font-extrabold tracking-tight tabular-nums text-foreground">
@@ -395,12 +394,19 @@ function CalendarCard() {
   );
 }
 
+const services = [
+  { name: "Web app", status: <StatusIndicator tone="success">Live</StatusIndicator> },
+  { name: "Search", status: <StatusIndicator tone="warning" shape="half">Rolling out</StatusIndicator> },
+  { name: "Mobile app", status: <StatusIndicator shape="outline">Planned</StatusIndicator> },
+];
+
 function StatusCard({ className }: { className?: string }) {
   return (
     <Card className={className}
       uses={[
         { title: "Alert", slug: "alert" },
         { title: "Badge", slug: "badge" },
+        { title: "Status Indicator", slug: "status-indicator" },
       ]}
     >
       <div className="flex flex-col gap-3">
@@ -423,6 +429,14 @@ function StatusCard({ className }: { className?: string }) {
           </Badge>
           <Badge variant="outline">Draft</Badge>
         </div>
+        <ul aria-label="Services" className="flex flex-col divide-y divide-border border-y border-border text-sm">
+          {services.map((service) => (
+            <li key={service.name} className="flex items-center justify-between gap-3 py-2">
+              <span className="text-foreground">{service.name}</span>
+              {service.status}
+            </li>
+          ))}
+        </ul>
       </div>
     </Card>
   );
@@ -633,8 +647,8 @@ export function HomeShowcase() {
       <StepsCard className={wideOnly} />
       <CopyCard className={wideOnly} />
       <CalendarCard />
-      <StatusCard className={wideOnly} />
       <PricingCard />
+      <StatusCard className={wideOnly} />
       <TeamCard />
       <RatingCard className={wideOnly} />
       <UploadCard />

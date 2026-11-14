@@ -1,0 +1,29 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "status-indicator",
+  "type": "registry:ui",
+  "title": "Status Indicator",
+  "description": "A square status mark and a word, where the mark's shape carries the state as well as its colour.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json"
+  ],
+  "categories": [
+    "Data Display"
+  ],
+  "docs": "https://abackui.com/docs/components/status-indicator",
+  "meta": {
+    "status": "beta",
+    "usedIn": [
+      "aback-group"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/status-indicator.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type StatusTone = \"success\" | \"brand\" | \"warning\" | \"danger\" | \"neutral\";\nexport type StatusShape = \"solid\" | \"half\" | \"outline\";\n\n// Each tone sets one variable, and the shape decides how the mark uses it.\nconst toneColor: Record<StatusTone, string> = {\n  success: \"[--status:var(--success)]\",\n  brand: \"[--status:var(--brand-icon)]\",\n  warning: \"[--status:var(--warning)]\",\n  danger: \"[--status:var(--danger)]\",\n  neutral: \"[--status:var(--muted-foreground)]\",\n};\n\nconst shapeClass: Record<StatusShape, string> = {\n  solid: \"bg-[var(--status)]\",\n  half: \"border border-[var(--status)] bg-[linear-gradient(90deg,var(--status)_50%,transparent_50%)]\",\n  outline: \"border border-[var(--status)]\",\n};\n\nexport interface StatusIndicatorProps extends React.ComponentProps<\"span\"> {\n  /** The colour of the mark. Say what it means in the label too. */\n  tone?: StatusTone;\n  /**\n   * The shape of the mark: `solid` for done or live, `half` for in progress,\n   * `outline` for planned or not started. The shape carries the state for\n   * readers who cannot tell the colours apart.\n   */\n  shape?: StatusShape;\n  /** Pulses the mark for something happening now. Stops under reduced motion. */\n  pulse?: boolean;\n  /** The status in words, such as \"Live\" or \"In review\". Required: the mark alone is decoration. */\n  children: React.ReactNode;\n}\n\n/**\n * A square status mark and a word, for dense lists and tables where a badge\n * is too loud: \"Live\", \"Building\", \"Planned\". The mark is hidden from\n * assistive technology, so the word is what is read.\n */\nfunction StatusIndicator({\n  tone = \"neutral\",\n  shape = \"solid\",\n  pulse = false,\n  className,\n  children,\n  ...props\n}: StatusIndicatorProps) {\n  return (\n    <span\n      data-slot=\"status-indicator\"\n      data-tone={tone}\n      data-shape={shape}\n      className={cn(\n        \"inline-flex w-fit shrink-0 items-center gap-2 text-sm font-medium leading-5 whitespace-nowrap text-foreground\",\n        toneColor[tone],\n        className,\n      )}\n      {...props}\n    >\n      <span\n        aria-hidden=\"true\"\n        data-slot=\"status-indicator-mark\"\n        className={cn(\n          \"size-2 shrink-0\",\n          shapeClass[shape],\n          pulse && \"animate-pulse motion-reduce:animate-none\",\n        )}\n      />\n      {children}\n    </span>\n  );\n}\n\nexport { StatusIndicator };\n",
+      "type": "registry:ui",
+      "target": "components/ui/status-indicator.tsx"
+    }
+  ]
+}

@@ -84,6 +84,21 @@ Reviewed at Aback Tools `f1e8241af`, Aback Launch `da02873`, and Aback Audit `a9
 
 Listbox is built on the Radix UI Select primitive from the `radix-ui` package already listed above (MIT). No dependency was added.
 
+### November 2026: Aback Chess, Aback Group, and Dronacharya
+
+Reviewed at Aback Chess `158ec3b`, Aback Group `2b5895a`, and Dronacharya's platform repository `be6d31d` (all read on 2026-11-15). The repositories carry no license file and are owned by Aback Group. Nothing below was copied: each item was **independently reimplemented** from the pattern for a general API, at the owner's request. Aback Chess already imports the published packages, so its source was read for what it builds itself.
+
+| Aback UI item | Source pattern | Excluded from the source |
+| --- | --- | --- |
+| Arrow Link | Group `components/arrow-link.tsx` | The `inverse` tone, which needs colour roles the theme does not have; the hard-coded Next.js `Link` (asChild takes any router link instead) |
+| Link List | Group `components/link-list.tsx` | The items-array API and the special case for `mailto:` links; the list now takes composed items |
+| Status Indicator | Group `components/products/product-status.tsx` (filled, half, and open status marks) | The product status names and labels, which stay in the product; the raw green and amber colours, replaced by the theme's status roles |
+| Segmented Control | Chess `components/vision/Segmented.tsx` and `navigation/ThemeSegmented.tsx`, hand-written radio groups | The Club styling (rounded corners, raised edge shadow) and the hand-written arrow-key handling; Radix RadioGroup supplies the keyboard behaviour |
+| Tab Nav | Chess `components/navigation/TabStrip.tsx` | The dependency on Next.js `usePathname`; the row watches `aria-current` instead, so it works with any router |
+| Countdown | Dronacharya `apps/exams/src/components/paper-test.tsx` (exam timer); Chess `components/tools/clock/ClockHalf.tsx` (chess clock) | Pausing, increments, and sounds from the chess clock; exam submission and the low-time threshold, which the caller sets |
+
+Segmented Control is built on the Radix UI RadioGroup primitive from the `radix-ui` package already listed above (MIT). No dependency was added.
+
 ### Brand assets
 
 `website/public/aback-logo-128.png` is copied from Aback Tools `public/` (identical to Aback Group's). `apple-touch-icon.png`, `icon-192.png`, and `icon-512.png` are copied from Aback Launch `public/`. They are Aback Group trademarks used by the documentation site, not part of any npm package or registry item, and not covered by the MIT license.

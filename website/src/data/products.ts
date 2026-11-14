@@ -1,5 +1,5 @@
 export interface Product {
-  slug: "aback-tools" | "aback-launch" | "aback-group";
+  slug: "aback-tools" | "aback-launch" | "aback-group" | "aback-chess" | "dronacharya";
   name: string;
   url: string;
   tagline: string;
@@ -34,6 +34,24 @@ export const products: Product[] = [
     description:
       "The umbrella site and product directory for the Aback ecosystem. Its header, command menu, section headings, and status badges shaped the application patterns.",
     detail: "Directory, navigation, and status patterns from the group site.",
+  },
+  {
+    slug: "aback-chess",
+    name: "Aback Chess",
+    url: "https://abackchess.com",
+    tagline: "Play anywhere. Get better on Aback Chess.",
+    description:
+      "A chess site for playing, puzzles, and game review. It imports dialogs, sheets, popovers, tooltips, switches, and toasts from the npm package, and its segmented controls, page tabs, and chess clock shaped Segmented Control, Tab Nav, and Countdown.",
+    detail: "Installs the npm package and shaped the newest form and navigation patterns.",
+  },
+  {
+    slug: "dronacharya",
+    name: "Dronacharya",
+    url: "https://dronacharya.ai",
+    tagline: "Practise the test that's actually in front of you.",
+    description:
+      "An exam and placement practice platform. Its timed test papers shaped Countdown, and its shared interface package carries its own buttons, badges, cards, keycaps, and meters.",
+    detail: "Timed tests and practice patterns from an exam platform.",
   },
 ];
 

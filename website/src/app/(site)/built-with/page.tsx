@@ -24,7 +24,7 @@ export default function BuiltWithPage() {
           crumbs={[{ label: "Docs", href: "/docs" }, { label: "Built with Aback UI" }]}
         />
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => {
             const used = components.filter((item) =>
               item.meta?.usedIn?.includes(product.slug),

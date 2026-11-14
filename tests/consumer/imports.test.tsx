@@ -7,6 +7,16 @@ import { describe, expect, it } from "vitest";
 // build, the dependency graph, or the type declarations are wrong, this file
 // is where it breaks.
 import {
+  ArrowLink,
+  Countdown,
+  LinkList,
+  LinkListItem,
+  SegmentedControl,
+  SegmentedControlItem,
+  StatusIndicator,
+  TabNav,
+  TabNavLink,
+  formatCountdown,
   AvatarGroup,
   Avatar,
   AvatarFallback,
@@ -229,5 +239,39 @@ describe("packed @aback-ui/ui", () => {
     expect(screen.getByRole("group", { name: "Options" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Guide" })).toBeInTheDocument();
     expect(screen.getByRole("combobox", { name: "Plan" })).toHaveTextContent("Starter");
+  });
+
+  it("renders the components drawn from Aback Chess, Aback Group, and Dronacharya", () => {
+    render(
+      <div>
+        <ArrowLink href="https://example.com" external>
+          Source
+        </ArrowLink>
+        <LinkList aria-label="Where next">
+          <LinkListItem href="/docs" description="Start here.">
+            Docs
+          </LinkListItem>
+        </LinkList>
+        <StatusIndicator tone="success">Live</StatusIndicator>
+        <SegmentedControl aria-label="Period" defaultValue="monthly">
+          <SegmentedControlItem value="monthly">Monthly</SegmentedControlItem>
+          <SegmentedControlItem value="yearly">Yearly</SegmentedControlItem>
+        </SegmentedControl>
+        <TabNav aria-label="Settings">
+          <TabNavLink href="/profile" active>
+            Profile
+          </TabNavLink>
+        </TabNav>
+        <Countdown endsAt={Date.now() + 90_000} label="Quiz" />
+      </div>,
+    );
+
+    expect(screen.getByRole("link", { name: /Source.*opens in a new tab/ })).toHaveAttribute("target", "_blank");
+    expect(screen.getByRole("list", { name: "Where next" })).toBeInTheDocument();
+    expect(screen.getByText("Live")).toBeInTheDocument();
+    expect(screen.getByRole("radio", { name: "Monthly" })).toHaveAttribute("aria-checked", "true");
+    expect(screen.getByRole("link", { name: "Profile" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("timer", { name: "Quiz" })).toBeInTheDocument();
+    expect(formatCountdown(65_000)).toBe("1:05");
   });
 });

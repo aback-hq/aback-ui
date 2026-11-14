@@ -21,7 +21,9 @@
     "usedIn": [
       "aback-tools",
       "aback-launch",
-      "aback-group"
+      "aback-group",
+      "aback-chess",
+      "dronacharya"
     ]
   },
   "files": [
