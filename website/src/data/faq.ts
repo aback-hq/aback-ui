@@ -99,7 +99,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Does Aback UI support dark mode?",
         answer:
-          "Yes. Every colour is a CSS variable with a light and a dark value, and the dark theme is the dark class on the html element. ThemeScript applies the saved choice before the first paint so there is no flash, ThemeToggle switches between light, dark, and system, and useTheme reads the current theme.",
+          "Yes. Every colour is a CSS variable with a light and a dark value, and the dark theme is the dark class on the html element. ThemeScript applies the saved choice before the first paint so there is no flash, ThemeToggle switches between light and dark, and useTheme reads and sets the choice, including following the system. With nothing saved, the system decides, or the defaultTheme you give ThemeScript.",
         href: "/docs/dark-mode",
       },
       {

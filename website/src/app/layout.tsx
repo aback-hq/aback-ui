@@ -90,7 +90,7 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <head>
-        <ThemeScript />
+        <ThemeScript defaultTheme="light" />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
       </head>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">

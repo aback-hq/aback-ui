@@ -1,7 +1,8 @@
+import type { ReactElement } from "react";
 import { act, render, renderHook, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderToString } from "react-dom/server";
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { expectNoA11yViolations } from "../test-utils/axe.js";
 import { ThemeScript, ThemeToggle, useTheme } from "./theme-toggle.js";
@@ -73,5 +74,96 @@ describe("ThemeToggle", () => {
   it("has no detectable accessibility violations", async () => {
     const { container } = render(<ThemeToggle />);
     await expectNoA11yViolations(container);
+  });
+});
+
+describe("ThemeScript defaultTheme", () => {
+  let systemListener: (() => void) | null = null;
+
+  /** Pretends the operating system is in dark mode. */
+  function preferDark() {
+    vi.spyOn(window, "matchMedia").mockImplementation(
+      (query: string) =>
+        ({
+          matches: true,
+          media: query,
+          addEventListener: (_type: string, listener: () => void) => {
+            systemListener = listener;
+          },
+          removeEventListener: () => {},
+        }) as unknown as MediaQueryList,
+    );
+  }
+
+  /** Runs the inline script the way a browser would before the first paint. */
+  function runScript(element: ReactElement) {
+    const html = renderToString(element);
+    const code = /<script[^>]*>([\s\S]*)<\/script>/.exec(html)?.[1] ?? "";
+    new Function(code)();
+  }
+
+  function reset() {
+    localStorage.clear();
+    document.documentElement.classList.remove("dark");
+    document.documentElement.removeAttribute("data-default-theme");
+    systemListener = null;
+  }
+
+  beforeEach(reset);
+  afterEach(() => {
+    vi.restoreAllMocks();
+    reset();
+  });
+
+  it("follows the system by default", () => {
+    preferDark();
+    runScript(<ThemeScript />);
+    expect(document.documentElement).toHaveClass("dark");
+    expect(document.documentElement).not.toHaveAttribute("data-default-theme");
+  });
+
+  it("starts a first visit in the default theme, whatever the system says", () => {
+    preferDark();
+    runScript(<ThemeScript defaultTheme="light" />);
+    expect(document.documentElement).not.toHaveClass("dark");
+    expect(document.documentElement).toHaveAttribute("data-default-theme", "light");
+
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe("light");
+    expect(result.current.resolvedTheme).toBe("light");
+  });
+
+  it("keeps the default when the system setting changes", () => {
+    preferDark();
+    runScript(<ThemeScript defaultTheme="light" />);
+    render(<ThemeToggle />);
+    act(() => systemListener?.());
+    expect(document.documentElement).not.toHaveClass("dark");
+    expect(screen.getByRole("button")).toHaveAccessibleName("Switch to dark theme");
+  });
+
+  it("lets a stored choice win over the default", () => {
+    localStorage.setItem("theme", "dark");
+    runScript(<ThemeScript defaultTheme="light" />);
+    expect(document.documentElement).toHaveClass("dark");
+
+    localStorage.setItem("theme", "system");
+    preferDark();
+    runScript(<ThemeScript defaultTheme="light" />);
+    expect(document.documentElement).toHaveClass("dark");
+  });
+
+  it("can start in dark", () => {
+    runScript(<ThemeScript defaultTheme="dark" />);
+    expect(document.documentElement).toHaveClass("dark");
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe("dark");
+  });
+
+  it("ignores a default that is not a theme", () => {
+    preferDark();
+    runScript(<ThemeScript defaultTheme={'x");alert(1);("' as never} />);
+    expect(document.documentElement).toHaveClass("dark");
+    expect(document.documentElement).not.toHaveAttribute("data-default-theme");
   });
 });

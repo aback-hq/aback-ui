@@ -4,9 +4,15 @@ All notable changes are recorded here. The project is pre-1.0; minor versions ma
 
 ## Unreleased
 
-Website only; the npm packages are unchanged.
+The website changes are live. The `defaultTheme` option ships in the next npm release.
+
+### Added
+
+- `ThemeScript` takes `defaultTheme`: `"light"`, `"dark"`, or `"system"`, the default. It decides the theme for a visitor who has not chosen one. The script marks it on `<html data-default-theme>`, so `ThemeToggle` and `useTheme` on the same page keep it, and do not switch when the operating system's setting changes. A stored choice still wins. Without the option, the script is unchanged.
 
 ### Changed
+
+- abackui.com starts in the light theme. A visitor who picks dark keeps it, and the toggle still switches.
 
 - The tagline is now "The building blocks for serious applications.", on the home page, in the site description, on the social card, and in the README.
 - The default social image is the generated home card. The old static one still said 24 components, two products, and "shadcn registry".

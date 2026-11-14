@@ -1839,6 +1839,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
       { prop: "ThemeToggle variant / size", type: "Button variant / size", defaultValue: '"ghost" / "icon"', description: "Any Button variant and size." },
       { prop: "useTheme(storageKey?)", type: "() => { theme, resolvedTheme, setTheme }", description: 'theme is "light", "dark", or "system"; resolvedTheme is what is on screen. Every hook and toggle stays in sync, across tabs too.' },
       { prop: "ThemeScript storageKey / nonce", type: "string / string", description: "Render in head to apply the stored theme before paint. Pass a CSP nonce if your policy requires one." },
+      { prop: "ThemeScript defaultTheme", type: '"light" | "dark" | "system"', defaultValue: '"system"', description: "The theme for a visitor who has not chosen one. ThemeToggle and useTheme on the page read it, so set it here only." },
     ],
     accessibility: [
       "The toggle is a button whose name says what it will do, such as Switch to dark theme.",
