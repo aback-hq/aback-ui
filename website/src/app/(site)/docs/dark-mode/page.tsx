@@ -51,8 +51,9 @@ export default function DarkModePage() {
               <li>
                 The choice is stored in <code>localStorage</code> under <code>theme</code> as{" "}
                 <code>light</code>, <code>dark</code>, or <code>system</code>. With nothing stored,
-                the operating system decides. While a toggle or <code>useTheme</code> is on the
-                page, a change to the system setting is followed immediately.
+                the operating system decides, unless you set a <code>defaultTheme</code>. While a
+                toggle or <code>useTheme</code> is on the page, a change to the system setting is
+                followed immediately.
               </li>
               <li>Other open tabs follow a change, and so does every component using the hook.</li>
             </ul>
@@ -96,6 +97,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <code>html</code> class before React hydrates. Pass <code>nonce</code> when your
                 Content Security Policy requires one.
               </Callout>
+              <p>
+                To start first-time visitors in one theme instead of following the system, pass{" "}
+                <code>defaultTheme</code>. This site uses <code>light</code>. A choice the visitor
+                makes still wins, and the toggle and <code>useTheme</code> read the default from
+                the page, so you set it in one place.
+              </p>
+              <Code language="tsx" filename="app/layout.tsx" code={`<ThemeScript defaultTheme="light" />`} />
             </DocsStep>
 
             <DocsStep id="add-a-toggle" title="Add a toggle">

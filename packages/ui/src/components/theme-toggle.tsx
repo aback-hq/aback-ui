@@ -11,15 +11,27 @@ export type ResolvedTheme = "light" | "dark";
 
 const DEFAULT_STORAGE_KEY = "theme";
 const CHANGE_EVENT = "aback-ui:themechange";
+/** Set on `<html>` by ThemeScript when the page starts in light or dark rather than following the system. */
+const DEFAULT_ATTRIBUTE = "data-default-theme";
+
+function isPreference(value: unknown): value is ThemePreference {
+  return value === "light" || value === "dark" || value === "system";
+}
+
+/** The page's choice for a visitor who has not picked one. */
+function defaultPreference(): ThemePreference {
+  const value = document.documentElement.getAttribute(DEFAULT_ATTRIBUTE);
+  return isPreference(value) ? value : "system";
+}
 
 function readPreference(storageKey: string): ThemePreference {
   try {
     const stored = window.localStorage.getItem(storageKey);
-    if (stored === "light" || stored === "dark" || stored === "system") return stored;
+    if (isPreference(stored)) return stored;
   } catch {
     // Storage throws in some privacy modes and sandboxed frames.
   }
-  return "system";
+  return defaultPreference();
 }
 
 function systemTheme(): ResolvedTheme {
@@ -60,7 +72,10 @@ function subscribe(storageKey: string, onChange: () => void) {
 }
 
 export interface UseThemeResult {
-  /** What the visitor chose, including "system". */
+  /**
+   * What the visitor chose, including "system". Before they choose, it is the
+   * page's default: "system", or ThemeScript's `defaultTheme`.
+   */
   theme: ThemePreference;
   /** What is on screen. "light" during the server render. */
   resolvedTheme: ResolvedTheme;
@@ -150,19 +165,37 @@ function ThemeToggle({
 
 export interface ThemeScriptProps {
   storageKey?: string;
+  /**
+   * The theme for a visitor who has not chosen one. "system" follows the
+   * operating system. "light" or "dark" starts there whatever the system
+   * says; ThemeToggle and useTheme on the same page read it, so set it here
+   * only.
+   */
+  defaultTheme?: ThemePreference;
   /** Content Security Policy nonce for the inline script. */
   nonce?: string;
 }
+
+const PREFERS_DARK = 'window.matchMedia("(prefers-color-scheme: dark)").matches';
 
 /**
  * Applies the stored theme before the first paint, so a dark-mode visitor
  * never sees a white flash. Render it in `<head>`, or first in `<body>`, and
  * add `suppressHydrationWarning` to `<html>` because the class changes early.
  */
-function ThemeScript({ storageKey = DEFAULT_STORAGE_KEY, nonce }: ThemeScriptProps) {
+function ThemeScript({
+  storageKey = DEFAULT_STORAGE_KEY,
+  defaultTheme = "system",
+  nonce,
+}: ThemeScriptProps) {
   // JSON.stringify quotes the key, and the escape keeps it inside the script.
   const key = JSON.stringify(storageKey).replace(/</g, "\\u003c");
-  const code = `(function(){try{var t=localStorage.getItem(${key});var d=t==="dark"||((!t||t==="system")&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
+  const fallback = isPreference(defaultTheme) ? defaultTheme : "system";
+  const code =
+    fallback === "system"
+      ? `(function(){try{var t=localStorage.getItem(${key});var d=t==="dark"||((!t||t==="system")&&${PREFERS_DARK});document.documentElement.classList.toggle("dark",d);}catch(e){}})();`
+      : // The attribute goes on first, so the toggle knows the default even when storage throws.
+        `(function(){var r=document.documentElement;r.setAttribute("${DEFAULT_ATTRIBUTE}","${fallback}");try{var t=localStorage.getItem(${key});if(t!=="light"&&t!=="dark"&&t!=="system")t="${fallback}";var d=t==="dark"||(t==="system"&&${PREFERS_DARK});r.classList.toggle("dark",d);}catch(e){r.classList.toggle("dark",${fallback === "dark"});}})();`;
   return <script nonce={nonce} dangerouslySetInnerHTML={{ __html: code }} />;
 }
 
