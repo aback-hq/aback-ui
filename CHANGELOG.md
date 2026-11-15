@@ -2,18 +2,21 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
-## Unreleased
+## 0.5.0 - November 2026
 
-The website changes are live. The `defaultTheme` option ships in the next npm release.
+Search Trigger, an accent colour for Item, a reveal transition for Theme Toggle, and the Search hero block, drawn from the Aback Tools interface revamp; plus `defaultTheme` for ThemeScript. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.
 
 ### Added
 
+- `SearchTrigger`: a button drawn as a search field that opens your search, with a ⌘K or Ctrl+K shortcut it binds itself and labels for the visitor's keyboard. From the Aback Tools search bar.
+- `Item` takes `accent`, any CSS colour, for the media icon and chip and the hover border and wash, so each category can keep its own colour. The title stays in the text colour. From the Aback Tools tool cards.
+- `ThemeToggle` takes `transition="reveal"`, which grows the new theme from the button in a circle through the View Transitions API. It switches at once under reduced motion and in browsers without the API. From the Aback Tools theme switch.
+- The Search hero block: an h1, one large search field with a search dialog that lists popular items before anything is typed, quick links, and a grid of category cards. From the Aback Tools home page.
 - `ThemeScript` takes `defaultTheme`: `"light"`, `"dark"`, or `"system"`, the default. It decides the theme for a visitor who has not chosen one. The script marks it on `<html data-default-theme>`, so `ThemeToggle` and `useTheme` on the same page keep it, and do not switch when the operating system's setting changes. A stored choice still wins. Without the option, the script is unchanged.
 
 ### Changed
 
 - abackui.com starts in the light theme. A visitor who picks dark keeps it, and the toggle still switches.
-
 - The tagline is now "The building blocks for serious applications.", on the home page, in the site description, on the social card, and in the README.
 - The default social image is the generated home card. The old static one still said 24 components, two products, and "shadcn registry".
 - The closing "Start with one component" band is one flat brand-blue tint. The hero's gradient, made for a tall section, left a patch of glow and a fade to white across the short band.
@@ -22,7 +25,7 @@ The website changes are live. The `defaultTheme` option ships in the next npm re
 
 ### Removed
 
-- Stable and Beta labels. Every component and block meets the same bar, so the catalogue, component pages, block pages, `llms.txt`, and FAQ no longer split them. Registry items no longer carry `meta.status`, and `aback-ui view` no longer prints a Status line (from the next npm release). Nothing read the field to change behaviour.
+- Stable and Beta labels. Every component and block meets the same bar, so the catalogue, component pages, block pages, `llms.txt`, and FAQ no longer split them. Registry items no longer carry `meta.status`, and `aback-ui view` no longer prints a Status line. Nothing read the field to change behaviour.
 
 ### Fixed
 
