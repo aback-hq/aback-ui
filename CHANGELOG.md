@@ -2,6 +2,32 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
+## 0.6.0 - November 2026
+
+The Aback theme moves to the look of the Aback Tools interface revamp, and abackui.com is restyled to match. Token names are unchanged; their values change, so every component looks different after upgrading. See "Upgrading" below.
+
+### Changed
+
+- `--primary` is Aback Blue: `#007bc4` with white text in light (4.5:1), `#3bb7f7` with near-black text in dark. The default Button, checked Checkbox and Switch, the selected Toggle Group item, and anything else on `bg-primary` turn blue. Before, they were neutral ink.
+- The light theme has a faint cool canvas, `#f9fafb`, with white cards, deep slate text (`#131824`), and cool greys for muted surfaces, borders, and inputs.
+- The dark theme is true black with neutral greys: a `#000000` page, `#0f0f11` cards, `#18181b` popovers and muted surfaces, and solid `#27272a` hairlines instead of translucent white.
+- `--accent` is a faint blue hover fill (`#e9f1f8`, dark `#1f1f23`), and `--ring` follows the blue.
+- Scrollbars use cool greys on a transparent track, and the thumb is square.
+- DESIGN.md records the new values and the owner decision, and AGENTS.md's brand rule now says the default action is Aback Blue.
+- The theme generator on /themes also sets `--primary` and `--primary-foreground`, and checks roles against the new canvas and card.
+- abackui.com: the home page opens with a centred hero (one large search field built from Search Trigger, popular links, and the install command) over a faint streak of the action blue, then category tiles in their own colours. The header is translucent with underlined navigation, the theme switch uses the reveal, and the logo uses the Aback Tools lockup.
+
+### Upgrading
+
+Nothing to rename. If your product relied on neutral ink buttons, set `--primary` and `--primary-foreground` back in your own stylesheet after the theme import:
+
+```css
+:root { --primary: #171717; --primary-foreground: #fafafa; }
+.dark { --primary: #e5e5e5; --primary-foreground: #171717; }
+```
+
+The same works for any other role you want to keep.
+
 ## 0.5.0 - November 2026
 
 Search Trigger, an accent colour for Item, a reveal transition for Theme Toggle, and the Search hero block, drawn from the Aback Tools interface revamp; plus `defaultTheme` for ThemeScript. Every change is additive: no prop, export, token, or registry name was removed or renamed. See `docs/provenance.md` for the source patterns.
