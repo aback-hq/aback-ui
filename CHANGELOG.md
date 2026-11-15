@@ -10,6 +10,7 @@ Website only; nothing in the npm packages changed.
 
 - The theming guide's `styles/aback.css` example, the web app manifest's background, and the social cards use the 0.6.0 colours: a `#f9fafb` light canvas and a true black dark one.
 - Aback PDF and Aback Images join the Built with page, the home page's products, and the "Used in" labels, from the patterns in their own sources. Dronacharya is hidden on the site for now; its registry metadata is unchanged.
+- The logo takes you to the top of the home page: on the home page it scrolls back up, and from any other page the home page opens at the top instead of at the old scroll position.
 - The header's navigation uses the Aback PDF style: each link is a 36px box with an icon on wide screens, and the current section is tinted as a whole instead of underlined. Its label uses the link blue, which keeps 4.5:1 on the tint.
 
 ## 0.6.0 - November 2026

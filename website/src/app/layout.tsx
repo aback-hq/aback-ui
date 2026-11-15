@@ -86,6 +86,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // In-page links scroll smoothly (globals.css); this tells Next.js to jump
+      // straight to the top on a route change instead of gliding there.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
