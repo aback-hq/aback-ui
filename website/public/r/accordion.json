@@ -17,7 +17,9 @@
   "docs": "https://abackui.com/docs/components/accordion",
   "meta": {
     "usedIn": [
-      "aback-tools"
+      "aback-tools",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

@@ -7,7 +7,7 @@ import { Badge } from "@aback-ui/ui";
 import { ComponentCatalog } from "@/components/component-catalog";
 import { DocsPage, DocsPageHeader } from "@/components/docs-page";
 import { componentGroups, components } from "@/data/component-catalog";
-import { productName } from "@/data/products";
+import { productName, shownUsedIn } from "@/data/products";
 import { itemListSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
@@ -38,7 +38,7 @@ export default function ComponentsPage() {
             title: item.title,
             description: item.description,
             category: item.categories?.[0] ?? "Foundation",
-            usedIn: (item.meta?.usedIn ?? []).map((product) => productName(product)),
+            usedIn: shownUsedIn(item.meta?.usedIn).map((product) => productName(product)),
           }))}
         />
       </div>

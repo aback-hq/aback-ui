@@ -16,7 +16,9 @@
   "docs": "https://abackui.com/docs/components/alert",
   "meta": {
     "usedIn": [
-      "aback-launch"
+      "aback-launch",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

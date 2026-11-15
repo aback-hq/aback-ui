@@ -20,7 +20,9 @@
       "aback-tools",
       "aback-launch",
       "aback-group",
-      "aback-chess"
+      "aback-chess",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

@@ -43,6 +43,8 @@
           "aback-launch",
           "aback-group",
           "aback-chess",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       }
@@ -62,7 +64,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -81,7 +85,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -100,7 +106,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -122,7 +130,8 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf"
         ]
       }
     },
@@ -145,7 +154,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -168,7 +179,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -190,7 +203,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -214,6 +229,8 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       }
@@ -235,6 +252,8 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       }
@@ -256,7 +275,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -319,7 +340,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -339,6 +362,8 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       }
@@ -360,7 +385,8 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-images"
         ]
       }
     },
@@ -384,7 +410,9 @@
         "usedIn": [
           "aback-launch",
           "aback-group",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -427,7 +455,10 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "usedIn": []
+        "usedIn": [
+          "aback-pdf",
+          "aback-images"
+        ]
       }
     },
     {
@@ -448,7 +479,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -466,7 +499,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -488,7 +523,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -507,7 +544,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -608,7 +647,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -649,7 +690,9 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -695,7 +738,9 @@
       "meta": {
         "usedIn": [
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -735,7 +780,13 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ]
+      ],
+      "meta": {
+        "usedIn": [
+          "aback-pdf",
+          "aback-images"
+        ]
+      }
     },
     {
       "name": "scroll-area",
@@ -772,7 +823,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -813,7 +866,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -915,7 +970,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -977,6 +1034,7 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
           "dronacharya"
         ]
       }
@@ -1001,7 +1059,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1021,7 +1081,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1461,7 +1523,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1527,7 +1591,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1554,7 +1620,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1575,7 +1643,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },
@@ -1689,7 +1759,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       }
     },

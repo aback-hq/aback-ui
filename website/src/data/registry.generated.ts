@@ -62,6 +62,8 @@ export const registryItems: RegistryItemSummary[] = [
         "aback-launch",
         "aback-group",
         "aback-chess",
+        "aback-pdf",
+        "aback-images",
         "dronacharya"
       ]
     },
@@ -84,7 +86,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -106,7 +110,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -128,7 +134,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -153,7 +161,8 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf"
       ]
     },
     "files": [
@@ -179,7 +188,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -205,7 +216,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -230,7 +243,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -257,6 +272,8 @@ export const registryItems: RegistryItemSummary[] = [
         "aback-tools",
         "aback-launch",
         "aback-group",
+        "aback-pdf",
+        "aback-images",
         "dronacharya"
       ]
     },
@@ -281,6 +298,8 @@ export const registryItems: RegistryItemSummary[] = [
         "aback-tools",
         "aback-launch",
         "aback-group",
+        "aback-pdf",
+        "aback-images",
         "dronacharya"
       ]
     },
@@ -305,7 +324,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -377,7 +398,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -400,6 +423,8 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
+        "aback-pdf",
+        "aback-images",
         "dronacharya"
       ]
     },
@@ -424,7 +449,8 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-chess"
+        "aback-chess",
+        "aback-images"
       ]
     },
     "files": [
@@ -451,7 +477,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-launch",
         "aback-group",
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -500,7 +528,10 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "usedIn": []
+      "usedIn": [
+        "aback-pdf",
+        "aback-images"
+      ]
     },
     "files": [
       "components/ui/tabs.tsx"
@@ -524,7 +555,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-tools"
+        "aback-tools",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -545,7 +578,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -570,7 +605,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -592,7 +629,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -708,7 +747,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -755,7 +796,9 @@ export const registryItems: RegistryItemSummary[] = [
         "aback-tools",
         "aback-launch",
         "aback-group",
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -807,7 +850,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -854,6 +899,12 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
+    "meta": {
+      "usedIn": [
+        "aback-pdf",
+        "aback-images"
+      ]
+    },
     "files": [
       "components/ui/slider.tsx"
     ]
@@ -896,7 +947,9 @@ export const registryItems: RegistryItemSummary[] = [
     "meta": {
       "usedIn": [
         "aback-tools",
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -943,7 +996,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-tools"
+        "aback-tools",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1060,7 +1115,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-launch"
+        "aback-launch",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1131,6 +1188,7 @@ export const registryItems: RegistryItemSummary[] = [
         "aback-tools",
         "aback-launch",
         "aback-group",
+        "aback-pdf",
         "dronacharya"
       ]
     },
@@ -1158,7 +1216,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1181,7 +1241,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1687,7 +1749,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-chess"
+        "aback-chess",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1762,7 +1826,9 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "meta": {
       "usedIn": [
-        "aback-tools"
+        "aback-tools",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1792,7 +1858,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1816,7 +1884,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [
@@ -1945,7 +2015,9 @@ export const registryItems: RegistryItemSummary[] = [
       "usedIn": [
         "aback-tools",
         "aback-launch",
-        "aback-group"
+        "aback-group",
+        "aback-pdf",
+        "aback-images"
       ]
     },
     "files": [

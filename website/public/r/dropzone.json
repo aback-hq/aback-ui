@@ -16,7 +16,9 @@
   "docs": "https://abackui.com/docs/components/dropzone",
   "meta": {
     "usedIn": [
-      "aback-tools"
+      "aback-tools",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

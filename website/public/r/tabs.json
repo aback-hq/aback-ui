@@ -15,7 +15,10 @@
   ],
   "docs": "https://abackui.com/docs/components/tabs",
   "meta": {
-    "usedIn": []
+    "usedIn": [
+      "aback-pdf",
+      "aback-images"
+    ]
   },
   "files": [
     {

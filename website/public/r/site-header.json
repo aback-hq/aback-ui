@@ -22,7 +22,9 @@
     "usedIn": [
       "aback-tools",
       "aback-launch",
-      "aback-group"
+      "aback-group",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

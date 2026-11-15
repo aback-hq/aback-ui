@@ -16,7 +16,9 @@
   "docs": "https://abackui.com/docs/components/segmented-control",
   "meta": {
     "usedIn": [
-      "aback-chess"
+      "aback-chess",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

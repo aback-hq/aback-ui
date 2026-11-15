@@ -57,6 +57,8 @@
           "aback-launch",
           "aback-group",
           "aback-chess",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       },
@@ -83,7 +85,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -109,7 +113,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -135,7 +141,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -164,7 +172,8 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf"
         ]
       },
       "files": [
@@ -194,7 +203,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -224,7 +235,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -253,7 +266,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -284,6 +299,8 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       },
@@ -312,6 +329,8 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       },
@@ -340,7 +359,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -424,7 +445,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -451,6 +474,8 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
+          "aback-pdf",
+          "aback-images",
           "dronacharya"
         ]
       },
@@ -479,7 +504,8 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-images"
         ]
       },
       "files": [
@@ -510,7 +536,9 @@
         "usedIn": [
           "aback-launch",
           "aback-group",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -567,7 +595,10 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "usedIn": []
+        "usedIn": [
+          "aback-pdf",
+          "aback-images"
+        ]
       },
       "files": [
         {
@@ -595,7 +626,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -620,7 +653,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -649,7 +684,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -675,7 +712,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -811,7 +850,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -866,7 +907,9 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -926,7 +969,9 @@
       "meta": {
         "usedIn": [
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -987,7 +1032,13 @@
           "target": "components/ui/slider.tsx",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "meta": {
+        "usedIn": [
+          "aback-pdf",
+          "aback-images"
+        ]
+      }
     },
     {
       "name": "scroll-area",
@@ -1031,7 +1082,9 @@
       "meta": {
         "usedIn": [
           "aback-tools",
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -1086,7 +1139,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -1223,7 +1278,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-launch"
+          "aback-launch",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -1306,6 +1363,7 @@
           "aback-tools",
           "aback-launch",
           "aback-group",
+          "aback-pdf",
           "dronacharya"
         ]
       },
@@ -1337,7 +1395,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -1364,7 +1424,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -1958,7 +2020,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-chess"
+          "aback-chess",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -2045,7 +2109,9 @@
       ],
       "meta": {
         "usedIn": [
-          "aback-tools"
+          "aback-tools",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -2079,7 +2145,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -2107,7 +2175,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [
@@ -2256,7 +2326,9 @@
         "usedIn": [
           "aback-tools",
           "aback-launch",
-          "aback-group"
+          "aback-group",
+          "aback-pdf",
+          "aback-images"
         ]
       },
       "files": [

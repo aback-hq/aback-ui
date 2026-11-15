@@ -28,7 +28,7 @@ import { InlineText } from "@/components/inline-text";
 import { PackageCommand } from "@/components/package-command";
 import { componentDocs } from "@/data/component-docs";
 import { components, getComponent } from "@/data/component-catalog";
-import { products, productName } from "@/data/products";
+import { products, productName, shownUsedIn } from "@/data/products";
 import { site } from "@/data/site";
 import { exampleMap } from "@/examples";
 import { formatImport, readComponentExports, readExampleSource } from "@/lib/example-source";
@@ -67,7 +67,7 @@ export default async function ComponentPage({ params }: PageProps) {
   const index = components.findIndex((component) => component.name === slug);
   const previous = index > 0 ? components[index - 1] : undefined;
   const next = index < components.length - 1 ? components[index + 1] : undefined;
-  const usedIn = item.meta?.usedIn ?? [];
+  const usedIn = shownUsedIn(item.meta?.usedIn);
   const installArgs = `${site.cli} add ${item.name}`;
   const dependencies = item.dependencies ?? [];
 

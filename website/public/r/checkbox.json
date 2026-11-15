@@ -18,7 +18,9 @@
   "meta": {
     "usedIn": [
       "aback-tools",
-      "aback-launch"
+      "aback-launch",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

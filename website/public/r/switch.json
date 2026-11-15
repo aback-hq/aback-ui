@@ -18,7 +18,9 @@
     "usedIn": [
       "aback-tools",
       "aback-launch",
-      "aback-chess"
+      "aback-chess",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

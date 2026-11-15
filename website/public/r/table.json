@@ -13,7 +13,9 @@
   "docs": "https://abackui.com/docs/components/table",
   "meta": {
     "usedIn": [
-      "aback-launch"
+      "aback-launch",
+      "aback-pdf",
+      "aback-images"
     ]
   },
   "files": [

@@ -14,6 +14,12 @@
     "Forms"
   ],
   "docs": "https://abackui.com/docs/components/slider",
+  "meta": {
+    "usedIn": [
+      "aback-pdf",
+      "aback-images"
+    ]
+  },
   "files": [
     {
       "path": "components/ui/slider.tsx",
