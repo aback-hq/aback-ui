@@ -3,7 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { IconBrandGithub } from "@tabler/icons-react";
+import {
+  IconBook,
+  IconBox,
+  IconBrandGithub,
+  IconLayoutGrid,
+  IconPalette,
+  IconPencil,
+  IconTool,
+  type Icon,
+} from "@tabler/icons-react";
 
 import { Button, ThemeToggle, cn } from "@aback-ui/ui";
 
@@ -12,6 +21,15 @@ import { MobileNav } from "@/components/mobile-nav";
 import { SearchDialog } from "@/components/search-dialog";
 import { mainNav, site } from "@/data/site";
 import { searchItems } from "@/data/search";
+
+const NAV_ICONS: Record<string, Icon> = {
+  "/docs": IconBook,
+  "/docs/components": IconBox,
+  "/docs/blocks": IconLayoutGrid,
+  "/themes": IconPalette,
+  "/tools": IconTool,
+  "/blog": IconPencil,
+};
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -22,11 +40,13 @@ export function SiteHeader() {
         <MobileNav />
         <Logo className="mr-3 lg:mr-5" />
 
-        <nav aria-label="Main" className="hidden h-16 items-center md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {mainNav.map((link) => {
             const active = link.exact
               ? pathname === link.href
               : pathname === link.href || pathname.startsWith(`${link.href}/`);
+
+            const NavIcon = NAV_ICONS[link.href];
 
             return (
               <Link
@@ -34,14 +54,19 @@ export function SiteHeader() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  // The current section is underlined in the action blue, after the Aback Tools navbar.
-                  "flex h-16 items-center border-b-2 px-3 text-sm font-medium transition-colors duration-150",
-                  "outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-inset",
+                  // Icon and label in a 36px box, after the Aback PDF navbar: the
+                  // current section is tinted as a whole instead of underlined.
+                  // Its label uses the link blue, which keeps 4.5:1 on the tint.
+                  "flex h-9 items-center gap-1.5 px-3 text-sm font-medium transition-colors duration-150",
+                  "outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
                   active
-                    ? "border-primary text-foreground"
-                    : "border-transparent text-muted-foreground hover:text-foreground",
+                    ? "bg-primary/10 text-link"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
                 )}
               >
+                {/* Six links share the bar with the search field, so the icons
+                    only show where there is room for them. */}
+                {NavIcon ? <NavIcon aria-hidden="true" className="hidden size-4 shrink-0 xl:block" /> : null}
                 {link.title}
               </Link>
             );
