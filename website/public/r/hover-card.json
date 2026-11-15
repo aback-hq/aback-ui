@@ -14,9 +14,6 @@
     "Overlays"
   ],
   "docs": "https://abackui.com/docs/components/hover-card",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/hover-card.tsx",

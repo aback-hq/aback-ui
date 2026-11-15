@@ -17,9 +17,6 @@
     "Authentication"
   ],
   "docs": "https://abackui.com/docs/blocks/sign-in",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/blocks/sign-in.tsx",

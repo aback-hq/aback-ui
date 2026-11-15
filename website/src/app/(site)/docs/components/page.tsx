@@ -28,9 +28,6 @@ export default function ComponentsPage() {
       >
         <Badge variant="outline">{components.length} components</Badge>
         <Badge variant="outline">{componentGroups.length} categories</Badge>
-        <Badge variant="success" dot>
-          {components.filter((item) => item.meta?.status === "stable").length} stable
-        </Badge>
       </DocsPageHeader>
 
       <div className="mt-10">
@@ -41,7 +38,6 @@ export default function ComponentsPage() {
             title: item.title,
             description: item.description,
             category: item.categories?.[0] ?? "Foundation",
-            status: item.meta?.status ?? "beta",
             usedIn: (item.meta?.usedIn ?? []).map((product) => productName(product)),
           }))}
         />

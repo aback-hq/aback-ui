@@ -14,9 +14,6 @@
     "Forms"
   ],
   "docs": "https://abackui.com/docs/components/slider",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/slider.tsx",

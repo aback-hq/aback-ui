@@ -18,9 +18,6 @@
     "Application"
   ],
   "docs": "https://abackui.com/docs/blocks/dashboard-shell",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/blocks/dashboard-shell.tsx",

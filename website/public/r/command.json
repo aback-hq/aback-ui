@@ -17,7 +17,6 @@
   ],
   "docs": "https://abackui.com/docs/components/command",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-launch",
       "aback-group"

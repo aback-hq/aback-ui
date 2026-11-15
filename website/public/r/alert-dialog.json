@@ -14,9 +14,6 @@
     "Overlays"
   ],
   "docs": "https://abackui.com/docs/components/alert-dialog",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/alert-dialog.tsx",

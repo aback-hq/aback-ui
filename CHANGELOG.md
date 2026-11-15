@@ -20,6 +20,10 @@ The website changes are live. The `defaultTheme` option ships in the next npm re
 - The home page's blue backdrop no longer has a grid over it. DESIGN.md keeps grid backgrounds for marketing art, and the wash and glows carry the blue on their own.
 - Every page's tab title leads with its own name, such as "Countdown component for React | Aback UI" instead of "React Countdown component | Aback UI", so a row of tabs can be told apart. Titles that already name Aback UI, such as "Built with Aback UI", no longer repeat it, and a route test keeps titles from starting with a generic word. The home page's title follows the Aback product pattern, brand first: "Aback UI | React Components for Serious Applications".
 
+### Removed
+
+- Stable and Beta labels. Every component and block meets the same bar, so the catalogue, component pages, block pages, `llms.txt`, and FAQ no longer split them. Registry items no longer carry `meta.status`, and `aback-ui view` no longer prints a Status line (from the next npm release). Nothing read the field to change behaviour.
+
 ### Fixed
 
 - The 404 page's tab showed the site slogan. It now reads "Page not found | Aback UI" and is marked noindex.

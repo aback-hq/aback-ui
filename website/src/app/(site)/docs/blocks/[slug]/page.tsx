@@ -62,9 +62,6 @@ export default async function BlockPage({ params }: PageProps) {
           { label: block.title },
         ]}
       >
-        <Badge variant="info" dot>
-          Beta
-        </Badge>
         <Badge variant="outline">
           {componentCount} {componentCount === 1 ? "component" : "components"}
         </Badge>

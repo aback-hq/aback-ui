@@ -15,9 +15,6 @@
     "Data Display"
   ],
   "docs": "https://abackui.com/docs/components/calendar",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/calendar.tsx",

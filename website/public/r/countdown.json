@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/countdown",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "dronacharya",
       "aback-chess"

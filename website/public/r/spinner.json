@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/spinner",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-tools",
       "aback-launch",

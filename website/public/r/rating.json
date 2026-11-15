@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/rating",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

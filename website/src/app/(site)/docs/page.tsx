@@ -21,7 +21,7 @@ import { DocsPage, DocsPageHeader, DocsSection, type TocItem } from "@/component
 import { GuidePager, LinkCards } from "@/components/docs-ui";
 import { PackageCommand } from "@/components/package-command";
 import { blocks } from "@/data/blocks";
-import { components } from "@/data/component-catalog";
+import { componentGroups, components } from "@/data/component-catalog";
 import { products } from "@/data/products";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -83,13 +83,11 @@ const faqs = [
   {
     question: "Is it production ready?",
     answer:
-      "Aback UI is pre-1.0. Each component page says whether it is stable or beta. Stable components are used in production Aback products; APIs may still change before 1.0, with migration notes in the changelog.",
+      "Yes. Every component is tested, documented, and published to npm, and most are already used in Aback products. Versions follow semver: before 1.0 a minor release can change an API, and the changelog says what to do.",
   },
 ];
 
 export default function DocsIntroductionPage() {
-  const stable = components.filter((item) => item.meta?.status === "stable").length;
-
   return (
     <DocsPage toc={toc}>
       <DocsPageHeader
@@ -144,7 +142,7 @@ export default function DocsIntroductionPage() {
           <dl className="grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4">
             {[
               { label: "Components", value: components.length, href: "/docs/components" },
-              { label: "Stable", value: stable, href: "/docs/components" },
+              { label: "Categories", value: componentGroups.length, href: "/docs/components" },
               { label: "Blocks", value: blocks.length, href: "/docs/blocks" },
               { label: "Aback products", value: products.length, href: "/built-with" },
             ].map((stat) => (

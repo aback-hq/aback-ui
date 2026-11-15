@@ -37,7 +37,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Is Aback UI stable?",
         answer:
-          "Aback UI is pre-1.0. Components used in Aback products are marked stable on their pages; the rest are beta, and their APIs may still change before 1.0. Each release lists what changed in the changelog.",
+          "Yes. Every component is tested, documented, and published to npm, and most are already used in Aback products. Versions follow semver: before 1.0 a minor release can change an API, and each release lists what changed in the changelog.",
         href: "/docs/changelog",
       },
       {

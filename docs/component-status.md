@@ -1,108 +1,102 @@
-# Component status
+# Component catalogue
 
 Last reviewed: November 2026.
 
-| Component | Layer | Status | Used in |
-| --- | --- | --- | --- |
-| Accordion | Navigation | Stable | Aback Tools |
-| Alert | Feedback | Stable | Aback Launch |
-| Alert Dialog | Overlay | Beta | New shared pattern |
-| Arrow Link | Navigation | Beta | Aback Group |
-| Avatar | Data display | Beta | Aback Launch |
-| Badge | Foundation | Stable | Aback Tools, Aback Launch, Aback Group, Dronacharya |
-| Breadcrumbs | Navigation | Stable | Aback Tools, Aback Launch |
-| Button | Foundation | Stable | Aback Tools, Aback Launch, Aback Group, Aback Chess, Dronacharya |
-| Calendar | Data display | Beta | New shared pattern |
-| Card | Foundation | Stable | Aback Tools, Aback Launch, Aback Group, Dronacharya |
-| Checkbox | Forms | Stable | Aback Tools, Aback Launch |
-| Code Block | Data display | Beta | Aback Tools |
-| Collapsible | Navigation | Beta | New shared pattern |
-| Combobox | Forms | Beta | New shared pattern |
-| Command | Overlay | Beta | Aback Launch, Aback Group |
-| Copy Button | Foundation | Beta | Aback Tools, Aback Launch |
-| Countdown | Data display | Beta | Dronacharya, Aback Chess |
-| Date Picker | Forms | Beta | New shared pattern |
-| Description List | Data display | Beta | Aback Tools |
-| Dialog | Overlay | Stable | Aback Launch, Aback Group, Aback Chess |
-| Dropdown Menu | Overlay | Stable | Aback Launch, Aback Group |
-| Dropzone | Forms | Beta | Aback Tools |
-| Empty State | Application | Stable | Aback Tools, Aback Launch |
-| Field | Forms | Stable | Aback Tools, Aback Launch |
-| Hover Card | Overlay | Beta | New shared pattern |
-| Input | Forms | Stable | Aback Tools, Aback Launch |
-| Input Group | Forms | Beta | Aback Tools, Aback Launch |
-| Item | Data display | Beta | Aback Tools, Aback Launch |
-| Kbd | Foundation | Stable | Aback Tools, Aback Launch, Dronacharya |
-| Label | Forms | Stable | Aback Tools, Aback Launch |
-| Layout | Layout | Beta | Aback Tools, Aback Launch |
-| Link List | Navigation | Beta | Aback Group |
-| Listbox | Forms | Beta | Aback Launch |
-| Meter | Data display | Beta | Aback Tools, Aback Launch, Dronacharya |
-| Page Header | Application | Stable | Aback Tools, Aback Launch |
-| Pagination | Navigation | Beta | New shared pattern |
-| Panel | Layout | Beta | Aback Tools |
-| Popover | Overlay | Beta | Aback Chess |
-| Progress | Feedback | Beta | Aback Chess |
-| Prose | Foundation | Beta | Aback Tools, Aback Launch |
-| Radio Group | Forms | Beta | New shared pattern |
-| Rating | Forms | Beta | Aback Tools, Aback Launch |
-| Reading Progress | Feedback | Beta | Aback Tools, Aback Launch |
-| Relative Time | Data display | Beta | Aback Tools, Aback Launch |
-| Scroll Area | Layout | Beta | New shared pattern |
-| Section Heading | Application | Beta | Aback Tools, Aback Launch, Aback Group, Dronacharya |
-| Segmented Control | Forms | Beta | Aback Chess |
-| Select | Forms | Stable | Aback Tools, Aback Launch |
-| Separator | Foundation | Stable | Aback Launch, Aback Group |
-| Share Buttons | Application | Beta | Aback Tools, Aback Launch |
-| Sheet | Overlay | Beta | Aback Tools, Aback Launch, Aback Group, Aback Chess |
-| Skeleton | Feedback | Stable | Aback Launch |
-| Skip Link | Navigation | Beta | Aback Tools, Aback Launch, Aback Group |
-| Slider | Forms | Beta | New shared pattern |
-| Spinner | Feedback | Stable | Aback Tools, Aback Launch, Aback Chess |
-| Stat | Data display | Beta | Aback Tools, Aback Launch |
-| Status Indicator | Data display | Beta | Aback Group |
-| Steps | Data display | Beta | Aback Launch |
-| Switch | Forms | Stable | Aback Tools, Aback Launch, Aback Chess |
-| Tab Nav | Navigation | Beta | Aback Chess |
-| Table | Data display | Stable | Aback Launch |
-| Table of Contents | Navigation | Beta | Aback Tools, Aback Launch |
-| Tabs | Navigation | Stable | New shared pattern |
-| Textarea | Forms | Stable | Aback Tools, Aback Launch |
-| Theme Toggle | Application | Beta | Aback Tools, Aback Launch, Aback Group |
-| Toast | Feedback | Beta | Aback Chess |
-| Toggle Group | Forms | Beta | Aback Chess |
-| Tooltip | Overlay | Stable | Aback Chess |
+| Component | Layer | Used in |
+| --- | --- | --- |
+| Accordion | Navigation | Aback Tools |
+| Alert | Feedback | Aback Launch |
+| Alert Dialog | Overlay | New shared pattern |
+| Arrow Link | Navigation | Aback Group |
+| Avatar | Data display | Aback Launch |
+| Badge | Foundation | Aback Tools, Aback Launch, Aback Group, Dronacharya |
+| Breadcrumbs | Navigation | Aback Tools, Aback Launch |
+| Button | Foundation | Aback Tools, Aback Launch, Aback Group, Aback Chess, Dronacharya |
+| Calendar | Data display | New shared pattern |
+| Card | Foundation | Aback Tools, Aback Launch, Aback Group, Dronacharya |
+| Checkbox | Forms | Aback Tools, Aback Launch |
+| Code Block | Data display | Aback Tools |
+| Collapsible | Navigation | New shared pattern |
+| Combobox | Forms | New shared pattern |
+| Command | Overlay | Aback Launch, Aback Group |
+| Copy Button | Foundation | Aback Tools, Aback Launch |
+| Countdown | Data display | Dronacharya, Aback Chess |
+| Date Picker | Forms | New shared pattern |
+| Description List | Data display | Aback Tools |
+| Dialog | Overlay | Aback Launch, Aback Group, Aback Chess |
+| Dropdown Menu | Overlay | Aback Launch, Aback Group |
+| Dropzone | Forms | Aback Tools |
+| Empty State | Application | Aback Tools, Aback Launch |
+| Field | Forms | Aback Tools, Aback Launch |
+| Hover Card | Overlay | New shared pattern |
+| Input | Forms | Aback Tools, Aback Launch |
+| Input Group | Forms | Aback Tools, Aback Launch |
+| Item | Data display | Aback Tools, Aback Launch |
+| Kbd | Foundation | Aback Tools, Aback Launch, Dronacharya |
+| Label | Forms | Aback Tools, Aback Launch |
+| Layout | Layout | Aback Tools, Aback Launch |
+| Link List | Navigation | Aback Group |
+| Listbox | Forms | Aback Launch |
+| Meter | Data display | Aback Tools, Aback Launch, Dronacharya |
+| Page Header | Application | Aback Tools, Aback Launch |
+| Pagination | Navigation | New shared pattern |
+| Panel | Layout | Aback Tools |
+| Popover | Overlay | Aback Chess |
+| Progress | Feedback | Aback Chess |
+| Prose | Foundation | Aback Tools, Aback Launch |
+| Radio Group | Forms | New shared pattern |
+| Rating | Forms | Aback Tools, Aback Launch |
+| Reading Progress | Feedback | Aback Tools, Aback Launch |
+| Relative Time | Data display | Aback Tools, Aback Launch |
+| Scroll Area | Layout | New shared pattern |
+| Section Heading | Application | Aback Tools, Aback Launch, Aback Group, Dronacharya |
+| Segmented Control | Forms | Aback Chess |
+| Select | Forms | Aback Tools, Aback Launch |
+| Separator | Foundation | Aback Launch, Aback Group |
+| Share Buttons | Application | Aback Tools, Aback Launch |
+| Sheet | Overlay | Aback Tools, Aback Launch, Aback Group, Aback Chess |
+| Skeleton | Feedback | Aback Launch |
+| Skip Link | Navigation | Aback Tools, Aback Launch, Aback Group |
+| Slider | Forms | New shared pattern |
+| Spinner | Feedback | Aback Tools, Aback Launch, Aback Chess |
+| Stat | Data display | Aback Tools, Aback Launch |
+| Status Indicator | Data display | Aback Group |
+| Steps | Data display | Aback Launch |
+| Switch | Forms | Aback Tools, Aback Launch, Aback Chess |
+| Tab Nav | Navigation | Aback Chess |
+| Table | Data display | Aback Launch |
+| Table of Contents | Navigation | Aback Tools, Aback Launch |
+| Tabs | Navigation | New shared pattern |
+| Textarea | Forms | Aback Tools, Aback Launch |
+| Theme Toggle | Application | Aback Tools, Aback Launch, Aback Group |
+| Toast | Feedback | Aback Chess |
+| Toggle Group | Forms | Aback Chess |
+| Tooltip | Overlay | Aback Chess |
 
 ## Blocks
 
-| Block | Status | Components | Pattern from |
-| --- | --- | --- | --- |
-| Article layout | Beta | Avatar, Badge, Breadcrumbs, Collapsible, Reading Progress, Share Buttons, Table Of Contents | Aback Tools, Aback Launch |
-| Call to action | Beta | Button | Aback Launch |
-| Contact form | Beta | Alert, Button, Field, Input, Select, Spinner, Textarea | Aback Launch |
-| Cookie consent | Beta | Button | Aback Launch |
-| Dashboard shell | Beta | Avatar, Button, Dropdown Menu, Sheet | New shared pattern |
-| FAQ | Beta | Accordion, Section Heading | Aback Tools, Aback Launch, Aback Group |
-| Feature grid | Beta | Section Heading | Aback Tools, Aback Launch |
-| Hero | Beta | Button | Aback Launch, Aback Group |
-| Newsletter signup | Beta | Button, Input Group, Spinner | Aback Tools, Aback Launch |
-| Not found | Beta | Badge, Button | Aback Tools, Aback Launch, Aback Group |
-| Pricing | Beta | Badge, Button, Section Heading, Toggle Group | Aback Launch |
-| Settings section | Beta | Alert Dialog, Button, Card, Field, Input, Label, Switch | New shared pattern |
-| Sign in | Beta | Button, Card, Checkbox, Field, Input, Label | New shared pattern |
-| Site footer | Beta | None | Aback Tools, Aback Launch, Aback Group |
-| Site header | Beta | Button, Kbd, Sheet, Theme Toggle | Aback Tools, Aback Launch, Aback Group |
-| Users table | Beta | Avatar, Badge, Button, Dropdown Menu, Empty State, Input, Pagination, Table | New shared pattern |
+| Block | Pattern from |
+| --- | --- |
+| Article layout | Aback Tools, Aback Launch |
+| Call to action | Aback Launch |
+| Contact form | Aback Launch |
+| Cookie consent | Aback Launch |
+| Dashboard shell | New shared pattern |
+| FAQ | Aback Tools, Aback Launch, Aback Group |
+| Feature grid | Aback Tools, Aback Launch |
+| Hero | Aback Launch, Aback Group |
+| Newsletter signup | Aback Tools, Aback Launch |
+| Not found | Aback Tools, Aback Launch, Aback Group |
+| Pricing | Aback Launch |
+| Settings section | New shared pattern |
+| Sign in | New shared pattern |
+| Site footer | Aback Tools, Aback Launch, Aback Group |
+| Site header | Aback Tools, Aback Launch, Aback Group |
+| Users table | New shared pattern |
 
-## Status definitions
+## Versioning
 
-- **Experimental:** API or behavior may change; limited validation.
-- **Beta:** useful and tested, with known gaps or expected API evolution.
-- **Stable:** public API, behavior, docs, tests, theme support, and accessibility notes are maintained under the compatibility policy.
-- **Deprecated:** a replacement and removal path are documented.
-- **Removed:** no longer shipped; migration guidance remains.
-
-Stable does not mean "audited for every assistive technology." See [`accessibility.md`](accessibility.md) for what was and was not verified.
+Every item ships in the same release and follows semver. Before 1.0 a minor release can change an API; the changelog says what changed and what to do. There are no per-component maturity labels. See [`accessibility.md`](accessibility.md) for what was and was not verified.
 
 ## Not yet shipped
 

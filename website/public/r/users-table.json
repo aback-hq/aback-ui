@@ -22,9 +22,6 @@
     "Data Display"
   ],
   "docs": "https://abackui.com/docs/blocks/users-table",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/blocks/users-table.tsx",

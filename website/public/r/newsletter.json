@@ -18,7 +18,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/newsletter",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

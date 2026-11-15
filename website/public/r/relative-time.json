@@ -12,7 +12,6 @@
   ],
   "docs": "https://abackui.com/docs/components/relative-time",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

@@ -17,7 +17,6 @@
   ],
   "docs": "https://abackui.com/docs/components/arrow-link",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-group"
     ]

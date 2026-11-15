@@ -13,7 +13,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/site-footer",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch",

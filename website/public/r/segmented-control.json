@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/segmented-control",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-chess"
     ]

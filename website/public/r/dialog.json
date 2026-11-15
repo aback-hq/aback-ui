@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/components/dialog",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-launch",
       "aback-group",

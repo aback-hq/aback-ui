@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/components/item",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

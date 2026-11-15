@@ -18,9 +18,6 @@
     "Forms"
   ],
   "docs": "https://abackui.com/docs/components/date-picker",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/date-picker.tsx",

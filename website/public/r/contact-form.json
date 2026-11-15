@@ -21,7 +21,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/contact-form",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-launch"
     ]

@@ -17,7 +17,6 @@
   ],
   "docs": "https://abackui.com/docs/components/share-buttons",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

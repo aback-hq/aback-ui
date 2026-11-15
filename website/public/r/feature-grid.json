@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/feature-grid",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch"

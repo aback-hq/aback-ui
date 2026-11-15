@@ -19,7 +19,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/pricing",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-launch"
     ]

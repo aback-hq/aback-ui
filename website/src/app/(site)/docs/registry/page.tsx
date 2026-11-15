@@ -67,7 +67,7 @@ export default function RegistryPage() {
   "dependencies": ["class-variance-authority", "radix-ui"],
   "registryDependencies": ["https://abackui.com/r/utils.json"],
   "categories": ["Foundation"],
-  "meta": { "status": "stable", "usedIn": ["aback-tools", "aback-launch", "aback-group"] },
+  "meta": { "usedIn": ["aback-tools", "aback-launch", "aback-group"] },
   "files": [
     {
       "path": "components/ui/button.tsx",

@@ -13,7 +13,6 @@
   ],
   "docs": "https://abackui.com/docs/components/panel",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools"
     ]

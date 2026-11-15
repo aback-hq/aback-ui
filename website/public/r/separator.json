@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/separator",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-launch",
       "aback-group"

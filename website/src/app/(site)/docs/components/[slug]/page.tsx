@@ -70,7 +70,6 @@ export default async function ComponentPage({ params }: PageProps) {
   const usedIn = item.meta?.usedIn ?? [];
   const installArgs = `${site.cli} add ${item.name}`;
   const dependencies = item.dependencies ?? [];
-  const stable = item.meta?.status === "stable";
 
   const toc = [
     { id: "installation", title: "Installation" },
@@ -95,9 +94,6 @@ export default async function ComponentPage({ params }: PageProps) {
           { label: item.title },
         ]}
       >
-        <Badge variant={stable ? "success" : "info"} dot>
-          {stable ? "Stable" : "Beta"}
-        </Badge>
         <Badge variant="outline">
           {usedIn.length
             ? `Used in ${usedIn.map((product) => productName(product)).join(", ")}`

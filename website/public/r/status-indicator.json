@@ -13,7 +13,6 @@
   ],
   "docs": "https://abackui.com/docs/components/status-indicator",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-group"
     ]

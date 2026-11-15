@@ -12,7 +12,6 @@
   ],
   "docs": "https://abackui.com/docs/components/kbd",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-tools",
       "aback-launch",

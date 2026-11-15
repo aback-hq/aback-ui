@@ -18,9 +18,6 @@
     "Settings"
   ],
   "docs": "https://abackui.com/docs/blocks/settings-section",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/blocks/settings-section.tsx",

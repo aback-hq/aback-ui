@@ -12,7 +12,6 @@
   ],
   "docs": "https://abackui.com/docs/components/section-heading",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch",

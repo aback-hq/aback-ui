@@ -31,7 +31,7 @@ const principles = [
   },
   {
     title: "Evidence over claims",
-    body: "Stable means tested and documented. What has not been verified is listed on the accessibility page instead of hidden.",
+    body: "Every component is tested and documented. What has not been verified is listed on the accessibility page instead of hidden.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
             The code lives in a public repository on{" "}
             <A href={site.repository}>GitHub</A> under the MIT licence. Releases are versioned, published to
             npm with provenance from CI, and recorded in the <A href="/docs/changelog">changelog</A>. Until
-            1.0, APIs may still change; component pages mark what is stable and what is beta. Contributions
+            1.0, a minor release can change an API, and the changelog says what to do. Contributions
             follow the <A href="/docs/contributing">contributing guide</A>.
           </p>
           <h2 id="what-it-is-not">What it is not</h2>

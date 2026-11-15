@@ -38,7 +38,6 @@ export async function runView(options: ViewCommandOptions): Promise<number> {
   if (item.registryDependencies?.length) {
     sections.push(["Registry dependencies", item.registryDependencies.join(", ")]);
   }
-  if (item.meta?.status) sections.push(["Status", String(item.meta.status)]);
   if (item.docs) sections.push(["Docs", item.docs]);
 
   for (const [label, value] of sections) {

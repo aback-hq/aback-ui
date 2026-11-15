@@ -64,7 +64,7 @@ Component names, props, CSS variables, token names, registry identifiers, and pa
 - Prefer additive changes.
 - Do not rename or remove a prop without a migration note.
 - Add a changelog entry for anything a consumer can observe.
-- Mark experimental work clearly instead of shipping it as stable.
+- Do not ship work that has not met the definition of done in `AGENTS.md`; keep it on a branch instead of publishing it with a warning label.
 
 ## Commit and pull request
 

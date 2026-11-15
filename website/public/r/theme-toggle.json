@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/components/theme-toggle",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools",
       "aback-launch",

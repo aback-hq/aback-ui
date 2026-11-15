@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/blocks/cta-banner",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-launch"
     ]

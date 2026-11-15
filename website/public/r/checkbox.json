@@ -16,7 +16,6 @@
   ],
   "docs": "https://abackui.com/docs/components/checkbox",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-tools",
       "aback-launch"

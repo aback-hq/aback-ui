@@ -11,9 +11,6 @@
     "Navigation"
   ],
   "docs": "https://abackui.com/docs/components/pagination",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/pagination.tsx",

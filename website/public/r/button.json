@@ -17,7 +17,6 @@
   ],
   "docs": "https://abackui.com/docs/components/button",
   "meta": {
-    "status": "stable",
     "usedIn": [
       "aback-tools",
       "aback-launch",

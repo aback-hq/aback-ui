@@ -922,19 +922,16 @@ If a check cannot run in the environment, report it explicitly and do not claim 
 
 ---
 
-# 15. COMPONENT STATUS AND MATURITY
+# 15. COMPONENT QUALITY AND MATURITY
 
-Use explicit maturity labels in docs and metadata. Suggested statuses:
+Owner decision (November 2026): every shipped component and block meets the same bar, so the docs, registry, and CLI show no per-component maturity labels (no Stable/Beta badges or `meta.status` field). Versioning is communicated once, through semver and the changelog.
 
-- **Experimental:** API or behavior may change; limited validation.
-- **Beta:** Useful and tested, but known gaps or expected API evolution remain.
-- **Stable:** Public API, behavior, docs, and tests are maintained under the compatibility policy.
-- **Deprecated:** A replacement or removal path is documented.
-- **Removed:** No longer part of the current release; migration guidance remains if needed.
+That bar is the "Component done" checklist in section 20: a clear API, accessibility review, theme support, tests, docs, and an understood dependency/compatibility profile. Do not ship a component that renders but has not met it. Work that is not ready stays unshipped rather than being published with a warning label.
 
-Do not label a component stable just because it renders. Stable means it has a clear API, accessibility review, theme support, tests, docs, and an understood dependency/compatibility profile.
+- **Deprecated:** mark the API deprecated in its docs and the changelog, with the replacement and removal target.
+- **Removed:** keep migration guidance in the changelog.
 
-Keep a component catalogue or status file updated when status changes. Do not imply that every component has equal maturity.
+Keep `docs/component-status.md` updated with each component's source products.
 
 ---
 

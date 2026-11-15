@@ -5,7 +5,7 @@
 Aback UI is the shared interface foundation for Aback Group products and an open-source React component library for everyone else: 68 accessible components, 16 page blocks, one set of design tokens, and its own CLI. Every component started as a pattern in a shipping Aback product: [Aback Tools](https://abacktools.com), [Aback Launch](https://abacklaunch.com), [Aback Group](https://aback.group), [Aback Chess](https://abackchess.com), or [Dronacharya](https://dronacharya.ai).
 
 - **Documentation:** [abackui.com](https://abackui.com)
-- **Status:** pre-1.0. APIs may change before the first stable release.
+- **Versioning:** semver. Before 1.0 a minor release can change an API; the changelog says what to do.
 - **License:** MIT
 
 ## Use it
@@ -46,7 +46,7 @@ Everything published to npm lives in `packages/`. The website only consumes it.
 | `registry/` | not published | `registry.json` (which items exist) and `blocks/` (block source) |
 | `website/` | not published | abackui.com: docs, live previews, and the hosted registry at `/r` |
 | `tests/consumer` | not published | Installs the packed tarballs into a clean project and uses them |
-| `docs/` | not published | Architecture, component status, provenance, accessibility, releases |
+| `docs/` | not published | Architecture, component catalogue, provenance, accessibility, releases |
 | `scripts/` | not published | Registry build and bundling, publish guards, package checks |
 
 ## How the CLI gets components
@@ -79,9 +79,9 @@ bun run build   # packages, registry, CLI, and the website
 
 [`DESIGN.md`](DESIGN.md) is the normative design contract: colour roles, the Aback Blue ramp, typography, square geometry, borders, motion, and component specifications. [`AGENTS.md`](AGENTS.md) is the engineering contract. Read both before changing a component.
 
-## Component status
+## Component catalogue
 
-Every component page states its maturity. The maintained catalogue lives in [`docs/component-status.md`](docs/component-status.md).
+Every component and block is tested, documented, and published together. [`docs/component-status.md`](docs/component-status.md) lists each one with the Aback products it comes from.
 
 ## Contributing
 

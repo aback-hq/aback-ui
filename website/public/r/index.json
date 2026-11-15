@@ -38,7 +38,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -61,7 +60,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -81,7 +79,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -101,7 +98,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -124,7 +120,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -148,7 +143,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -171,7 +165,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -195,7 +188,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -218,7 +210,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -240,7 +231,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -265,7 +255,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch"
         ]
@@ -287,7 +276,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch",
           "aback-group"
@@ -307,7 +295,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch"
         ]
@@ -329,7 +316,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -350,7 +336,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -374,7 +359,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-chess"
         ]
@@ -397,7 +381,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch",
           "aback-group",
@@ -422,7 +405,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch",
           "aback-group"
@@ -445,7 +427,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": []
       }
     },
@@ -466,7 +447,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools"
         ]
@@ -485,7 +465,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-launch"
         ]
@@ -507,7 +486,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -527,7 +505,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -550,7 +527,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "stable",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -571,10 +547,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "avatar",
@@ -592,7 +565,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -614,7 +586,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -636,7 +607,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -656,10 +626,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "sheet",
@@ -678,7 +645,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -704,7 +670,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -728,7 +693,6 @@
         "https://abackui.com/r/dialog.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch",
           "aback-group"
@@ -752,7 +716,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -772,10 +735,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "scroll-area",
@@ -791,10 +751,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "copy-button",
@@ -813,7 +770,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -834,7 +790,6 @@
         "https://abackui.com/r/input.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -857,7 +812,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools"
         ]
@@ -879,7 +833,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -902,7 +855,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -922,7 +874,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools"
         ]
@@ -941,7 +892,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -964,7 +914,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -984,7 +933,6 @@
         "https://abackui.com/r/copy-button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools"
         ]
@@ -1006,7 +954,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1026,7 +973,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1052,7 +998,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1073,7 +1018,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1097,7 +1041,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1117,7 +1060,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1142,7 +1084,6 @@
         "https://abackui.com/r/copy-button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1166,10 +1107,7 @@
         "https://abackui.com/r/field.json",
         "https://abackui.com/r/input.json",
         "https://abackui.com/r/label.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "settings-section",
@@ -1189,10 +1127,7 @@
         "https://abackui.com/r/input.json",
         "https://abackui.com/r/label.json",
         "https://abackui.com/r/switch.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "dashboard-shell",
@@ -1212,10 +1147,7 @@
         "https://abackui.com/r/button.json",
         "https://abackui.com/r/dropdown-menu.json",
         "https://abackui.com/r/sheet.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "users-table",
@@ -1239,10 +1171,7 @@
         "https://abackui.com/r/input.json",
         "https://abackui.com/r/pagination.json",
         "https://abackui.com/r/table.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "pagination",
@@ -1255,10 +1184,7 @@
       "docs": "https://abackui.com/docs/components/pagination",
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "collapsible",
@@ -1274,10 +1200,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "hover-card",
@@ -1293,10 +1216,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "calendar",
@@ -1313,10 +1233,7 @@
       ],
       "registryDependencies": [
         "https://abackui.com/r/utils.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "date-picker",
@@ -1336,10 +1253,7 @@
         "https://abackui.com/r/button.json",
         "https://abackui.com/r/calendar.json",
         "https://abackui.com/r/popover.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "combobox",
@@ -1357,10 +1271,7 @@
         "https://abackui.com/r/utils.json",
         "https://abackui.com/r/command.json",
         "https://abackui.com/r/popover.json"
-      ],
-      "meta": {
-        "status": "beta"
-      }
+      ]
     },
     {
       "name": "item",
@@ -1379,7 +1290,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1400,7 +1310,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1422,7 +1331,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools"
         ]
@@ -1444,7 +1352,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1468,7 +1375,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -1492,7 +1398,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-group"
         ]
@@ -1515,7 +1420,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-group"
         ]
@@ -1535,7 +1439,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-group"
         ]
@@ -1557,7 +1460,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -1579,7 +1481,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-chess"
         ]
@@ -1601,7 +1502,6 @@
         "https://abackui.com/r/utils.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "dronacharya",
           "aback-chess"
@@ -1628,7 +1528,6 @@
         "https://abackui.com/r/theme-toggle.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1650,7 +1549,6 @@
       ],
       "registryDependencies": [],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1674,7 +1572,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch",
           "aback-group"
@@ -1698,7 +1595,6 @@
         "https://abackui.com/r/section-heading.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1725,7 +1621,6 @@
         "https://abackui.com/r/toggle-group.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -1745,7 +1640,6 @@
         "https://abackui.com/r/section-heading.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1772,7 +1666,6 @@
         "https://abackui.com/r/spinner.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"
@@ -1796,7 +1689,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -1815,7 +1707,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -1838,7 +1729,6 @@
         "https://abackui.com/r/button.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch",
@@ -1868,7 +1758,6 @@
         "https://abackui.com/r/textarea.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-launch"
         ]
@@ -1896,7 +1785,6 @@
         "https://abackui.com/r/table-of-contents.json"
       ],
       "meta": {
-        "status": "beta",
         "usedIn": [
           "aback-tools",
           "aback-launch"

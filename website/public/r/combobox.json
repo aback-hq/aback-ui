@@ -16,9 +16,6 @@
     "Forms"
   ],
   "docs": "https://abackui.com/docs/components/combobox",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/combobox.tsx",

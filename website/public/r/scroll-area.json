@@ -14,9 +14,6 @@
     "Layout"
   ],
   "docs": "https://abackui.com/docs/components/scroll-area",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/scroll-area.tsx",

@@ -27,9 +27,6 @@ export default function BlocksPage() {
       >
         <Badge variant="outline">{blocks.length} blocks</Badge>
         <Badge variant="outline">{categories.length} categories</Badge>
-        <Badge variant="info" dot>
-          Beta
-        </Badge>
       </DocsPageHeader>
 
       <ul className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2">

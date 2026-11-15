@@ -14,9 +14,6 @@
     "Navigation"
   ],
   "docs": "https://abackui.com/docs/components/collapsible",
-  "meta": {
-    "status": "beta"
-  },
   "files": [
     {
       "path": "components/ui/collapsible.tsx",

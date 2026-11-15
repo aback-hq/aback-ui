@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/dropzone",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools"
     ]

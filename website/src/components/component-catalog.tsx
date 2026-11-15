@@ -5,7 +5,6 @@ import Link from "next/link";
 import { IconArrowRight, IconSearch, IconX } from "@tabler/icons-react";
 
 import {
-  Badge,
   Button,
   EmptyState,
   InputGroup,
@@ -20,7 +19,6 @@ export interface CatalogItem {
   title: string;
   description: string;
   category: string;
-  status: string;
   usedIn: string[];
 }
 
@@ -166,13 +164,8 @@ export function ComponentCatalog({
                         />
                       </span>
                       <span className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">{item.description}</span>
-                      <span className="mt-auto flex flex-wrap items-center gap-2 pt-1">
-                        <Badge variant={item.status === "stable" ? "success" : "info"} dot>
-                          {item.status === "stable" ? "Stable" : "Beta"}
-                        </Badge>
-                        <span className="truncate text-xs text-muted-foreground">
-                          {item.usedIn.length ? `Used in ${item.usedIn.join(", ")}` : "New shared pattern"}
-                        </span>
+                      <span className="mt-auto truncate pt-1 text-xs text-muted-foreground">
+                        {item.usedIn.length ? `Used in ${item.usedIn.join(", ")}` : "New shared pattern"}
                       </span>
                     </Link>
                   </li>

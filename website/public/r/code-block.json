@@ -13,7 +13,6 @@
   ],
   "docs": "https://abackui.com/docs/components/code-block",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-tools"
     ]

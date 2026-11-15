@@ -15,7 +15,6 @@
   ],
   "docs": "https://abackui.com/docs/components/steps",
   "meta": {
-    "status": "beta",
     "usedIn": [
       "aback-launch"
     ]

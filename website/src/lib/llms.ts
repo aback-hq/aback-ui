@@ -15,7 +15,7 @@ const intro = `# ${site.name}
 - Components package: \`@aback-ui/ui\`, theme package: \`@aback-ui/tokens\`
 - Registry item JSON: ${site.registry}/{name}.json, index: ${site.registry}/index.json
 - License: MIT (code). The Aback name and mark are trademarks.
-- Status: pre-1.0. APIs may change before the first stable release.
+- Versioning: semver. Before 1.0 a minor release can change an API; the changelog says what to do.
 - Requirements: React 19, Tailwind CSS v4, a \`@/\` path alias.
 
 ## Install with the CLI
@@ -112,7 +112,6 @@ export function componentMarkdown(name: string) {
   parts.push(item.description, "");
   parts.push(`- Docs: ${site.url}/docs/components/${item.name}`);
   parts.push(`- Install: \`npx ${site.cli} add ${item.name}\``);
-  parts.push(`- Status: ${item.meta?.status ?? "beta"}`);
   if (item.dependencies?.length) parts.push(`- npm dependencies: ${item.dependencies.join(", ")}`);
   parts.push("");
   if (doc) {

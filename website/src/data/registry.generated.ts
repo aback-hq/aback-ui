@@ -10,7 +10,6 @@ export interface RegistryItemSummary {
   dependencies?: string[];
   registryDependencies?: string[];
   meta?: {
-    status?: string;
     usedIn?: string[];
   };
   files: string[];
@@ -58,7 +57,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -84,7 +82,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -107,7 +104,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -130,7 +126,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -156,7 +151,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -183,7 +177,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -209,7 +202,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -236,7 +228,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -262,7 +253,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -287,7 +277,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -315,7 +304,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch"
       ]
@@ -340,7 +328,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch",
         "aback-group"
@@ -363,7 +350,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch"
       ]
@@ -388,7 +374,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -412,7 +397,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -439,7 +423,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-chess"
       ]
@@ -465,7 +448,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch",
         "aback-group",
@@ -493,7 +475,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch",
         "aback-group"
@@ -519,7 +500,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": []
     },
     "files": [
@@ -543,7 +523,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools"
       ]
@@ -565,7 +544,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-launch"
       ]
@@ -590,7 +568,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -613,7 +590,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -639,7 +615,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "stable",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -664,9 +639,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/alert-dialog.tsx"
     ]
@@ -687,7 +659,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -712,7 +683,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -737,7 +707,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -761,9 +730,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/radio-group.tsx"
     ]
@@ -785,7 +751,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -814,7 +779,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -841,7 +805,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/dialog.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch",
         "aback-group"
@@ -868,7 +831,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -892,9 +854,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/slider.tsx"
     ]
@@ -914,9 +873,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/scroll-area.tsx"
     ]
@@ -938,7 +894,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -962,7 +917,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/input.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -988,7 +942,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools"
       ]
@@ -1013,7 +966,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1039,7 +991,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1062,7 +1013,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools"
       ]
@@ -1084,7 +1034,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1110,7 +1059,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -1133,7 +1081,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/copy-button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools"
       ]
@@ -1158,7 +1105,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1181,7 +1127,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1210,7 +1155,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1234,7 +1178,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1261,7 +1204,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1284,7 +1226,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1312,7 +1253,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/copy-button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1340,9 +1280,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/input.json",
       "https://abackui.com/r/label.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/blocks/sign-in.tsx"
     ]
@@ -1366,9 +1303,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/label.json",
       "https://abackui.com/r/switch.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/blocks/settings-section.tsx"
     ]
@@ -1392,9 +1326,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/dropdown-menu.json",
       "https://abackui.com/r/sheet.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/blocks/dashboard-shell.tsx"
     ]
@@ -1422,9 +1353,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/pagination.json",
       "https://abackui.com/r/table.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/blocks/users-table.tsx"
     ]
@@ -1441,9 +1369,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/pagination.tsx"
     ]
@@ -1463,9 +1388,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/collapsible.tsx"
     ]
@@ -1485,9 +1407,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/hover-card.tsx"
     ]
@@ -1508,9 +1427,6 @@ export const registryItems: RegistryItemSummary[] = [
     "registryDependencies": [
       "https://abackui.com/r/utils.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/calendar.tsx"
     ]
@@ -1534,9 +1450,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/calendar.json",
       "https://abackui.com/r/popover.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/date-picker.tsx"
     ]
@@ -1558,9 +1471,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/command.json",
       "https://abackui.com/r/popover.json"
     ],
-    "meta": {
-      "status": "beta"
-    },
     "files": [
       "components/ui/combobox.tsx"
     ]
@@ -1582,7 +1492,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1606,7 +1515,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1631,7 +1539,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools"
       ]
@@ -1656,7 +1563,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1683,7 +1589,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -1710,7 +1615,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-group"
       ]
@@ -1736,7 +1640,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-group"
       ]
@@ -1759,7 +1662,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-group"
       ]
@@ -1784,7 +1686,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -1809,7 +1710,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-chess"
       ]
@@ -1834,7 +1734,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/utils.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "dronacharya",
         "aback-chess"
@@ -1864,7 +1763,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/theme-toggle.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1889,7 +1787,6 @@ export const registryItems: RegistryItemSummary[] = [
     ],
     "registryDependencies": [],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -1916,7 +1813,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch",
         "aback-group"
@@ -1943,7 +1839,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/section-heading.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -1973,7 +1868,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/toggle-group.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -1996,7 +1890,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/section-heading.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -2026,7 +1919,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/spinner.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"
@@ -2053,7 +1945,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -2075,7 +1966,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -2101,7 +1991,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/button.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch",
@@ -2134,7 +2023,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/textarea.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-launch"
       ]
@@ -2165,7 +2053,6 @@ export const registryItems: RegistryItemSummary[] = [
       "https://abackui.com/r/table-of-contents.json"
     ],
     "meta": {
-      "status": "beta",
       "usedIn": [
         "aback-tools",
         "aback-launch"

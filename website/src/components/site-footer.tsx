@@ -21,8 +21,8 @@ export function SiteFooter() {
               everyone.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Open source under the MIT license. Pre-1.0: APIs may change before the first stable
-              release.
+              Open source under the MIT license. Versioned with semver; every change is in the
+              changelog.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
