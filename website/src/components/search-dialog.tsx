@@ -32,6 +32,9 @@ function GroupIcon({ group }: { group: string }) {
   return <Icon aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />;
 }
 
+/** Dispatch on window to open the site search from anywhere, such as the home page's search field. */
+export const OPEN_SEARCH_EVENT = "aback-ui:open-search";
+
 export function SearchDialog({ items }: { items: SearchItem[] }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -50,8 +53,15 @@ export function SearchDialog({ items }: { items: SearchItem[] }) {
         setOpen((current) => !current);
       }
     }
+    function onOpenRequest() {
+      setOpen(true);
+    }
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener(OPEN_SEARCH_EVENT, onOpenRequest);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener(OPEN_SEARCH_EVENT, onOpenRequest);
+    };
   }, []);
 
   const grouped = useMemo(() => {

@@ -102,28 +102,31 @@
 :root {
   color-scheme: light;
 
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  /* A faint cool canvas so white cards lift off it, and deep slate text
+     rather than pure black (owner, 2026-11-15, after the Aback Tools revamp). */
+  --background: #f9fafb;
+  --foreground: #131824;
   --card: #ffffff;
-  --card-foreground: #0a0a0a;
+  --card-foreground: #131824;
   --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
+  --popover-foreground: #131824;
 
-  --primary: #171717;
-  --primary-foreground: #fafafa;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #171717;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
-  --accent: #f5f5f5;
-  --accent-foreground: #171717;
+  /* Primary actions are Aback Blue: 4.6:1 with white text. */
+  --primary: #007bc4;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f4f7;
+  --secondary-foreground: #1c222e;
+  --muted: #f1f4f7;
+  --muted-foreground: #5a6472;
+  --accent: #e9f1f8;
+  --accent-foreground: #1c222e;
 
   --destructive: #e7000b;
   --destructive-foreground: #ffffff;
-  --border: #e5e5e5;
-  --separator: #d7d7d7;
-  --input: #e5e5e5;
-  --ring: #a1a1a1;
+  --border: #e0e3e8;
+  --separator: #dee2e6;
+  --input: #d4d8dd;
+  --ring: #0095dd;
   --focus-ring: #007cc7;
 
   --link: #005d95;
@@ -147,9 +150,9 @@
   --info-soft: #e6f6ff;
 
   --overlay: rgb(0 0 0 / 0.4);
-  --scrollbar-thumb: #b4b4b4;
-  --scrollbar-thumb-hover: #949494;
-  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #cbd2dc;
+  --scrollbar-thumb-hover: #a9b3c1;
+  --scrollbar-track: transparent;
 
   --radius: 0px;
 }
@@ -157,28 +160,31 @@
 .dark {
   color-scheme: dark;
 
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --card: #171717;
-  --card-foreground: #fafafa;
-  --popover: #171717;
-  --popover-foreground: #fafafa;
+  /* True black with neutral greys: #000 page, #0f0f11 cards, #18181b raised
+     surfaces, #27272a hairlines (owner, 2026-11-15). */
+  --background: #000000;
+  --foreground: #f5f5f5;
+  --card: #0f0f11;
+  --card-foreground: #f5f5f5;
+  --popover: #18181b;
+  --popover-foreground: #f5f5f5;
 
-  --primary: #e5e5e5;
-  --primary-foreground: #171717;
-  --secondary: #262626;
-  --secondary-foreground: #fafafa;
-  --muted: #262626;
-  --muted-foreground: #a1a1a1;
-  --accent: #262626;
-  --accent-foreground: #fafafa;
+  /* primary-400 with near-black text. */
+  --primary: #3bb7f7;
+  --primary-foreground: #04111c;
+  --secondary: #18181b;
+  --secondary-foreground: #f5f5f5;
+  --muted: #18181b;
+  --muted-foreground: #a3a3a3;
+  --accent: #1f1f23;
+  --accent-foreground: #f5f5f5;
 
   --destructive: #ff6467;
   --destructive-foreground: #170000;
-  --border: rgb(255 255 255 / 0.1);
-  --separator: rgb(255 255 255 / 0.15);
-  --input: rgb(255 255 255 / 0.15);
-  --ring: #737373;
+  --border: #27272a;
+  --separator: #1f1f22;
+  --input: #2e2e33;
+  --ring: #3aaae4;
   --focus-ring: #33b7ff;
 
   --link: #33b7ff;
@@ -202,9 +208,9 @@
   --info-soft: rgb(0 31 50 / 0.3);
 
   --overlay: rgb(0 0 0 / 0.6);
-  --scrollbar-thumb: #3d3d3d;
-  --scrollbar-thumb-hover: #525252;
-  --scrollbar-track: #1a1a1a;
+  --scrollbar-thumb: #2e2e33;
+  --scrollbar-thumb-hover: #45454c;
+  --scrollbar-track: transparent;
 
   --radius: 0px;
 }
@@ -260,7 +266,7 @@
 
   ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
-    border-radius: 4px;
+    border-radius: 0;
   }
 
   ::-webkit-scrollbar-thumb:hover {

@@ -68,8 +68,9 @@ export default function AccessibilityPage() {
         </p>
         <p>
           The automated suite cannot evaluate color contrast in jsdom. Contrast was checked against
-          the measured token pairs in the design system: ink on canvas 19.8:1, mute on canvas 4.7:1,
-          link 700 on white 7.0:1, and primary-400 on dark surfaces 8.0:1 or better.
+          the measured token pairs in the design system: ink on canvas 16.9:1, mute on canvas 5.7:1,
+          link 700 on white 7.0:1, white on the action blue 4.5:1, and primary-400 on dark
+          surfaces 7.8:1 or better. A test in the repository checks the text roles in both themes.
         </p>
 
         <h2 id="what-is-not-verified">What is not verified</h2>

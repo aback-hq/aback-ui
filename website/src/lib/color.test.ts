@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  DARK_BACKGROUND,
   WHITE,
   contrastRatio,
   formatHsl,
@@ -117,8 +116,26 @@ describe("Aback tokens", () => {
     }
   });
 
-  it("focus rings reach 3:1 in both themes", () => {
-    expect(contrastRatio(value(light, "--focus-ring"), WHITE)).toBeGreaterThanOrEqual(3);
-    expect(contrastRatio(value(dark, "--focus-ring"), DARK_BACKGROUND)).toBeGreaterThanOrEqual(3);
+  it("focus rings reach 3:1 on the background and card in both themes", () => {
+    for (const tokens of [light, dark]) {
+      for (const surface of ["--background", "--card"]) {
+        expect(contrastRatio(value(tokens, "--focus-ring"), value(tokens, surface)), surface).toBeGreaterThanOrEqual(3);
+      }
+    }
+  });
+
+  it("button labels reach 4.5:1 on the action and brand fills in both themes", () => {
+    for (const tokens of [light, dark]) {
+      expect(contrastRatio(value(tokens, "--primary-foreground"), value(tokens, "--primary"))).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(value(tokens, "--on-brand-fill"), value(tokens, "--brand-fill"))).toBeGreaterThanOrEqual(4.5);
+    }
+  });
+
+  it("muted text reaches 4.5:1 on the muted and accent fills in both themes", () => {
+    for (const tokens of [light, dark]) {
+      for (const surface of ["--muted", "--accent"]) {
+        expect(contrastRatio(value(tokens, "--muted-foreground"), value(tokens, surface)), surface).toBeGreaterThanOrEqual(4.5);
+      }
+    }
   });
 });

@@ -43,7 +43,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "What does Aback UI look like?",
         answer:
-          "Square corners everywhere, one-pixel hairline borders, neutral ink buttons, and Aback Blue (#009bf9) used as a signal for links, focus, and selection rather than as the default fill. It uses the Geist and Geist Mono typefaces and has a light and a dark theme.",
+          "Square corners everywhere, one-pixel hairline borders, cool off-white neutrals, Aback Blue buttons, and the Aback Blue ramp (#009bf9) for links, focus, and selection. The dark theme is true black with neutral greys. It uses the Geist and Geist Mono typefaces.",
         href: "/docs/tokens",
       },
     ],

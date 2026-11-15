@@ -5,9 +5,10 @@ import { cn } from "@aback-ui/ui";
 import { site } from "@/data/site";
 
 /**
- * The Aback mark and the Aback UI wordmark. The mark is the same 128px PNG
- * Aback Tools and Aback Group ship, so the brand renders identically across
- * the products and in every browser.
+ * The Aback mark and the Aback UI wordmark, in the Aback Tools lockup: the
+ * blue mark carries the brand colour, and the wordmark sits in the text
+ * colour, "Aback" in semibold and "UI" lighter, so the two read as one name.
+ * The mark is the same 128px PNG Aback Tools and Aback Group ship.
  */
 export function Logo({
   className,
@@ -18,15 +19,15 @@ export function Logo({
   showText?: boolean;
   size?: "sm" | "md";
 }) {
-  const markSize = size === "sm" ? 24 : 32;
-  const textSize = size === "sm" ? "text-base" : "text-lg";
+  const markSize = size === "sm" ? 28 : 34;
+  const textSize = size === "sm" ? "text-[17px]" : "text-[19px]";
 
   return (
     <Link
       href="/"
       aria-label={showText ? undefined : `${site.name} home`}
       className={cn(
-        "group flex items-center gap-2 font-bold tracking-tight text-foreground outline-none",
+        "group flex items-center gap-1.5 text-foreground outline-none",
         "focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className,
       )}
@@ -41,8 +42,9 @@ export function Logo({
         className="shrink-0 object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       />
       {showText ? (
-        <span className={cn(textSize, "whitespace-nowrap")}>
-          Aback <span className="text-link transition-colors group-hover:text-link-hover">UI</span>
+        <span className={cn(textSize, "whitespace-nowrap leading-none tracking-[-0.02em]")}>
+          <span className="font-semibold">Aback</span>{" "}
+          <span className="font-normal text-foreground/55">UI</span>
         </span>
       ) : null}
     </Link>

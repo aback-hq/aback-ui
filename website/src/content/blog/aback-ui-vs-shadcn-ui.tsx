@@ -51,7 +51,7 @@ export default function Post() {
         items={[
           "Both: components copied as source, Tailwind-based, MIT licensed.",
           "shadcn/ui: larger catalogue, charts, a choice of primitive libraries, a theme and project builder, and a community registry directory.",
-          "Aback UI: square corners, neutral-ink actions with Aback Blue as a signal, and an optional @aback-ui/ui npm package.",
+          "Aback UI: square corners, Aback Blue actions on cool neutrals, a true black dark theme, and an optional @aback-ui/ui npm package.",
           "Aback UI requires React 19, Tailwind CSS v4, and a @/ path alias.",
           "If you want the widest choice and ecosystem, choose shadcn/ui. If the Aback design language fits, or you want a package option, consider Aback UI.",
         ]}
@@ -109,7 +109,7 @@ export default function Post() {
           <tr>
             <td>Design language</td>
             <td>A themeable starting point</td>
-            <td>Fixed: zero radius, neutral ink actions, Aback Blue accents</td>
+            <td>Fixed: zero radius, Aback Blue actions, cool neutrals, true black dark</td>
           </tr>
           <tr>
             <td>Blocks</td>
@@ -182,13 +182,14 @@ export default function Post() {
           renders square.
         </li>
         <li>
-          <strong>Neutral ink actions.</strong> The default button is near-black in light mode and
-          near-white in dark mode. Brand colour is not the default fill for every action.
+          <strong>Aback Blue actions on quiet surfaces.</strong> The default button is Aback Blue,
+          on a faintly cool off-white canvas with white cards in light, and on true black in dark.
+          Everything around the action stays neutral.
         </li>
         <li>
-          <strong>Aback Blue as a signal.</strong> The brand blue, <code>#009bf9</code>, and its ramp
-          appear through specific roles: links, focus rings, selection, and an explicit{" "}
-          <code>brand</code> button variant.
+          <strong>Aback Blue as a signal.</strong> Beyond the default button, the brand blue,{" "}
+          <code>#009bf9</code>, and its ramp appear through specific roles: links, focus rings,
+          selection, and a deeper <code>brand</code> button variant.
         </li>
       </ul>
       <Code
@@ -198,10 +199,10 @@ export default function Post() {
 export function Actions() {
   return (
     <>
-      {/* Neutral ink: the default */}
+      {/* The default action: Aback Blue */}
       <Button>Save changes</Button>
-      {/* Aback Blue: an explicit, sparing choice */}
-      <Button variant="brand">Get started</Button>
+      {/* Secondary actions stay neutral */}
+      <Button variant="outline">Cancel</Button>
     </>
   );
 }`}

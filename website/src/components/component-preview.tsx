@@ -4,7 +4,7 @@ import { IconCode, IconEye } from "@tabler/icons-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger, cn } from "@aback-ui/ui";
 
-// An underline tab: the active tab is marked by a 2px ink rule, not a fill.
+// An underline tab: the active tab is marked by a 2px rule, not a fill.
 const trigger =
   "-mb-px h-10 gap-1.5 border-b-2 border-transparent px-3 data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none";
 

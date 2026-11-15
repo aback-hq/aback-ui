@@ -887,7 +887,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
         prop: "variant",
         type: '"default" | "brand" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
         defaultValue: '"default"',
-        description: "default is neutral ink. brand is Aback Blue and is reserved for brand actions.",
+        description: "default is the Aback Blue action. brand is the deeper brand blue for brand calls to action. outline and ghost are for secondary actions.",
       },
       {
         prop: "size",

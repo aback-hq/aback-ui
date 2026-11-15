@@ -29,8 +29,8 @@ const roles = [
     { name: "link", utility: "text-link", use: "Text links and selected navigation." },
   ] },
   { group: "Actions", items: [
-    { name: "primary", utility: "bg-primary", use: "The default button. Neutral ink, not blue." },
-    { name: "brand-fill", utility: "bg-brand-fill", use: "Brand buttons and step markers." },
+    { name: "primary", utility: "bg-primary", use: "The default button, in Aback Blue." },
+    { name: "brand-fill", utility: "bg-brand-fill", use: "The deeper brand blue: brand buttons and step markers." },
     { name: "destructive", utility: "bg-destructive", use: "Delete and other irreversible actions." },
   ] },
   { group: "Lines and focus", items: [

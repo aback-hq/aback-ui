@@ -43,7 +43,7 @@ export const registryItems: RegistryItemSummary[] = [
     "name": "button",
     "type": "registry:ui",
     "title": "Button",
-    "description": "The primary action, with ink, brand, outline, ghost, and destructive variants and a loading state.",
+    "description": "The primary action, with default, brand, outline, ghost, and destructive variants and a loading state.",
     "categories": [
       "Foundation"
     ],

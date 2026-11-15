@@ -36,17 +36,17 @@
   }
 }
 
-/* The home hero's blue backdrop, after Aback Launch's hero: a wash of the
-   lightest brand blue that fades into the page, with two soft glows of the
-   same hue, one behind the preview card and one in the top corner. One hue
-   only and no grid, as DESIGN.md 2.4 and 8.4 ask. Text on it uses text-lead, which stays above
-   4.5:1 wherever the wash is strongest. */
-@utility hero-backdrop {
-  background-color: var(--background);
-  background-image:
-    radial-gradient(50% 60% at 80% 40%, color-mix(in oklab, var(--color-primary-200) 50%, transparent), transparent 70%),
-    radial-gradient(45% 55% at 0% 0%, color-mix(in oklab, var(--color-primary-100) 80%, transparent), transparent 70%),
-    linear-gradient(to bottom, var(--color-primary-50), color-mix(in oklab, var(--color-primary-50) 40%, var(--background)) 65%, var(--background));
+/* The home hero's light, after the Aback Tools home page: one very faint
+   streak of the action blue, as wide as the page and flatter than it is wide,
+   fading out on every side so it has no edge. It mixes --primary, so it
+   follows light and dark. No grid or mesh, as DESIGN.md 2.4 and 8.4 ask. */
+@utility hero-streak {
+  background: radial-gradient(
+    ellipse 100% 42% at 50% 34%,
+    color-mix(in oklch, var(--primary) 11%, transparent) 0%,
+    color-mix(in oklch, var(--primary) 6%, transparent) 45%,
+    transparent 100%
+  );
 }
 
 /* Secondary text on a tinted surface: darker than muted-foreground, so it
@@ -64,15 +64,24 @@
   --color-code: var(--code);
 }
 
-.dark .hero-backdrop {
-  background-image:
-    radial-gradient(50% 60% at 80% 40%, color-mix(in oklab, var(--color-primary-600) 30%, transparent), transparent 70%),
-    radial-gradient(45% 55% at 0% 0%, color-mix(in oklab, var(--color-primary-800) 55%, transparent), transparent 70%),
-    linear-gradient(to bottom, color-mix(in oklab, var(--color-primary-950) 85%, var(--background)), var(--background));
-}
-
 html {
   scroll-padding-top: 5rem;
+}
+
+/* Headings balance their lines and tighten slightly; selection takes a wash
+   of the action blue (after the Aback Tools revamp). Site only: the theme
+   package does not set these for consumers. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 22%, transparent);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   IconCircleCheck,
@@ -21,7 +21,6 @@ import {
   Badge,
   Button,
   Calendar,
-  Checkbox,
   CopyButton,
   Dropzone,
   Field,
@@ -32,13 +31,6 @@ import {
   ItemDescription,
   ItemTitle,
   Label,
-  Listbox,
-  ListboxContent,
-  ListboxGroup,
-  ListboxItem,
-  ListboxLabel,
-  ListboxTrigger,
-  ListboxValue,
   Meter,
   Rating,
   SegmentedControl,
@@ -438,131 +430,6 @@ function StatusCard({ className }: { className?: string }) {
           ))}
         </ul>
       </div>
-    </Card>
-  );
-}
-
-const regions = [
-  {
-    group: "Europe",
-    items: [
-      { value: "fra", label: "Frankfurt" },
-      { value: "lhr", label: "London" },
-    ],
-  },
-  {
-    group: "Americas",
-    items: [
-      { value: "iad", label: "Virginia" },
-      { value: "gru", label: "São Paulo" },
-    ],
-  },
-];
-
-/**
- * The form beside the homepage headline. It is the shipped Field, Input,
- * Listbox, Meter, Checkbox, and Button with working state. The save is a
- * short timer, and the card says nothing is sent.
- */
-export function HomeHeroPreview({ className }: { className?: string }) {
-  const [phase, setPhase] = useState<"idle" | "saving" | "saved">("idle");
-  const [protect, setProtect] = useState(true);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(
-    () => () => {
-      if (timer.current) clearTimeout(timer.current);
-    },
-    [],
-  );
-
-  function edited() {
-    setPhase((current) => (current === "saved" ? "idle" : current));
-  }
-
-  return (
-    <Card
-      className={cn("mb-0 shadow-sm", className)}
-      uses={[
-        { title: "Field", slug: "field" },
-        { title: "Listbox", slug: "listbox" },
-        { title: "Meter", slug: "meter" },
-        { title: "Checkbox", slug: "checkbox" },
-        { title: "Button", slug: "button" },
-      ]}
-    >
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (phase === "saving") return;
-          setPhase("saving");
-          timer.current = setTimeout(() => setPhase("saved"), 1400);
-        }}
-        onChange={edited}
-        className="flex flex-col gap-5"
-      >
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="text-base font-semibold text-foreground">New project</p>
-            <p className="text-sm text-muted-foreground">A working form. Nothing is sent.</p>
-          </div>
-          <Badge variant="muted">Example</Badge>
-        </div>
-
-        <Field label="Project name" required>
-          <Input name="project" defaultValue="Northwind docs" autoComplete="off" required />
-        </Field>
-
-        <Field label="Region" description="Where builds run.">
-          <Listbox name="region" defaultValue="fra" onValueChange={edited}>
-            <ListboxTrigger>
-              <ListboxValue />
-            </ListboxTrigger>
-            <ListboxContent>
-              {regions.map((region) => (
-                <ListboxGroup key={region.group}>
-                  <ListboxLabel>{region.group}</ListboxLabel>
-                  {region.items.map((item) => (
-                    <ListboxItem key={item.value} value={item.value}>
-                      {item.label}
-                    </ListboxItem>
-                  ))}
-                </ListboxGroup>
-              ))}
-            </ListboxContent>
-          </Listbox>
-        </Field>
-
-        <Meter label="Projects on this plan" value={7} max={10} valueLabel="7 of 10" />
-
-        <Field
-          orientation="horizontal"
-          label="Protect the main branch"
-          description="Require a review before each deploy."
-        >
-          <Checkbox
-            checked={protect}
-            onCheckedChange={(value) => {
-              setProtect(value === true);
-              edited();
-            }}
-          />
-        </Field>
-
-        <div className="flex items-center justify-end gap-3 border-t border-border pt-4">
-          <span role="status" className="mr-auto flex items-center gap-1.5 text-xs text-success-strong">
-            {phase === "saved" ? (
-              <>
-                <IconCircleCheck aria-hidden="true" className="size-4" />
-                Created in this preview
-              </>
-            ) : null}
-          </span>
-          <Button type="submit" loading={phase === "saving"} loadingText="Creating">
-            Create project
-          </Button>
-        </div>
-      </form>
     </Card>
   );
 }

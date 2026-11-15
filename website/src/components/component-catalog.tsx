@@ -4,6 +4,8 @@ import { useDeferredValue, useMemo, useState } from "react";
 import Link from "next/link";
 import { IconArrowRight, IconSearch, IconX } from "@tabler/icons-react";
 
+import { categoryAnchor } from "@/data/category-accents";
+
 import {
   Button,
   EmptyState,
@@ -134,10 +136,10 @@ export function ComponentCatalog({
       ) : (
         <div className="flex flex-col gap-12">
           {groups.map((group) => (
-            <section key={group.name} aria-labelledby={`category-${group.name}`}>
+            <section key={group.name} aria-labelledby={categoryAnchor(group.name)}>
               <div className="mb-4 flex items-end justify-between gap-4 border-b border-border pb-2">
                 <h2
-                  id={`category-${group.name}`}
+                  id={categoryAnchor(group.name)}
                   className="scroll-mt-24 text-xl font-semibold tracking-tight text-foreground"
                 >
                   {group.name}

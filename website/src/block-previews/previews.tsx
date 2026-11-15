@@ -221,7 +221,7 @@ export function FeatureGridPreview() {
         {
           icon: <IconPalette />,
           title: "Tokens with intent",
-          description: "Neutral ink actions and Aback Blue as a signal, in light and dark.",
+          description: "Aback Blue actions on cool neutrals, in light and true black dark.",
         },
         {
           icon: <IconBolt />,

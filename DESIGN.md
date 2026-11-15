@@ -4,19 +4,20 @@ name: Aback Design System
 
 themes:
   light:
-    canvas: "#ffffff"            # --background
+    canvas: "#f9fafb"            # --background (faint cool grey, so white cards lift off it)
     surface: "#ffffff"           # --card
     popover: "#ffffff"           # --popover
-    muted: "#f5f5f5"             # --muted / --secondary / --accent
-    ink: "#0a0a0a"               # --foreground
-    mute: "#737373"              # --muted-foreground (lowest readable text tier)
-    faint: "#b9b9b9"             # mute at 50% (decorative only, never text)
-    action: "#171717"            # --primary (NEUTRAL ink fill, not brand blue)
-    on-action: "#fafafa"         # --primary-foreground
-    hairline: "#e5e5e5"          # --border (cards, controls, dividers)
-    separator: "#d7d7d7"         # --separator (page chrome rules only)
-    input: "#e5e5e5"             # --input
-    ring: "#a1a1a1"              # --ring (shadcn default ring)
+    muted: "#f1f4f7"             # --muted / --secondary
+    accent: "#e9f1f8"            # --accent (hover and selected fills)
+    ink: "#131824"               # --foreground (deep slate)
+    mute: "#5a6472"              # --muted-foreground (lowest readable text tier)
+    faint: "#a9b0b9"             # mute at 50% (decorative only, never text)
+    action: "#007bc4"            # --primary (Aback Blue fill, 4.5:1 with white)
+    on-action: "#ffffff"         # --primary-foreground
+    hairline: "#e0e3e8"          # --border (cards, controls, dividers)
+    separator: "#dee2e6"         # --separator (page chrome rules only)
+    input: "#d4d8dd"             # --input
+    ring: "#0095dd"              # --ring
     destructive: "#e7000b"       # --destructive
     link: "#005d95"              # primary-700
     link-hover: "#003e63"        # primary-800
@@ -27,23 +28,24 @@ themes:
     on-brand-fill: "#ffffff"
     focus-ring: "#007cc7"        # primary-600
     overlay: "rgba(0, 0, 0, 0.40)"
-    scrollbar-thumb: "#b4b4b4"
-    scrollbar-thumb-hover: "#949494"
-    scrollbar-track: "#f1f1f1"
+    scrollbar-thumb: "#cbd2dc"
+    scrollbar-thumb-hover: "#a9b3c1"
+    scrollbar-track: "transparent"
   dark:
-    canvas: "#0a0a0a"
-    surface: "#171717"
-    popover: "#171717"
-    muted: "#262626"
-    ink: "#fafafa"
-    mute: "#a1a1a1"
-    faint: "#565656"
-    action: "#e5e5e5"
-    on-action: "#171717"
-    hairline: "rgba(255, 255, 255, 0.10)"
-    separator: "rgba(255, 255, 255, 0.15)"
-    input: "rgba(255, 255, 255, 0.15)"
-    ring: "#737373"
+    canvas: "#000000"            # true black
+    surface: "#0f0f11"
+    popover: "#18181b"
+    muted: "#18181b"
+    accent: "#1f1f23"
+    ink: "#f5f5f5"
+    mute: "#a3a3a3"
+    faint: "#525252"
+    action: "#3bb7f7"            # primary-400
+    on-action: "#04111c"
+    hairline: "#27272a"
+    separator: "#1f1f22"
+    input: "#2e2e33"
+    ring: "#3aaae4"
     destructive: "#ff6467"
     link: "#33b7ff"              # primary-400
     link-hover: "#66c9ff"        # primary-300
@@ -54,21 +56,21 @@ themes:
     on-brand-fill: "#000f19"     # primary-950
     focus-ring: "#33b7ff"
     overlay: "rgba(0, 0, 0, 0.60)"
-    scrollbar-thumb: "#3d3d3d"
-    scrollbar-thumb-hover: "#525252"
-    scrollbar-track: "#1a1a1a"
+    scrollbar-thumb: "#2e2e33"
+    scrollbar-thumb-hover: "#45454c"
+    scrollbar-track: "transparent"
 
 colors:
   # Semantic roles resolve to the LIGHT theme (the :root base theme).
-  canvas: "#ffffff"
+  canvas: "#f9fafb"
   surface: "#ffffff"
-  muted: "#f5f5f5"
-  ink: "#0a0a0a"
-  mute: "#737373"
-  action: "#171717"
-  on-action: "#fafafa"
-  hairline: "#e5e5e5"
-  separator: "#d7d7d7"
+  muted: "#f1f4f7"
+  ink: "#131824"
+  mute: "#5a6472"
+  action: "#007bc4"
+  on-action: "#ffffff"
+  hairline: "#e0e3e8"
+  separator: "#dee2e6"
   destructive: "#e7000b"
   link: "#005d95"
   # Aback Blue brand ramp (--color-primary-*). Tailwind: primary-50 ... primary-950
@@ -700,12 +702,14 @@ This file is the single source of truth for how Aback Tools looks, behaves and r
 
 Aback Tools is a free, no-signup library of 3,200+ utilities (the live count comes from `TOTAL_TOOL_COUNT`, currently 3,220) that run entirely in the browser. The design exists to get a person from "I need to convert/format/calculate X" to a finished result as fast as possible, and to make the privacy promise ("your files never leave your device") feel credible.
 
-The visual language is a **Swiss utilitarian app shell**: a neutral grayscale, a single saturated brand blue, square corners, 1px hairlines and dense, well-ordered typography. It looks like a precise instrument, not a marketing site.
+The visual language is a **Swiss utilitarian app shell**: cool, faintly tinted neutrals, a single saturated brand blue, square corners, 1px hairlines and dense, well-ordered typography. It looks like a precise instrument, not a marketing site.
+
+> **UI revamp (owner, 2026-11-15).** Corners stay square. Light neutrals carry a faint cool tint (an off-white `#f9fafb` canvas, white cards, slate text); dark mode is true black with neutral greys (`#000` page, `#0f0f11` cards, `#27272a` hairlines), and `--primary` is Aback Blue, so the default button is a blue fill. Icons are drawn bare, with no tinted box behind them, and a card's hover may take its own category colour (Item `accent`). A home or directory page may open with a centred hero: an h1, one large search field, and popular shortcuts, followed by category tiles (the Search hero block). The tables below carry the new values.
 
 **Design pillars**
 
-1. **Utility first, no hero theatre.** Pages open with a plain H1 and description and put tools above the fold. There is no marketing hero on the homepage by design.
-2. **One brand colour, used as a signal.** Aback Blue (`#009bf9` and its ramp) marks interactivity and state: links, icon chips, active navigation, drag-over, selection, progress. Everything else is neutral.
+1. **Utility first, no hero theatre.** Pages open with a plain H1 and description and put tools above the fold. A home or directory page may open with a centred search hero, because finding the right thing is its job; it carries no product shot or animation.
+2. **One brand colour, used as a signal.** Aback Blue (`#009bf9` and its ramp) marks interactivity and state: primary actions, links, active navigation, drag-over, selection, progress. Everything else is neutral.
 3. **Square geometry.** Every corner radius is 0. This is enforced globally in CSS and is the most recognisable trait of the brand.
 4. **Hairline structure over shadow.** Borders define surfaces; shadows are whisper-light and reserved for floating layers.
 5. **Consistency across 2,000+ pages.** Every tool page follows one anatomy and one set of shared components, so moving between tools feels like moving between tabs of one app.
@@ -765,10 +769,10 @@ The codebase has two different things called "primary":
 
 | You write | It resolves to | Light | Dark | Meaning |
 |---|---|---|---|---|
-| `bg-primary`, `text-primary`, `border-primary`, `ring-primary` | `--primary` (shadcn semantic) | `#171717` | `#e5e5e5` | **Ink / Action**: neutral high-emphasis fill |
+| `bg-primary`, `text-primary`, `border-primary`, `ring-primary` | `--primary` (shadcn semantic) | `#007bc4` | `#3bb7f7` | **Action**: the Aback Blue fill for primary buttons |
 | `bg-primary-500`, `text-primary-700`, ... | `--color-primary-NNN` (brand ramp) | ramp | ramp | **Aback Blue** |
 
-Bare `primary` is **not blue**. The shadcn `Button` default variant is therefore an ink button (near-black in light, near-white in dark). When you mean brand blue, always write a ramp step. The audit found about 6,900 bare `text-primary` usages (mostly icons) that render ink while their authors likely intended blue; see Appendix A.
+Since the 2026-11-15 revamp, bare `primary` **is blue**: `#007bc4` in light (4.5:1 with white text) and `#3bb7f7` in dark (with near-black text). It is still a semantic role, not a ramp step, so write a ramp step when you need a specific shade, and use `text-link` for blue text, which reaches 4.5:1 on every surface. Before the revamp bare `primary` rendered ink; Appendix A records the usages that assumed it.
 
 ### 3.2 Semantic surface and text tokens
 
@@ -776,24 +780,24 @@ All defined in `src/app/globals.css` as CSS custom properties and exposed as Tai
 
 | Role | CSS var / Tailwind | Light | Dark | Use |
 |---|---|---|---|---|
-| Canvas | `--background` / `bg-background` | `#ffffff` | `#0a0a0a` | Page, sidebar, navbar, rail, footer |
-| Surface | `--card` / `bg-card` | `#ffffff` | `#171717` | Cards, panels, menus, modals |
-| Popover | `--popover` / `bg-popover` | `#ffffff` | `#171717` | Floating layers |
-| Muted | `--muted` / `bg-muted` | `#f5f5f5` | `#262626` | Hover fills, wells, tinted panels (usually at /10 to /50) |
-| Secondary / Accent | `--secondary`, `--accent` | `#f5f5f5` | `#262626` | shadcn secondary and ghost hover fills |
-| Ink | `--foreground` / `text-foreground` | `#0a0a0a` | `#fafafa` | Headings, labels, primary text |
-| Mute | `--muted-foreground` / `text-muted-foreground` | `#737373` | `#a1a1a1` | Descriptions, meta, captions, idle nav. **Lowest readable tier** |
-| Action | `--primary` / `bg-primary` | `#171717` | `#e5e5e5` | Primary action button fill |
-| On-action | `--primary-foreground` | `#fafafa` | `#171717` | Text on Action |
-| Hairline | `--border` / `border-border` (default for bare `border`) | `#e5e5e5` | `white / 10%` | Cards, controls, inner dividers |
-| Separator | `--separator` / `border-separator`, `bg-separator` | `#d7d7d7` | `white / 15%` | **Page chrome only**: navbar bottom, sidebar edge and tree guides, footer top, rail divider, link chips |
-| Input | `--input` / `border-input` | `#e5e5e5` | `white / 15%` | Form control outlines |
-| Ring | `--ring` | `#a1a1a1` | `#737373` | shadcn default focus ring (see 14.3) |
+| Canvas | `--background` / `bg-background` | `#f9fafb` | `#000000` | Page, sidebar, navbar, rail, footer |
+| Surface | `--card` / `bg-card` | `#ffffff` | `#0f0f11` | Cards, panels, menus, modals |
+| Popover | `--popover` / `bg-popover` | `#ffffff` | `#18181b` | Floating layers |
+| Muted | `--muted` / `bg-muted` | `#f1f4f7` | `#18181b` | Hover fills, wells, tinted panels (usually at /10 to /50) |
+| Secondary / Accent | `--secondary`, `--accent` | `#f1f4f7` / `#e9f1f8` | `#18181b` / `#1f1f23` | shadcn secondary and ghost hover fills |
+| Ink | `--foreground` / `text-foreground` | `#131824` | `#f5f5f5` | Headings, labels, primary text |
+| Mute | `--muted-foreground` / `text-muted-foreground` | `#5a6472` | `#a3a3a3` | Descriptions, meta, captions, idle nav. **Lowest readable tier** |
+| Action | `--primary` / `bg-primary` | `#007bc4` | `#3bb7f7` | Primary action button fill |
+| On-action | `--primary-foreground` | `#ffffff` | `#04111c` | Text on Action |
+| Hairline | `--border` / `border-border` (default for bare `border`) | `#e0e3e8` | `#27272a` | Cards, controls, inner dividers |
+| Separator | `--separator` / `border-separator`, `bg-separator` | `#dee2e6` | `#1f1f22` | **Page chrome only**: navbar bottom, sidebar edge and tree guides, footer top, rail divider, link chips |
+| Input | `--input` / `border-input` | `#d4d8dd` | `#2e2e33` | Form control outlines |
+| Ring | `--ring` | `#0095dd` | `#3aaae4` | shadcn default ring; focus uses `--focus-ring` (see 14.3) |
 | Destructive | `--destructive` | `#e7000b` | `#ff6467` | Errors, destructive actions |
 
 Rules:
 - The global base layer applies `border-border` and `outline-ring/50` to `*`, so a bare `border` class is always the Hairline.
-- `--separator` is intentionally a shade heavier than `--border` so long chrome rules do not disappear, while form outlines stay light. Never use Separator on controls, never use Hairline for chrome rules.
+- In light, `--input` is a shade heavier than `--border`, so a control's outline reads before a card's. `--separator` sits just under `--border` in dark, where long rules glow against true black. Never use Separator on controls, never use Hairline for chrome rules.
 - `--sidebar-*` tokens exist (shadcn scaffold) but the sidebar uses `bg-background`. Do not adopt them.
 
 ### 3.3 Aback Blue ramp and role map
@@ -820,8 +824,10 @@ Measured contrast (WCAG 2.x):
 | primary-600 on white | 4.46:1 | Fails AA for normal text by 0.04; OK for icons and 18px+ text |
 | primary-500 on white | 2.98:1 | Decorative only on light; never text, never the only state cue |
 | white on primary-500 | 2.98:1 | Fails; do not put white labels on primary-500 |
-| primary-400 on `#0a0a0a` | 8.8:1 | AAA |
-| primary-400 on `#171717` | 8.0:1 | AAA |
+| primary-400 on `#000000` | 9.3:1 | AAA |
+| primary-400 on `#0f0f11` | 8.5:1 | AAA |
+| white on the light action blue `#007bc4` | 4.5:1 | AA text (the default button) |
+| `#04111c` on the dark action blue `#3bb7f7` | 8.4:1 | AAA |
 | primary-950 on primary-400 | 8.6:1 | AAA |
 | primary-600 icon on primary-100 chip | 3.6:1 | Passes 3:1 non-text |
 
@@ -883,15 +889,15 @@ Allowed only on the brand's own mark, at hover, in share or "Ask AI" controls: X
 
 ### 4.2 Dark theme rules
 
-- Dark canvas is `#0a0a0a`, surfaces step up to `#171717`, wells to `#262626`. Hierarchy comes from lighter surfaces, not from shadows (shadows are near-invisible on dark).
-- Borders become translucent white (10% hairline, 15% separator and input).
+- Dark canvas is true black `#000000`, cards step up to `#0f0f11`, raised surfaces and wells to `#18181b`, hover fills to `#1f1f23`. Greys are neutral, with no tint. Hierarchy comes from lighter surfaces, not from shadows (shadows are near-invisible on dark).
+- Borders are solid greys: `#27272a` hairline, `#1f1f22` separator, `#2e2e33` input.
 - Brand shifts up the ramp: 600/700 in light become 400/300 in dark. Tints shift down: 50/100 become 900/950 at 20% to 50% opacity.
 - Status containers use `-950/30` fills, `-800/50` borders, `-300` text.
 - Every component that sets a light colour explicitly must set its dark pair in the same class string. Never ship a `bg-primary-50` without `dark:bg-primary-900/30` (or similar).
 
 ### 4.3 Scrollbars
 
-Thin, theme-aware scrollbars are defined globally: 8px wide, thumb radius 4px (the only rounded element in the UI), thumb `#b4b4b4` / `#3d3d3d`, hover `#949494` / `#525252`, track `#f1f1f1` / `#1a1a1a`. Firefox uses `scrollbar-width: thin`.
+Thin, theme-aware scrollbars are defined globally: 8px wide, square thumb, thumb `#cbd2dc` / `#2e2e33`, hover `#a9b3c1` / `#45454c`, transparent track. Firefox uses `scrollbar-width: thin`.
 
 ---
 
@@ -934,7 +940,7 @@ Thin, theme-aware scrollbars are defined globally: 8px wide, thumb radius 4px (t
 3. **Weights**: 400, 500, 600, 700. 800 is reserved for `numeric-display`. Never use 300 or 900.
 4. **Tracking**: `tracking-tight` on 24px and up only. Uppercase labels always get positive tracking. Body is never tracked.
 5. **Text floor (normative)**: readable content is never below 12px. 10px and 11px exist only as uppercase `micro-caps` and `overline`. Nothing is ever set below 10px (the audit found 1,085 sub-10px usages; Appendix A).
-6. **Opacity floor (normative)**: never apply opacity modifiers (`text-muted-foreground/50`, `/60`, `/70`) to text a user needs to read. In light mode `#737373` at 70% drops to 2.7:1. `text-muted-foreground` is the lowest text tier; reduced-opacity text is for decorative glyphs and disabled states only.
+6. **Opacity floor (normative)**: never apply opacity modifiers (`text-muted-foreground/50`, `/60`, `/70`) to text a user needs to read. In light mode `#5a6472` at 60% drops to about 2.9:1. `text-muted-foreground` is the lowest text tier; reduced-opacity text is for decorative glyphs and disabled states only.
 7. **Numbers**: counts, stats, sizes and anything in a column use `tabular-nums`.
 8. **Measure**: long-form text is capped at about 72ch (`max-w-[72ch]`). UI descriptions under an H1 may run the column width.
 9. **Truncation**: single-line titles in lists use `truncate`; card descriptions use `line-clamp-2`; excerpts use `line-clamp-3`. Always provide the full text via `title` or the destination page.
@@ -1190,13 +1196,13 @@ Base: `inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm f
 
 | Variant | Classes | When |
 |---|---|---|
-| `default` (Primary / Ink) | `bg-primary text-primary-foreground hover:bg-primary/90` | **The** main action of a tool ("Convert", "Calculate", "Generate"). One per workbench |
+| `default` (Primary) | `bg-primary text-primary-foreground hover:bg-primary/90` | **The** main action of a tool ("Convert", "Calculate", "Generate"), in Aback Blue. One per workbench |
 | Brand (normative) | `bg-primary-700 text-white hover:bg-primary-800 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300` | Cross-sell and navigation CTAs outside the workbench (404, blog tool CTA, support partners) |
 | `outline` | `border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50` | Secondary actions: Download, Upload, Reset, Copy in toolbars. Most used variant in tools |
 | `secondary` | `bg-secondary text-secondary-foreground hover:bg-secondary/80` | Low-emphasis filled actions |
 | `ghost` | `hover:bg-accent dark:hover:bg-accent/50` | Icon buttons in chrome, inline copy, close |
 | `destructive` | `bg-destructive text-white hover:bg-destructive/90 dark:bg-destructive/60` | Clear all, remove all |
-| `link` | `text-primary underline-offset-4 hover:underline` | Renders ink. For blue text links use an anchor with the link recipe |
+| `link` | `text-primary underline-offset-4 hover:underline` | Renders the action blue. For body links use an anchor with the link recipe (`text-link`), which keeps 4.5:1 on every surface |
 
 | Size | Height | Padding | Notes |
 |---|---|---|---|
@@ -1211,7 +1217,7 @@ Shared wrappers:
 - **CopyButton**: ghost, `sm`; `IconCopy` swaps to `IconCheck` with "Copied" for 2s; labels from i18n `common.copy/copied`; disabled when empty.
 - **DownloadButton**: outline, `sm`, `IconDownload`, builds a Blob; disabled when empty.
 
-Rules: one primary (ink) button per workbench; action rows are `flex flex-wrap gap-2` (or `gap-3`, centred for single CTAs with `min-w-[220px]`); never hand-roll `<button>` styling for actions (1,558 tool files do today); never use gradient buttons.
+Rules: one primary (blue) button per workbench; action rows are `flex flex-wrap gap-2` (or `gap-3`, centred for single CTAs with `min-w-[220px]`); never hand-roll `<button>` styling for actions (1,558 tool files do today); never use gradient buttons.
 
 ### 11.2 Form controls
 
@@ -1420,7 +1426,7 @@ Bottom-pinned stack `space-y-4`, order fixed:
 1. Ad zone (inert; Mediavine inserts beside it).
 2. **ShareSlot**: `micro-caps` label, five 36px icon buttons `border border-border/60 bg-card text-muted-foreground` (X, LinkedIn, Facebook, WhatsApp, Copy link), brand hover colours.
 3. **SupportSlot**: `border border-primary-200 bg-primary-50 px-3.5 py-2.5 text-xs font-semibold text-primary-700 hover:bg-primary-100` (dark `border-primary-800/50 bg-primary-950/30 text-primary-300`) with a rose `IconHeart` and an external-arrow icon.
-4. **NewsletterSignup**: label, blurb `text-xs`, email input `pl-8 py-2 text-xs border` with `IconMail`, full-width ink button `text-xs`, inline success or error box (status recipes).
+4. **NewsletterSignup**: label, blurb `text-xs`, email input `pl-8 py-2 text-xs border` with `IconMail`, full-width primary button `text-xs`, inline success or error box (status recipes).
 
 ### 11.11 Footer
 

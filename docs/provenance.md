@@ -110,7 +110,7 @@ Reviewed at Aback Tools `e2e994eab` on the `production` branch (read on 2026-11-
 | Theme Toggle `transition="reveal"` | Tools `common/ThemeToggle.tsx` (`setThemeWithRipple`) | The injected `<style>` element that turned off the cross-fade, replaced by animations on both snapshots so a strict style CSP is not needed |
 | Search hero block | Tools `home/HomeHero.tsx`, `common/SearchDialog.tsx` (popular items before typing) | The tool catalogue, the live usage counter and its API, locale handling, and the sponsor slots |
 
-Not taken: the revamp's theme (a blue primary action, a cool grey canvas, a true black dark theme, and card shadows), the logo lockup, the sponsor chips, and the sidebar tree. The theme conflicts with `DESIGN.md`'s neutral ink action and needs an owner decision; the others are product chrome.
+The revamp's theme followed in 0.6.0, at the owner's request: the Aback Blue action fill, the cool off-white canvas and slate text, the true black dark theme with neutral greys, solid dark hairlines, and the square scrollbar thumb. Its values were converted from the OKLCH in Tools `src/app/globals.css` to hex. The website also took the centred search hero, the faint hero light, the underlined navigation, and the logo lockup. Not taken: the card shadow tokens (cards already use the elevation in `DESIGN.md` 8.2), the global rules that restyle boxed icons and blue fills by selector in Tools' older tool pages, the sponsor chips, and the sidebar tree.
 
 ### Brand assets
 

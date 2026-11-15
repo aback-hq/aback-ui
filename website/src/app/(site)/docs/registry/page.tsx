@@ -63,7 +63,7 @@ export default function RegistryPage() {
   "name": "button",
   "type": "registry:ui",
   "title": "Button",
-  "description": "The primary action, with ink, brand, outline, ghost, and destructive variants.",
+  "description": "The primary action, with default, brand, outline, ghost, and destructive variants.",
   "dependencies": ["class-variance-authority", "radix-ui"],
   "registryDependencies": ["https://abackui.com/r/utils.json"],
   "categories": ["Foundation"],

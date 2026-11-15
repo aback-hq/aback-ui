@@ -27,7 +27,7 @@ const principles = [
   },
   {
     title: "One design language",
-    body: "Square corners, hairline borders, neutral ink actions, and Aback Blue used as a signal rather than paint.",
+    body: "Square corners, hairline borders, cool neutrals, a true black dark theme, and Aback Blue for actions and signals.",
   },
   {
     title: "Evidence over claims",

@@ -7,7 +7,7 @@ import { expectNoA11yViolations } from "../test-utils/axe.js";
 import { Button } from "./button.js";
 
 describe("Button", () => {
-  it("renders a real button with the ink action by default", () => {
+  it("renders a real button with the primary action by default", () => {
     render(<Button>Save changes</Button>);
 
     const button = screen.getByRole("button", { name: "Save changes" });

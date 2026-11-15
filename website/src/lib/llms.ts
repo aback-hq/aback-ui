@@ -8,7 +8,7 @@ import { tools } from "@/data/tools";
 
 const intro = `# ${site.name}
 
-> ${site.name} is an open-source React component library and design system from Aback Group. Components are copied into your project as source by the aback-ui CLI, or imported from the @aback-ui/ui npm package. They use square corners, neutral ink actions, the Aback Blue brand ramp, and semantic CSS tokens with light and dark themes.
+> ${site.name} is an open-source React component library and design system from Aback Group. Components are copied into your project as source by the aback-ui CLI, or imported from the @aback-ui/ui npm package. They use square corners, Aback Blue actions, cool neutrals with a true black dark theme, and semantic CSS tokens with light and dark themes.
 
 - Website: ${site.url}
 - CLI: \`npx ${site.cli} <command>\` (npm package \`aback-ui\`; the registry ships inside it)

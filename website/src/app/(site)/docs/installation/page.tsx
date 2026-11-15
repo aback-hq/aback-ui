@@ -104,8 +104,8 @@ export default function Page() {
 }`}
               />
               <p>
-                The default button is neutral ink. Use <code>variant=&quot;brand&quot;</code> for a
-                brand action, and keep one primary action per surface.
+                The default button is Aback Blue. Use <code>variant=&quot;outline&quot;</code> or{" "}
+                <code>ghost</code> for secondary actions, and keep one primary action per surface.
               </p>
             </DocsStep>
           </DocsSteps>

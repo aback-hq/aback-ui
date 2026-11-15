@@ -11,9 +11,9 @@ The file contains an `@theme inline` map, a `:root` block for light, and a `.dar
 
 ## Rules
 
-- `primary` is neutral ink, not Aback Blue.
+- `primary` is the Aback Blue action fill: `#007bc4` with white text in light, `#3bb7f7` with near-black text in dark.
 - `brand-fill` is a filled brand action, used sparingly.
-- Every radius is zero. The only rounded element is the native scrollbar thumb.
+- Every radius is zero, the scrollbar thumb included.
 - Readable text never drops below 12px and is never faded with opacity.
 - Pair every light value with its dark counterpart.
 

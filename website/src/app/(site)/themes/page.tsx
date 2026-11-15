@@ -23,9 +23,9 @@ const faq = [
       "In your global stylesheet, after the line that imports the Aback theme (styles/aback.css from aback-ui init, or @aback-ui/tokens/tokens.css for the npm package). Later declarations win, so your roles and ramp replace the Aback Blue defaults.",
   },
   {
-    question: "Why are buttons not filled with my brand colour?",
+    question: "Does the theme change my buttons too?",
     answer:
-      "In Aback UI the default action is neutral ink and the brand colour is a signal: links, focus, selection, and the brand button variant. That keeps the brand colour meaningful. Use variant=\"brand\" on Button where you want a filled brand action.",
+      "Yes. The default button uses --primary, which the generator sets to the first shade of your ramp that carries white text at 4.5:1 in light, and to a light shade with dark text in dark. The brand button variant uses the same pair through --brand-fill.",
   },
   {
     question: "What if a role fails its contrast check?",
@@ -56,9 +56,9 @@ export default function ThemesPage() {
         The generator builds a 50 to 950 ramp from your colour in OKLCH, the same way the{" "}
         <A href="/tools/tailwind-color-generator">Tailwind colour scale generator</A> does. It then fills the
         brand roles Aback UI components read. For each text role it walks the ramp from the middle outward
-        and takes the first shade that reaches 4.5:1 on the theme&apos;s background, white in light and{" "}
-        <code>#0a0a0a</code> in dark. Focus rings and icons need 3:1. The filled brand button checks its
-        label colour against the fill instead.
+        and takes the first shade that reaches 4.5:1 on the theme&apos;s hardest surface for text, the{" "}
+        <code>#f9fafb</code> canvas in light and the <code>#0f0f11</code> card in dark. Focus rings and
+        icons need 3:1. The default and brand buttons check their label colour against the fill instead.
       </p>
 
       <h2 id="roles">What each role controls</h2>
@@ -67,11 +67,12 @@ export default function ThemesPage() {
         <li><strong>--focus-ring</strong>: the keyboard focus outline on every interactive component.</li>
         <li><strong>--brand-icon</strong>: icons that carry the brand, such as feature icons.</li>
         <li><strong>--brand-chip</strong> and <strong>--brand-wash</strong>: tinted backgrounds for badges, selected rows, and callouts.</li>
+        <li><strong>--primary</strong> and <strong>--primary-foreground</strong>: the default button and its label.</li>
         <li><strong>--brand-fill</strong> and <strong>--on-brand-fill</strong>: the brand button and its label.</li>
         <li><strong>--info</strong> and <strong>--info-soft</strong>: informational alerts and badges.</li>
       </ul>
       <p>
-        Neutral roles such as background, foreground, border, and the ink primary button are not changed,
+        Neutral roles such as background, foreground, and border are not changed,
         and neither are the success, warning, and danger colours. <A href="/docs/theming">Theming</A>{" "}
         explains every role and the rules that keep overrides working.
       </p>

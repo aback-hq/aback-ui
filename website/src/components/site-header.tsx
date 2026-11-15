@@ -17,12 +17,12 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-separator bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-separator bg-background/80 backdrop-blur-xl backdrop-saturate-150">
       <div className="container-page flex h-16 items-center gap-2">
         <MobileNav />
         <Logo className="mr-3 lg:mr-5" />
 
-        <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
+        <nav aria-label="Main" className="hidden h-16 items-center md:flex">
           {mainNav.map((link) => {
             const active = link.exact
               ? pathname === link.href
@@ -34,11 +34,12 @@ export function SiteHeader() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex h-9 items-center px-3 text-sm font-medium transition-colors duration-150",
-                  "outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
+                  // The current section is underlined in the action blue, after the Aback Tools navbar.
+                  "flex h-16 items-center border-b-2 px-3 text-sm font-medium transition-colors duration-150",
+                  "outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-inset",
                   active
-                    ? "bg-brand-wash text-link"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                    ? "border-primary text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground",
                 )}
               >
                 {link.title}
@@ -60,7 +61,7 @@ export function SiteHeader() {
               <IconBrandGithub aria-hidden="true" />
             </a>
           </Button>
-          <ThemeToggle />
+          <ThemeToggle transition="reveal" />
         </div>
       </div>
     </header>

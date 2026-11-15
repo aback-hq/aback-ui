@@ -140,20 +140,20 @@ export default function Post() {
 
 :root {
   color-scheme: light;
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: #f9fafb;
+  --foreground: #131824;
   --card: #ffffff;
-  --border: #e5e5e5;
+  --border: #e0e3e8;
   --link: #005d95;
   --focus-ring: #007cc7;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --card: #171717;
-  --border: rgb(255 255 255 / 0.1);
+  --background: #000000;
+  --foreground: #f5f5f5;
+  --card: #0f0f11;
+  --border: #27272a;
   --link: #33b7ff;
   --focus-ring: #33b7ff;
 }`}
@@ -238,8 +238,9 @@ export default function Post() {
           and a strong variant cover most alerts and badges without inventing new names.
         </li>
         <li>
-          <strong>Do not let the brand colour become the default.</strong> In Aback UI,{" "}
-          <code>primary</code> is neutral ink, and Aback Blue appears through dedicated brand roles.
+          <strong>Give the brand colour one clear job.</strong> In Aback UI, <code>primary</code> is
+          the Aback Blue action fill; links, focus, and icons get their own brand roles, each picked
+          for contrast on its surface.
         </li>
       </ul>
       <table>
@@ -260,9 +261,9 @@ export default function Post() {
             <td>
               <code>bg-primary</code>
             </td>
-            <td>#171717</td>
-            <td>#e5e5e5</td>
-            <td>Default action fill (neutral ink)</td>
+            <td>#007bc4</td>
+            <td>#3bb7f7</td>
+            <td>Default action fill (Aback Blue)</td>
           </tr>
           <tr>
             <td>
@@ -271,8 +272,8 @@ export default function Post() {
             <td>
               <code>text-muted-foreground</code>
             </td>
-            <td>#737373</td>
-            <td>#a1a1a1</td>
+            <td>#5a6472</td>
+            <td>#a3a3a3</td>
             <td>Secondary text</td>
           </tr>
           <tr>

@@ -129,7 +129,7 @@ export default function Post() {
           <strong>Brand colours are often mid-luminance.</strong> Aback Blue, <code>#009bf9</code>,
           is 2.98:1 on white. It cannot carry body text in the light theme, so Aback UI uses the
           darker <code>#005d95</code> for links, which is 7.00:1. In the dark theme, links use{" "}
-          <code>#33b7ff</code>, which is 8.82:1 on the <code>#0a0a0a</code> background.
+          <code>#33b7ff</code>, which is 9.35:1 on the true black <code>#000000</code> background.
         </li>
         <li>
           <strong>Transparency must be flattened first.</strong> A colour with alpha has no fixed

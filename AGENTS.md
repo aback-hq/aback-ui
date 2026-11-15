@@ -29,7 +29,7 @@
 7. **Audit before extracting.** Code in another Aback repository is not automatically reusable, owned, license-compatible, secure, or suitable for public release. Inspect provenance, dependencies, license obligations, embedded secrets, internal APIs, product assumptions, and sensitive data before publishing.
 8. **Do not copy product-specific internals.** Extract visual patterns and genuinely reusable behavior. Do not publish private API clients, tenant/account logic, billing code, internal endpoints, proprietary integrations, customer data, credentials, analytics payloads, or product-specific business rules as generic UI.
 9. **Accessibility is part of correctness.** Use semantic HTML, keyboard-operable interactions, visible focus, appropriate accessible names, correct labels and descriptions, reduced-motion support, and sufficient contrast. Do not claim accessibility based only on appearance.
-10. **Use the design tokens.** Avoid arbitrary hex values, ad hoc spacing, one-off radii, and isolated typography decisions. Add or change tokens deliberately and document the reason. Do not use the Aback Blue brand color as the default fill for every action.
+10. **Use the design tokens.** Avoid arbitrary hex values, ad hoc spacing, one-off radii, and isolated typography decisions. Add or change tokens deliberately and document the reason. Aback Blue is the default action fill (`--primary`); do not paint other surfaces, text, or secondary actions with it.
 11. **Do not overstate compatibility.** Declare actual framework, React, browser, runtime, and peer-dependency support. Test published entry points. Do not claim a component works in a framework or environment that has not been validated.
 12. **Preserve public APIs.** Component names, props, exports, CSS variables, token names, registry identifiers, CLI flags, install instructions, and package paths are public contracts once released. Prefer additive changes; document and deprecate breaking changes.
 13. **Keep dependencies intentional.** Before adding a dependency, explain what it provides, whether the existing stack can meet the need, its bundle/runtime cost, maintenance status, license, and security implications.
@@ -315,7 +315,7 @@ Do not casually reinterpret the design system from screenshots or memory. If a c
 The Aback Blue brand anchor is `#009bf9`, with the primary ramp defined in `DESIGN.md`. Use the specified semantic roles rather than using raw brand blue everywhere.
 
 Important distinction:
-- The default primary/action role in the design reference is neutral ink, not necessarily Aback Blue.
+- The default primary/action role is Aback Blue (`--primary`, owner decision of 2026-11-15, matching the Aback Tools revamp). Secondary actions stay neutral (outline, ghost, secondary).
 - Brand color is used where the design system assigns a brand role: links, selected states, focus indicators, brand accents, or explicit brand actions.
 - Destructive, success, warning, and informational states must use their semantic tokens.
 - Do not communicate status using color alone.

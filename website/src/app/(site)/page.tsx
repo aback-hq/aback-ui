@@ -9,16 +9,27 @@ import {
   IconPalette,
 } from "@tabler/icons-react";
 
-import { ArrowLink, Badge, Button } from "@aback-ui/ui";
+import {
+  ArrowLink,
+  Badge,
+  Button,
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@aback-ui/ui";
 
 import { BlockThumbnail } from "@/components/block-thumbnail";
 import { Code } from "@/components/code";
 import { FaqList } from "@/components/faq-list";
-import { HomeHeroPreview, HomeShowcase } from "@/components/home-showcase";
+import { HomeSearch } from "@/components/home-search";
+import { HomeShowcase } from "@/components/home-showcase";
 import { JsonLd } from "@/components/json-ld";
 import { PackageCommand } from "@/components/package-command";
 import { blocks } from "@/data/blocks";
-import { components } from "@/data/component-catalog";
+import { categoryAccents, categoryAnchor } from "@/data/category-accents";
+import { componentGroups, components } from "@/data/component-catalog";
 import { homeFaq } from "@/data/faq";
 import { products } from "@/data/products";
 import { getRoute } from "@/data/routes";
@@ -49,7 +60,7 @@ const features = [
     icon: IconPalette,
     title: "Tokens with intent",
     description:
-      "Neutral ink actions, Aback Blue as a signal, and one set of semantic variables for light and dark.",
+      "Aback Blue for actions and signals, cool neutrals, and one set of semantic variables for light and true black dark.",
   },
   {
     icon: IconLayoutGrid,
@@ -59,7 +70,15 @@ const features = [
   },
 ];
 
-const featuredBlockNames = ["hero", "pricing", "dashboard-shell", "users-table", "sign-in", "faq"];
+const featuredBlockNames = ["search-hero", "pricing", "dashboard-shell", "users-table", "sign-in", "faq"];
+
+const popularLinks = [
+  { title: "Button", href: "/docs/components/button" },
+  { title: "Dialog", href: "/docs/components/dialog" },
+  { title: "Command", href: "/docs/components/command" },
+  { title: "Data table", href: "/docs/blocks/users-table" },
+  { title: "Search hero", href: "/docs/blocks/search-hero" },
+];
 const featuredBlocks = featuredBlockNames
   .map((name) => blocks.find((block) => block.name === name))
   .filter((block) => block !== undefined);
@@ -108,58 +127,117 @@ export default function HomePage() {
           faqSchema(homeFaq.map(({ question, answer }) => ({ question, answer }))),
         ]}
       />
-      <section className="hero-backdrop relative overflow-hidden border-b border-separator">
-        <div className="container-page relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,27rem)] lg:py-20 xl:grid-cols-[minmax(0,1fr)_30rem] xl:gap-20">
-          <div className="flex min-w-0 flex-col items-start">
-            <Link
-              href="/docs/changelog"
-              className="group inline-flex items-center gap-2 border border-border bg-background py-1 pl-1 pr-3 text-xs font-medium text-foreground outline-none transition-colors duration-200 hover:border-primary-300 focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:border-primary-700"
-            >
-              <Badge variant="brand">v{uiPackage.version}</Badge>
-              {components.length} components and {blocks.length} blocks
-              <IconArrowRight
-                aria-hidden="true"
-                className="size-3.5 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
-              />
-            </Link>
+      <section aria-labelledby="home-title" className="relative isolate overflow-hidden">
+        {/* One faint horizontal streak of the action blue, wider than it is
+            tall and with no edge, after the Aback Tools home page. It follows
+            the theme because it mixes the theme's own --primary. */}
+        <div aria-hidden="true" className="hero-streak pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46rem]" />
+        <div className="container-page flex flex-col items-center pt-12 pb-16 text-center sm:pt-20 sm:pb-20">
+          <Link
+            href="/docs/changelog"
+            className="group inline-flex items-center gap-2 border border-border bg-card py-1 pl-1 pr-3 text-xs font-medium text-foreground outline-none transition-colors duration-200 hover:border-primary-300 focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:border-primary-700"
+          >
+            <Badge variant="brand">v{uiPackage.version}</Badge>
+            What&apos;s new
+            <IconArrowRight
+              aria-hidden="true"
+              className="size-3.5 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+            />
+          </Link>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance text-foreground sm:text-5xl xl:text-6xl">
-              The building blocks for serious applications.
-            </h1>
+          <h1
+            id="home-title"
+            className="mt-7 max-w-4xl text-[2.1rem] font-semibold leading-[1.1] tracking-[-0.035em] text-balance text-foreground sm:text-[3.5rem] sm:leading-[1.04]"
+          >
+            The building blocks for serious applications.
+          </h1>
 
-            <p className="text-lead mt-5 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
-              Accessible React components and design tokens, installed by your own CLI as source you
-              own, or imported from npm. Built for Aback products, engineered for reuse, released for
-              everyone.
-            </p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">
+            <span className="font-semibold text-foreground">{components.length}</span> accessible React
+            components and <span className="font-semibold text-foreground">{blocks.length}</span> blocks,
+            installed by your own CLI as source you own, or imported from npm.
+          </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button size="lg" variant="brand" asChild>
-                <Link href="/docs/installation">
-                  Get started
-                  <IconArrowRight aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-background" asChild>
-                <Link href="/docs/components">Browse components</Link>
-              </Button>
-            </div>
+          <HomeSearch
+            placeholder={`Search ${components.length} components, ${blocks.length} blocks, and the docs`}
+            className="mt-9 max-w-2xl"
+          />
 
-            <div className="mt-8 w-full max-w-xl">
-              <PackageCommand args={buttonCommand} className="bg-background" />
-            </div>
+          <p className="mt-5 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+            <span className="text-muted-foreground">Popular:</span>
+            {popularLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-medium text-foreground/80 outline-none transition-colors duration-200 hover:text-link focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                {item.title}
+              </Link>
+            ))}
+          </p>
 
-            <ul className="text-lead mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
-              {["React 19", "Tailwind CSS v4", "Radix UI", "MIT licensed"].map((fact) => (
-                <li key={fact} className="flex items-center gap-2">
-                  <span aria-hidden="true" className="size-1 bg-primary-500" />
-                  {fact}
-                </li>
-              ))}
-            </ul>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" asChild>
+              <Link href="/docs/installation">
+                Get started
+                <IconArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="bg-card" asChild>
+              <Link href="/docs/components">Browse components</Link>
+            </Button>
           </div>
 
-          <HomeHeroPreview className="w-full max-w-lg lg:max-w-none" />
+          <div className="mt-6 w-full max-w-xl text-left">
+            <PackageCommand args={buttonCommand} className="bg-card" />
+          </div>
+
+          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+            {["React 19", "Tailwind CSS v4", "Radix UI", "MIT licensed"].map((fact) => (
+              <li key={fact} className="flex items-center gap-2">
+                <span aria-hidden="true" className="size-1 bg-primary" />
+                {fact}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="browse-heading" className="border-b border-separator">
+        <div className="container-page pb-16 lg:pb-20">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 id="browse-heading" className="text-xl font-semibold tracking-tight text-foreground">
+              Browse by category
+            </h2>
+            <Link
+              href="/docs/components"
+              className="text-sm font-medium text-muted-foreground outline-none transition-colors duration-200 hover:text-foreground focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              All {components.length} components
+            </Link>
+          </div>
+          <ul className="mt-5 grid grid-cols-1 gap-2.5 min-[420px]:grid-cols-2 lg:grid-cols-4">
+            {componentGroups.map((group) => {
+              const { icon: Icon, accent } = categoryAccents[group.category];
+              return (
+                <li key={group.category}>
+                  <Item variant="outline" align="center" accent={accent} className="h-full px-4 py-3.5" asChild>
+                    <Link href={`/docs/components#${categoryAnchor(group.category)}`}>
+                      <ItemMedia variant="icon" aria-hidden="true">
+                        <Icon stroke={1.75} />
+                      </ItemMedia>
+                      <ItemContent className="gap-0.5">
+                        <ItemTitle className="font-semibold leading-tight">{group.category}</ItemTitle>
+                        <ItemDescription className="text-xs leading-snug">
+                          {group.items.length} {group.items.length === 1 ? "component" : "components"}
+                        </ItemDescription>
+                      </ItemContent>
+                    </Link>
+                  </Item>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 

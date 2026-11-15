@@ -330,9 +330,15 @@ export function generateScale(base: Rgb): ScaleColor[] {
 /* ----------------------------------------------------------------- theme */
 
 export const WHITE: Rgb = { r: 1, g: 1, b: 1 };
-/** The Aback light and dark backgrounds, #ffffff and #0a0a0a. */
-export const LIGHT_BACKGROUND: Rgb = WHITE;
+/** A near-black, #0a0a0a, for the colour tools' "on dark" contrast readouts. */
 export const DARK_BACKGROUND: Rgb = { r: 10 / 255, g: 10 / 255, b: 10 / 255 };
+/**
+ * The surfaces a generated theme is checked against: the light canvas
+ * #f9fafb and the dark card #0f0f11, the hardest surface for text in each
+ * Aback theme.
+ */
+export const THEME_LIGHT_SURFACE: Rgb = { r: 249 / 255, g: 250 / 255, b: 251 / 255 };
+export const THEME_DARK_SURFACE: Rgb = { r: 15 / 255, g: 15 / 255, b: 17 / 255 };
 
 export interface ThemeRole {
   name: string;
@@ -370,24 +376,26 @@ export function generateTheme(base: Rgb): GeneratedTheme {
   const scale = generateScale(base);
   const ratio = (color: ScaleColor, background: Rgb) => contrastRatio(color.rgb, background);
 
-  const lightLink = pick(scale, [600, 700, 800, 900, 950], LIGHT_BACKGROUND, 4.5);
+  const lightLink = pick(scale, [600, 700, 800, 900, 950], THEME_LIGHT_SURFACE, 4.5);
   const lightLinkHover = stepColor(scale, Math.min(950, lightLink.step + 100) as ScaleStep);
-  const lightFocus = pick(scale, [500, 600, 700, 800], LIGHT_BACKGROUND, 3);
+  const lightFocus = pick(scale, [500, 600, 700, 800], THEME_LIGHT_SURFACE, 3);
   const lightFill = pick(scale, [500, 600, 700, 800, 900], WHITE, 4.5);
 
-  const darkLink = pick(scale, [300, 400, 200, 100, 50], DARK_BACKGROUND, 4.5);
+  const darkLink = pick(scale, [300, 400, 200, 100, 50], THEME_DARK_SURFACE, 4.5);
   const darkLinkHover = stepColor(scale, Math.max(50, darkLink.step - 100) as ScaleStep);
-  const darkFocus = pick(scale, [400, 300, 200], DARK_BACKGROUND, 3);
+  const darkFocus = pick(scale, [400, 300, 200], THEME_DARK_SURFACE, 3);
   const darkFill = darkLink;
   const darkOnFill = stepColor(scale, 950);
 
   const light: ThemeRole[] = [
-    { name: "--link", value: lightLink.hex, check: { against: "#ffffff", ratio: ratio(lightLink, LIGHT_BACKGROUND), required: 4.5 } },
-    { name: "--link-hover", value: lightLinkHover.hex, check: { against: "#ffffff", ratio: ratio(lightLinkHover, LIGHT_BACKGROUND), required: 4.5 } },
-    { name: "--focus-ring", value: lightFocus.hex, check: { against: "#ffffff", ratio: ratio(lightFocus, LIGHT_BACKGROUND), required: 3 } },
-    { name: "--brand-icon", value: lightFocus.hex, check: { against: "#ffffff", ratio: ratio(lightFocus, LIGHT_BACKGROUND), required: 3 } },
+    { name: "--link", value: lightLink.hex, check: { against: "#f9fafb", ratio: ratio(lightLink, THEME_LIGHT_SURFACE), required: 4.5 } },
+    { name: "--link-hover", value: lightLinkHover.hex, check: { against: "#f9fafb", ratio: ratio(lightLinkHover, THEME_LIGHT_SURFACE), required: 4.5 } },
+    { name: "--focus-ring", value: lightFocus.hex, check: { against: "#f9fafb", ratio: ratio(lightFocus, THEME_LIGHT_SURFACE), required: 3 } },
+    { name: "--brand-icon", value: lightFocus.hex, check: { against: "#f9fafb", ratio: ratio(lightFocus, THEME_LIGHT_SURFACE), required: 3 } },
     { name: "--brand-chip", value: stepColor(scale, 100).hex },
     { name: "--brand-wash", value: stepColor(scale, 50).hex },
+    { name: "--primary", value: lightFill.hex, check: { against: "#ffffff text", ratio: contrastRatio(WHITE, lightFill.rgb), required: 4.5 } },
+    { name: "--primary-foreground", value: "#ffffff" },
     { name: "--brand-fill", value: lightFill.hex, check: { against: "#ffffff text", ratio: contrastRatio(WHITE, lightFill.rgb), required: 4.5 } },
     { name: "--on-brand-fill", value: "#ffffff" },
     { name: "--info", value: lightLink.hex },
@@ -397,12 +405,14 @@ export function generateTheme(base: Rgb): GeneratedTheme {
   const deep = stepColor(scale, 900).rgb;
   const wash = formatRgb({ ...deep, alpha: 0.3 });
   const dark: ThemeRole[] = [
-    { name: "--link", value: darkLink.hex, check: { against: "#0a0a0a", ratio: ratio(darkLink, DARK_BACKGROUND), required: 4.5 } },
-    { name: "--link-hover", value: darkLinkHover.hex, check: { against: "#0a0a0a", ratio: ratio(darkLinkHover, DARK_BACKGROUND), required: 4.5 } },
-    { name: "--focus-ring", value: darkFocus.hex, check: { against: "#0a0a0a", ratio: ratio(darkFocus, DARK_BACKGROUND), required: 3 } },
-    { name: "--brand-icon", value: darkFocus.hex, check: { against: "#0a0a0a", ratio: ratio(darkFocus, DARK_BACKGROUND), required: 3 } },
+    { name: "--link", value: darkLink.hex, check: { against: "#0f0f11", ratio: ratio(darkLink, THEME_DARK_SURFACE), required: 4.5 } },
+    { name: "--link-hover", value: darkLinkHover.hex, check: { against: "#0f0f11", ratio: ratio(darkLinkHover, THEME_DARK_SURFACE), required: 4.5 } },
+    { name: "--focus-ring", value: darkFocus.hex, check: { against: "#0f0f11", ratio: ratio(darkFocus, THEME_DARK_SURFACE), required: 3 } },
+    { name: "--brand-icon", value: darkFocus.hex, check: { against: "#0f0f11", ratio: ratio(darkFocus, THEME_DARK_SURFACE), required: 3 } },
     { name: "--brand-chip", value: stepColor(scale, 900).hex },
     { name: "--brand-wash", value: wash },
+    { name: "--primary", value: darkFill.hex, check: { against: `${darkOnFill.hex} text`, ratio: contrastRatio(darkOnFill.rgb, darkFill.rgb), required: 4.5 } },
+    { name: "--primary-foreground", value: darkOnFill.hex },
     { name: "--brand-fill", value: darkFill.hex, check: { against: `${darkOnFill.hex} text`, ratio: contrastRatio(darkOnFill.rgb, darkFill.rgb), required: 4.5 } },
     { name: "--on-brand-fill", value: darkOnFill.hex },
     { name: "--info", value: darkLinkHover.hex },

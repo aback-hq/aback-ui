@@ -22,7 +22,7 @@ const roleGroups: { title: string; description: string; names: string[] }[] = [
   },
   {
     title: "Actions",
-    description: "The default action is neutral ink. Brand blue is reserved for the brand variant.",
+    description: "The default action is Aback Blue, with white text in light and near-black text in dark.",
     names: ["--primary", "--primary-foreground", "--secondary", "--accent", "--destructive", "--ring"],
   },
   {
