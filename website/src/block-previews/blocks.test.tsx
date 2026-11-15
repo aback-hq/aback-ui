@@ -10,6 +10,7 @@ import { CookieConsentBlock } from "@registry/blocks/cookie-consent";
 import { FaqBlock } from "@registry/blocks/faq";
 import { NewsletterBlock } from "@registry/blocks/newsletter";
 import { PricingBlock, type PricingPlan } from "@registry/blocks/pricing";
+import { SearchHeroBlock } from "@registry/blocks/search-hero";
 import { SiteHeaderBlock } from "@registry/blocks/site-header";
 
 afterEach(() => {
@@ -175,6 +176,66 @@ describe("CookieConsentBlock", () => {
   it("renders nothing on the server", () => {
     const html = renderToString(<CookieConsentBlock message="Hi" onDecision={() => {}} />);
     expect(html).toBe("");
+  });
+});
+
+describe("SearchHeroBlock", () => {
+  const items = [
+    { title: "Merge PDF", href: "/tools/merge-pdf", group: "Tools", keywords: ["combine"] },
+    { title: "PNG to JPG", href: "/tools/png-to-jpg", group: "Tools" },
+    { title: "Shrinking PDFs", href: "/guides/shrink-pdf", group: "Guides" },
+  ];
+
+  it("renders the h1, quick links, and category links", () => {
+    render(
+      <SearchHeroBlock
+        title="Free tools"
+        searchItems={items}
+        popular={items.slice(0, 2)}
+        categories={[{ title: "PDF", meta: "48 tools", href: "/tools/pdf", accent: "var(--danger)" }]}
+      />,
+    );
+    expect(screen.getByRole("heading", { level: 1, name: "Free tools" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Merge PDF" })).toHaveAttribute("href", "/tools/merge-pdf");
+    expect(screen.getByRole("heading", { level: 2, name: "Browse by category" })).toBeInTheDocument();
+    const pdf = screen.getByRole("link", { name: /PDF\s*48 tools/ });
+    expect(pdf).toHaveAttribute("href", "/tools/pdf");
+    expect(pdf).toHaveAttribute("data-accent", "");
+  });
+
+  it("opens the dialog on the popular items, searches every item, and navigates", async () => {
+    const user = userEvent.setup();
+    const onNavigate = vi.fn();
+    render(
+      <SearchHeroBlock
+        title="Free tools"
+        searchPlaceholder="Search tools"
+        searchItems={items}
+        popular={items.slice(0, 1)}
+        onNavigate={onNavigate}
+      />,
+    );
+
+    await user.click(screen.getByRole("button", { name: "Search tools" }));
+    const dialog = await screen.findByRole("dialog");
+    expect(dialog).toHaveTextContent("Popular");
+    expect(dialog).not.toHaveTextContent("Shrinking PDFs");
+
+    await user.type(screen.getByRole("combobox"), "shrink");
+    expect(await screen.findByRole("option", { name: "Shrinking PDFs" })).toBeInTheDocument();
+    await user.keyboard("{Enter}");
+
+    expect(onNavigate).toHaveBeenCalledWith("/guides/shrink-pdf");
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+  });
+
+  it("finds an item by its keywords", async () => {
+    const user = userEvent.setup();
+    render(<SearchHeroBlock title="Free tools" searchItems={items} onNavigate={() => {}} />);
+    await user.keyboard("{Control>}k{/Control}");
+    await user.type(await screen.findByRole("combobox"), "combine");
+    expect(await screen.findByRole("option", { name: "Merge PDF" })).toBeInTheDocument();
+    expect(screen.queryByRole("option", { name: "PNG to JPG" })).not.toBeInTheDocument();
   });
 });
 

@@ -9,10 +9,10 @@ export function ThemeToggleExample() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center gap-3">
-        <ThemeToggle variant="outline" />
+        <ThemeToggle variant="outline" transition="reveal" />
         <span className="text-sm text-muted-foreground">
           Showing the <span className="font-medium text-foreground">{resolvedTheme}</span> theme.
-          This toggle changes the whole site.
+          This toggle changes the whole site, revealing the new theme from the button.
         </span>
       </div>
 

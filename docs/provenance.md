@@ -99,6 +99,19 @@ Reviewed at Aback Chess `158ec3b`, Aback Group `2b5895a`, and Dronacharya's plat
 
 Segmented Control is built on the Radix UI RadioGroup primitive from the `radix-ui` package already listed above (MIT). No dependency was added.
 
+### November 2026: the Aback Tools interface revamp
+
+Reviewed at Aback Tools `e2e994eab` on the `production` branch (read on 2026-11-15), after the `ui-revamp` merge `d668ea29b`. The repository carries no license file and is owned by Aback Group. Nothing below was copied: each item was **independently reimplemented** from the pattern for a general API, at the owner's request.
+
+| Aback UI item | Source pattern | Excluded from the source |
+| --- | --- | --- |
+| Search Trigger | Tools `common/SearchBar.tsx` (`md` and `hero` sizes) | The global `open-search` window event and i18n hooks; the hard-coded ⌘K hint, replaced by a shortcut the component binds itself and labels per platform |
+| Item `accent` | Tools `config/category-accents.ts`, `tools/ToolCard.tsx`, and the category tiles in `home/HomeHero.tsx` | The fixed table of twenty category class strings; any CSS colour is accepted instead |
+| Theme Toggle `transition="reveal"` | Tools `common/ThemeToggle.tsx` (`setThemeWithRipple`) | The injected `<style>` element that turned off the cross-fade, replaced by animations on both snapshots so a strict style CSP is not needed |
+| Search hero block | Tools `home/HomeHero.tsx`, `common/SearchDialog.tsx` (popular items before typing) | The tool catalogue, the live usage counter and its API, locale handling, and the sponsor slots |
+
+Not taken: the revamp's theme (a blue primary action, a cool grey canvas, a true black dark theme, and card shadows), the logo lockup, the sponsor chips, and the sidebar tree. The theme conflicts with `DESIGN.md`'s neutral ink action and needs an owner decision; the others are product chrome.
+
 ### Brand assets
 
 `website/public/aback-logo-128.png` is copied from Aback Tools `public/` (identical to Aback Group's). `apple-touch-icon.png`, `icon-192.png`, and `icon-512.png` are copied from Aback Launch `public/`. They are Aback Group trademarks used by the documentation site, not part of any npm package or registry item, and not covered by the MIT license.

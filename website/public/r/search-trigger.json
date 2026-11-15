@@ -1,0 +1,32 @@
+{
+  "$schema": "https://abackui.com/schema/registry-item.json",
+  "name": "search-trigger",
+  "type": "registry:ui",
+  "title": "Search Trigger",
+  "description": "A button drawn as a search field that opens your search, with a working Cmd+K or Ctrl+K shortcut.",
+  "dependencies": [
+    "@tabler/icons-react",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://abackui.com/r/utils.json",
+    "https://abackui.com/r/kbd.json"
+  ],
+  "categories": [
+    "Navigation"
+  ],
+  "docs": "https://abackui.com/docs/components/search-trigger",
+  "meta": {
+    "usedIn": [
+      "aback-tools"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/ui/search-trigger.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { IconSearch } from \"@tabler/icons-react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Kbd } from \"@/components/ui/kbd\";\n\nconst searchTriggerVariants = cva(\n  [\n    \"group flex w-full min-w-0 cursor-pointer items-center border border-input bg-card text-left text-muted-foreground outline-none\",\n    \"transition-colors duration-200 hover:border-foreground/30 hover:text-foreground\",\n    \"focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n    \"disabled:pointer-events-none disabled:opacity-50\",\n  ],\n  {\n    variants: {\n      size: {\n        default: \"h-10 gap-3 px-3 text-sm [&_svg:not([class*='size-'])]:size-4\",\n        /** The large field at the top of a home or directory page. */\n        lg: \"h-14 gap-3 px-4 text-base shadow-lg sm:h-15 sm:px-5 [&_svg:not([class*='size-'])]:size-5\",\n      },\n    },\n    defaultVariants: {\n      size: \"default\",\n    },\n  },\n);\n\ntype Platform = \"apple\" | \"other\" | null;\n\nconst noSubscribe = () => () => {};\n\n/** Apple keyboards say ⌘, the rest Ctrl. Unknown during the server render. */\nfunction usePlatform(): Platform {\n  return React.useSyncExternalStore<Platform>(\n    noSubscribe,\n    () => (/Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent) ? \"apple\" : \"other\"),\n    () => null,\n  );\n}\n\nexport interface SearchTriggerProps\n  extends Omit<React.ComponentProps<\"button\">, \"children\">,\n    VariantProps<typeof searchTriggerVariants> {\n  /** The hint shown in the field. It is also the button's accessible name unless you pass aria-label. */\n  placeholder?: string;\n  /**\n   * The letter that clicks the trigger with ⌘ on Apple keyboards and Ctrl\n   * elsewhere, from anywhere on the page. The hint is shown on screens from\n   * 640px. Pass `false` for no shortcut.\n   */\n  shortcut?: string | false;\n}\n\n/**\n * A button drawn as a search field. It opens your search, usually a\n * CommandDialog, from `onClick`, and from ⌘K or Ctrl+K. It holds no query\n * itself: typing happens in the dialog it opens.\n */\nfunction SearchTrigger({\n  placeholder = \"Search\",\n  shortcut = \"k\",\n  size = \"default\",\n  className,\n  type = \"button\",\n  ...props\n}: SearchTriggerProps) {\n  const ref = React.useRef<HTMLButtonElement>(null);\n  const platform = usePlatform();\n  const key = shortcut ? shortcut.toLowerCase() : null;\n\n  React.useEffect(() => {\n    if (!key) return;\n    function onKeyDown(event: KeyboardEvent) {\n      if (event.defaultPrevented || event.altKey || event.shiftKey) return;\n      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== key) return;\n      const button = ref.current;\n      if (!button || button.disabled) return;\n      // The first trigger on the page takes the shortcut; the rest see it handled.\n      event.preventDefault();\n      button.click();\n    }\n    document.addEventListener(\"keydown\", onKeyDown);\n    return () => document.removeEventListener(\"keydown\", onKeyDown);\n  }, [key]);\n\n  const modifier = platform === \"apple\" ? \"⌘\" : \"Ctrl\";\n\n  return (\n    <button\n      ref={ref}\n      type={type}\n      data-slot=\"search-trigger\"\n      data-size={size}\n      aria-keyshortcuts={key ? `Meta+${key.toUpperCase()} Control+${key.toUpperCase()}` : undefined}\n      className={cn(searchTriggerVariants({ size }), className)}\n      {...props}\n    >\n      <IconSearch aria-hidden=\"true\" className=\"shrink-0\" />\n      <span className=\"min-w-0 flex-1 truncate\">{placeholder}</span>\n      {key && platform ? (\n        <Kbd\n          aria-hidden=\"true\"\n          className={cn(\n            \"hidden gap-0.5 normal-case tracking-normal sm:inline-flex\",\n            size === \"lg\" ? \"h-7 px-2 text-xs\" : \"px-1.5\",\n          )}\n        >\n          {platform === \"apple\" ? (\n            <>\n              <span>{modifier}</span>\n              {key.toUpperCase()}\n            </>\n          ) : (\n            `${modifier} ${key.toUpperCase()}`\n          )}\n        </Kbd>\n      ) : null}\n    </button>\n  );\n}\n\nexport { SearchTrigger, searchTriggerVariants };\n",
+      "type": "registry:ui",
+      "target": "components/ui/search-trigger.tsx"
+    }
+  ]
+}

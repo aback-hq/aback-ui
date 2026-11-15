@@ -49,6 +49,7 @@ Last reviewed: November 2026.
 | Reading Progress | Feedback | Aback Tools, Aback Launch |
 | Relative Time | Data display | Aback Tools, Aback Launch |
 | Scroll Area | Layout | New shared pattern |
+| Search Trigger | Navigation | Aback Tools |
 | Section Heading | Application | Aback Tools, Aback Launch, Aback Group, Dronacharya |
 | Segmented Control | Forms | Aback Chess |
 | Select | Forms | Aback Tools, Aback Launch |
@@ -85,6 +86,7 @@ Last reviewed: November 2026.
 | FAQ | Aback Tools, Aback Launch, Aback Group |
 | Feature grid | Aback Tools, Aback Launch |
 | Hero | Aback Launch, Aback Group |
+| Search hero | Aback Tools |
 | Newsletter signup | Aback Tools, Aback Launch |
 | Not found | Aback Tools, Aback Launch, Aback Group |
 | Pricing | Aback Launch |

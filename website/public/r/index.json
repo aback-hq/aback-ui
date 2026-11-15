@@ -1509,6 +1509,29 @@
       }
     },
     {
+      "name": "search-trigger",
+      "type": "registry:ui",
+      "title": "Search Trigger",
+      "description": "A button drawn as a search field that opens your search, with a working Cmd+K or Ctrl+K shortcut.",
+      "categories": [
+        "Navigation"
+      ],
+      "docs": "https://abackui.com/docs/components/search-trigger",
+      "dependencies": [
+        "@tabler/icons-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://abackui.com/r/utils.json",
+        "https://abackui.com/r/kbd.json"
+      ],
+      "meta": {
+        "usedIn": [
+          "aback-tools"
+        ]
+      }
+    },
+    {
       "name": "site-header",
       "type": "registry:block",
       "title": "Site header",
@@ -1575,6 +1598,29 @@
         "usedIn": [
           "aback-launch",
           "aback-group"
+        ]
+      }
+    },
+    {
+      "name": "search-hero",
+      "type": "registry:block",
+      "title": "Search Hero",
+      "description": "A home or directory opening: h1, a large search field with a search dialog, popular links, and category cards.",
+      "categories": [
+        "Marketing"
+      ],
+      "docs": "https://abackui.com/docs/blocks/search-hero",
+      "dependencies": [
+        "@tabler/icons-react"
+      ],
+      "registryDependencies": [
+        "https://abackui.com/r/command.json",
+        "https://abackui.com/r/item.json",
+        "https://abackui.com/r/search-trigger.json"
+      ],
+      "meta": {
+        "usedIn": [
+          "aback-tools"
         ]
       }
     },

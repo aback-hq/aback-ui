@@ -31,7 +31,8 @@ describe("Item", () => {
     expect(item).toHaveAttribute("data-variant", "default");
     expect(screen.getByRole("heading", { level: 3, name: "Runs in your browser" })).toBeInTheDocument();
     expect(screen.getByText("Files never leave your device.")).toBeInTheDocument();
-    expect(container.querySelector("[data-slot='item-media']")).toHaveClass("bg-brand-chip", "size-10");
+    expect(container.querySelector("[data-slot='item-media']")).toHaveClass("size-10");
+    expect(container.querySelector("[data-slot='item-media']")!.className).toContain("var(--brand-chip)");
   });
 
   it("does not make the title a heading unless asked", () => {
@@ -114,9 +115,40 @@ describe("Item", () => {
 
     const media = container.querySelectorAll("[data-slot='item-media']");
     expect(media[0]).toHaveAttribute("data-variant", "icon");
-    expect(media[0]).not.toHaveClass("bg-brand-chip");
+    expect(media[0]!.className).not.toContain("--brand-chip");
     expect(media[1]).toHaveAttribute("data-variant", "image");
     expect(screen.getByRole("img", { name: "Aback Launch" })).toBeInTheDocument();
+  });
+
+  it("takes an accent colour for the media and hover, and keeps the caller's style", () => {
+    const { container } = render(
+      <Item variant="outline" accent="var(--danger)" style={{ minHeight: 40 }} asChild>
+        <a href="/tools/pdf">
+          <ItemMedia variant="icon">
+            <svg aria-hidden="true" />
+          </ItemMedia>
+          <ItemContent>
+            <ItemTitle>PDF</ItemTitle>
+          </ItemContent>
+        </a>
+      </Item>,
+    );
+
+    const item = container.querySelector("[data-slot='item']") as HTMLElement;
+    expect(item.tagName).toBe("A");
+    expect(item).toHaveAttribute("data-accent", "");
+    expect(item.style.getPropertyValue("--item-accent")).toBe("var(--danger)");
+    expect(item.style.minHeight).toBe("40px");
+    expect(item.className).toContain("--item-accent-border");
+    expect(container.querySelector("[data-slot='item-media']")!.className).toContain("var(--item-accent");
+  });
+
+  it("sets no accent variables without an accent", () => {
+    const { container } = render(<Item>Plain</Item>);
+    const item = container.querySelector("[data-slot='item']") as HTMLElement;
+    expect(item).not.toHaveAttribute("data-accent");
+    expect(item.style.getPropertyValue("--item-accent")).toBe("");
+    expect(item.className).not.toContain("--item-accent-border:");
   });
 
   it("has no detectable accessibility violations", async () => {

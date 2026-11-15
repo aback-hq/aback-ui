@@ -16,11 +16,14 @@ const itemVariants = cva(
   {
     variants: {
       variant: {
-        default: "[&:is(a,button)]:hover:bg-muted/50",
+        // The hover colours read the accent variables when Item has an
+        // `accent`, and fall back to the brand ramp and muted wash.
+        default: "[&:is(a,button)]:hover:bg-[var(--item-accent-wash,color-mix(in_oklab,var(--color-muted)_50%,transparent))]",
         outline: [
           "border border-border bg-card",
-          "[&:is(a,button)]:hover:border-primary-300 [&:is(a,button)]:hover:bg-muted/50",
-          "dark:[&:is(a,button)]:hover:border-primary-700",
+          "[&:is(a,button)]:hover:border-[var(--item-accent-border,var(--color-primary-300))]",
+          "[&:is(a,button)]:hover:bg-[var(--item-accent-wash,color-mix(in_oklab,var(--color-muted)_50%,transparent))]",
+          "dark:[&:is(a,button)]:hover:border-[var(--item-accent-border,var(--color-primary-700))]",
         ],
         muted: "border border-border bg-muted/30 [&:is(a,button)]:hover:bg-muted/60",
       },
@@ -47,11 +50,28 @@ const itemVariants = cva(
   },
 );
 
+// Derived from --item-accent, so one colour sets the icon, the chip, the hover
+// border, and the hover wash.
+const accentClass = [
+  "[--item-accent-border:color-mix(in_oklch,var(--item-accent)_70%,transparent)]",
+  "[--item-accent-wash:color-mix(in_oklch,var(--item-accent)_5%,transparent)]",
+  "[--item-accent-chip:color-mix(in_oklch,var(--item-accent)_12%,transparent)]",
+  // The title keeps the text colour on hover, so a red card never turns blue.
+  "[--item-title-hover:var(--foreground)]",
+];
+
 export interface ItemProps
   extends React.ComponentProps<"div">,
     VariantProps<typeof itemVariants> {
   /** Render the child instead of a div: a link, a button, or a list item. */
   asChild?: boolean;
+  /**
+   * A CSS colour for this item, such as `var(--success)` or a category colour.
+   * It colours the media icon and chip, and the hover border and wash of a
+   * link or button. The title stays in the text colour. Sets `--item-accent`,
+   * which you can also set yourself.
+   */
+  accent?: string;
 }
 
 /**
@@ -64,7 +84,9 @@ function Item({
   size = "default",
   align = "start",
   asChild = false,
+  accent,
   className,
+  style,
   ...props
 }: ItemProps) {
   const Comp = asChild ? Slot.Root : "div";
@@ -73,7 +95,9 @@ function Item({
       data-slot="item"
       data-variant={variant}
       data-size={size}
-      className={cn(itemVariants({ variant, size, align }), className)}
+      data-accent={accent ? "" : undefined}
+      className={cn(itemVariants({ variant, size, align }), accent && accentClass, className)}
+      style={accent ? ({ ...style, "--item-accent": accent } as React.CSSProperties) : style}
       {...props}
     />
   );
@@ -83,9 +107,9 @@ const itemMediaVariants = cva("flex shrink-0 items-center justify-center", {
   variants: {
     variant: {
       /** The 40px brand chip with a 20px icon. */
-      chip: "size-10 bg-brand-chip text-brand-icon [&_svg:not([class*='size-'])]:size-5",
+      chip: "size-10 bg-[var(--item-accent-chip,var(--brand-chip))] text-[var(--item-accent,var(--brand-icon))] [&_svg:not([class*='size-'])]:size-5",
       /** A bare brand-coloured icon, one text line tall so it sits on the title. */
-      icon: "h-6 text-brand-icon [&_svg:not([class*='size-'])]:size-5",
+      icon: "h-6 text-[var(--item-accent,var(--brand-icon))] [&_svg:not([class*='size-'])]:size-5",
       /** A square thumbnail, logo, or avatar. */
       image: "size-10 overflow-hidden bg-muted [&_img]:size-full [&_img]:object-cover",
     },
@@ -137,7 +161,7 @@ function ItemTitle({ as: Comp = "div", className, ...props }: ItemTitleProps) {
         "text-sm font-medium leading-6 text-foreground",
         // Inside a link or button the title picks up the link colour on hover.
         "group-[:is(a,button)]/item:transition-colors group-[:is(a,button)]/item:duration-200",
-        "group-[:is(a,button):hover]/item:text-link",
+        "group-[:is(a,button):hover]/item:text-[var(--item-title-hover,var(--link))]",
         className,
       )}
       {...props}

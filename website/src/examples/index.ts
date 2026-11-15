@@ -56,6 +56,7 @@ import { SkipLinkExample } from "./skip-link";
 import { SliderExample } from "./slider";
 import { SpinnerExample } from "./spinner";
 import { StatExample } from "./stat";
+import { SearchTriggerExample } from "./search-trigger";
 import { StatusIndicatorExample } from "./status-indicator";
 import { StepsExample } from "./steps";
 import { SwitchExample } from "./switch";
@@ -126,6 +127,7 @@ export const exampleMap: Record<string, ComponentType> = {
   slider: SliderExample,
   spinner: SpinnerExample,
   stat: StatExample,
+  "search-trigger": SearchTriggerExample,
   "status-indicator": StatusIndicatorExample,
   steps: StepsExample,
   switch: SwitchExample,

@@ -77,6 +77,81 @@ describe("ThemeToggle", () => {
   });
 });
 
+describe("ThemeToggle reveal", () => {
+  // Loosely typed: jsdom has no view transitions, and the tests install a stand-in.
+  const testDocument = document as unknown as { startViewTransition?: unknown };
+
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.classList.remove("dark");
+  });
+
+  afterEach(() => {
+    delete testDocument.startViewTransition;
+    document.documentElement.classList.remove("dark");
+  });
+
+  it("switches at once where the browser has no view transitions", async () => {
+    const user = userEvent.setup();
+    render(<ThemeToggle transition="reveal" />);
+    await user.click(screen.getByRole("button"));
+    expect(document.documentElement).toHaveClass("dark");
+    expect(screen.getByRole("button")).toHaveAccessibleName("Switch to light theme");
+  });
+
+  it("grows the new theme from the button inside a view transition", async () => {
+    const user = userEvent.setup();
+    const animate = vi.fn();
+    document.documentElement.animate = animate as unknown as typeof document.documentElement.animate;
+    const startViewTransition = vi.fn((update: () => void) => {
+      update();
+      return { ready: Promise.resolve() };
+    });
+    testDocument.startViewTransition = startViewTransition;
+
+    render(<ThemeToggle transition="reveal" />);
+    await user.click(screen.getByRole("button"));
+
+    expect(startViewTransition).toHaveBeenCalledTimes(1);
+    expect(document.documentElement).toHaveClass("dark");
+    expect(screen.getByRole("button")).toHaveAccessibleName("Switch to light theme");
+    await vi.waitFor(() => expect(animate).toHaveBeenCalledTimes(2));
+    const [keyframes, options] = animate.mock.calls[1]!;
+    expect(String(keyframes.clipPath[0])).toMatch(/^circle\(0px at /);
+    expect(options.pseudoElement).toBe("::view-transition-new(root)");
+  });
+
+  it("skips the animation under reduced motion", async () => {
+    const user = userEvent.setup();
+    const startViewTransition = vi.fn();
+    testDocument.startViewTransition = startViewTransition;
+    const matchMedia = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      ...matchMedia(query),
+      matches: query.includes("reduce"),
+    })) as typeof window.matchMedia;
+
+    try {
+      render(<ThemeToggle transition="reveal" />);
+      await user.click(screen.getByRole("button"));
+      expect(startViewTransition).not.toHaveBeenCalled();
+      expect(document.documentElement).toHaveClass("dark");
+    } finally {
+      window.matchMedia = matchMedia;
+    }
+  });
+
+  it("does not use view transitions unless asked", async () => {
+    const user = userEvent.setup();
+    const startViewTransition = vi.fn();
+    testDocument.startViewTransition = startViewTransition;
+    render(<ThemeToggle />);
+    await user.click(screen.getByRole("button"));
+    expect(startViewTransition).not.toHaveBeenCalled();
+    expect(document.documentElement).toHaveClass("dark");
+  });
+});
+
 describe("ThemeScript defaultTheme", () => {
   let systemListener: (() => void) | null = null;
 

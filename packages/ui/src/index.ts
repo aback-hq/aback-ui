@@ -44,6 +44,7 @@ export * from "./components/rating";
 export * from "./components/reading-progress";
 export * from "./components/relative-time";
 export * from "./components/scroll-area";
+export * from "./components/search-trigger";
 export * from "./components/section-heading";
 export * from "./components/segmented-control";
 export * from "./components/select";

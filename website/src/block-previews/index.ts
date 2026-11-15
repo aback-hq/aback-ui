@@ -12,6 +12,7 @@ import {
   NewsletterPreview,
   NotFoundPreview,
   PricingPreview,
+  SearchHeroPreview,
   SiteFooterPreview,
   SiteHeaderPreview,
 } from "./previews";
@@ -27,6 +28,7 @@ export const blockPreviewMap: Record<string, ComponentType> = {
   "site-header": SiteHeaderPreview,
   "site-footer": SiteFooterPreview,
   hero: HeroPreview,
+  "search-hero": SearchHeroPreview,
   "feature-grid": FeatureGridPreview,
   pricing: PricingPreview,
   faq: FaqPreview,

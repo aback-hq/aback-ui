@@ -8,14 +8,20 @@ import { useState } from "react";
 import {
   IconAccessible,
   IconBolt,
+  IconBraces,
+  IconCalculator,
   IconCode,
+  IconFileTypePdf,
   IconLock,
   IconPalette,
+  IconPhoto,
+  IconTypography,
   IconWorld,
 } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
 import { Stat, StatGrid } from "@/components/ui/stat";
+import { StatusIndicator } from "@/components/ui/status-indicator";
 import { ArticleLayoutBlock } from "@registry/blocks/article-layout";
 import { ContactFormBlock } from "@registry/blocks/contact-form";
 import { CookieConsentBlock, type ConsentDecision } from "@registry/blocks/cookie-consent";
@@ -26,6 +32,7 @@ import { HeroBlock } from "@registry/blocks/hero";
 import { NewsletterBlock } from "@registry/blocks/newsletter";
 import { NotFoundBlock } from "@registry/blocks/not-found";
 import { PricingBlock } from "@registry/blocks/pricing";
+import { SearchHeroBlock, type SearchHeroItem } from "@registry/blocks/search-hero";
 import { SiteFooterBlock } from "@registry/blocks/site-footer";
 import { SiteHeaderBlock } from "@registry/blocks/site-header";
 
@@ -120,6 +127,45 @@ export function SiteFooterPreview() {
           { title: "Privacy", href: "#privacy" },
           { title: "Terms", href: "#terms" },
         ]}
+      />
+    </div>
+  );
+}
+
+const searchHeroCategories = [
+  { title: "PDF", meta: "48 tools", href: "#pdf", icon: <IconFileTypePdf />, accent: "var(--danger)" },
+  { title: "Images", meta: "36 tools", href: "#images", icon: <IconPhoto />, accent: "var(--brand-icon)" },
+  { title: "Text", meta: "29 tools", href: "#text", icon: <IconTypography />, accent: "var(--warning)" },
+  { title: "Data", meta: "24 tools", href: "#data", icon: <IconBraces />, accent: "var(--success)" },
+  { title: "Developer", meta: "21 tools", href: "#developer", icon: <IconCode />, accent: "var(--foreground)" },
+  { title: "Calculators", meta: "17 tools", href: "#calculators", icon: <IconCalculator />, accent: "var(--muted-foreground)" },
+];
+
+const searchHeroItems: SearchHeroItem[] = [
+  { title: "Merge PDF", description: "Join PDFs in the order you choose.", href: "#merge-pdf", icon: <IconFileTypePdf />, accent: "var(--danger)", group: "Tools", keywords: ["combine"] },
+  { title: "Compress PDF", description: "Make a PDF smaller to send or upload.", href: "#compress-pdf", icon: <IconFileTypePdf />, accent: "var(--danger)", group: "Tools", keywords: ["shrink", "reduce"] },
+  { title: "PNG to JPG", description: "Convert PNG images to JPG.", href: "#png-to-jpg", icon: <IconPhoto />, accent: "var(--brand-icon)", group: "Tools", keywords: ["jpeg", "convert"] },
+  { title: "Resize image", description: "Change an image's width and height.", href: "#resize-image", icon: <IconPhoto />, accent: "var(--brand-icon)", group: "Tools" },
+  { title: "Word counter", description: "Count words, characters, and reading time.", href: "#word-counter", icon: <IconTypography />, accent: "var(--warning)", group: "Tools" },
+  { title: "JSON formatter", description: "Format and validate JSON.", href: "#json-formatter", icon: <IconBraces />, accent: "var(--success)", group: "Tools", keywords: ["pretty", "validate"] },
+  { title: "How to shrink a PDF for email", description: "A short guide.", href: "#guide-shrink-pdf", group: "Guides" },
+];
+
+export function SearchHeroPreview() {
+  return (
+    <div className="py-6">
+      <SearchHeroBlock
+        title="Every tool you need, in one place"
+        description="An example hero. Search 175 free tools for PDFs, images, text, and data."
+        searchPlaceholder="Search 175 tools"
+        searchItems={searchHeroItems}
+        popular={searchHeroItems.slice(0, 4)}
+        note={<StatusIndicator tone="success">Example data: 48,210 uses this month</StatusIndicator>}
+        categories={searchHeroCategories}
+        allLink={{ label: "All 175 tools", href: "#all-tools" }}
+        onNavigate={(href) => {
+          window.location.hash = href.replace(/^#/, "");
+        }}
       />
     </div>
   );

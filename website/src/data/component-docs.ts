@@ -1837,6 +1837,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
       { prop: "ThemeToggle storageKey", type: "string", defaultValue: '"theme"', description: "The localStorage key that remembers the choice." },
       { prop: "ThemeToggle toDarkLabel / toLightLabel", type: "string", defaultValue: '"Switch to dark theme" / "Switch to light theme"', description: "The accessible name in each state. Localize both." },
       { prop: "ThemeToggle variant / size", type: "Button variant / size", defaultValue: '"ghost" / "icon"', description: "Any Button variant and size." },
+      { prop: "ThemeToggle transition", type: '"none" | "reveal"', defaultValue: '"none"', description: "reveal grows the new theme from the button in a circle, through the View Transitions API. It switches at once under reduced motion and in browsers without the API." },
       { prop: "useTheme(storageKey?)", type: "() => { theme, resolvedTheme, setTheme }", description: 'theme is "light", "dark", or "system"; resolvedTheme is what is on screen. Every hook and toggle stays in sync, across tabs too.' },
       { prop: "ThemeScript storageKey / nonce", type: "string / string", description: "Render in head to apply the stored theme before paint. Pass a CSP nonce if your policy requires one." },
       { prop: "ThemeScript defaultTheme", type: '"light" | "dark" | "system"', defaultValue: '"system"', description: "The theme for a visitor who has not chosen one. ThemeToggle and useTheme on the page read it, so set it here only." },
@@ -1846,6 +1847,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
       "The icon follows the dark class through CSS, so it is correct before hydration, and the name updates after.",
       "A system preference is respected until the visitor chooses, and system changes apply live.",
       "Blocked storage does not break the toggle; the theme still changes for the current page.",
+      "The reveal is skipped when the visitor asks for reduced motion. Focus stays on the toggle through it.",
     ],
     keyboard: [
       { key: "Enter / Space", action: "Switch between light and dark." },
@@ -1920,6 +1922,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
       { prop: "Item variant", type: '"default" | "outline" | "muted"', defaultValue: '"default"', description: "default has no frame, for a feature in a list. outline is a bordered card row, for a link card. muted is a tinted row, for a file in a queue." },
       { prop: "Item size / align", type: '"sm" | "default" / "start" | "center"', defaultValue: '"default" / "start"', description: "Padding and gap, and whether the media sits on the first line or centres against the text." },
       { prop: "Item asChild", type: "boolean", defaultValue: "false", description: "Renders the child instead of a div. Use an anchor or a button to make the whole row one target, or an li inside a list." },
+      { prop: "Item accent", type: "string", description: "A CSS colour for this item, such as var(--success) or a category colour. It colours the media icon and chip, and the hover border and wash of a link or button. The title keeps the text colour. It sets --item-accent, which you can also set yourself." },
       { prop: "ItemMedia variant", type: '"chip" | "icon" | "image"', defaultValue: '"chip"', description: "chip is the 40px brand square with a 20px icon. icon is a bare brand-coloured icon. image is a square thumbnail or logo." },
       { prop: "ItemTitle as", type: '"div" | "p" | "span" | "h2" | "h3" | "h4" | "h5"', defaultValue: '"div"', description: "The element for the title. Use a heading only when the item introduces a section of the page." },
       { prop: "ItemContent / ItemDescription / ItemActions", type: "components", description: "The text column, the muted second line, and trailing controls or a chevron." },
@@ -1929,6 +1932,7 @@ export const componentDocs: Record<string, ComponentDoc> = {
       "When the whole row is a link, keep other controls out of it. A button inside an anchor is invalid; put the action beside the link instead.",
       "Icons in ItemMedia are decoration next to a title and take aria-hidden. An image that carries meaning keeps its alt text.",
       "A list of items is still a list. Render the rows inside ul and li, or use asChild with an li, so the count is announced.",
+      "An accent is decoration: the icon is hidden and the title says what the item is. Pick accent colours that reach 3:1 against the card if the icon has to be seen.",
     ],
     related: ["card", "stat", "empty-state"],
   },
@@ -2050,6 +2054,26 @@ export const componentDocs: Record<string, ComponentDoc> = {
       "Wrap the list in a `nav` with a name when it is a navigation region, such as \"Where next\".",
     ],
     related: ["arrow-link", "item", "pagination"],
+  },
+  "search-trigger": {
+    api: [
+      { prop: "placeholder", type: "string", defaultValue: '"Search"', description: "The hint in the field. It is also the button's accessible name unless you pass aria-label." },
+      { prop: "onClick", type: "(event) => void", description: "Open your search here, usually a CommandDialog. The shortcut clicks the button, so it runs this too." },
+      { prop: "shortcut", type: "string | false", defaultValue: '"k"', description: "The letter that opens search with ⌘ on Apple keyboards and Ctrl elsewhere, from anywhere on the page. The hint shows from 640px. Pass false for none." },
+      { prop: "size", type: '"default" | "lg"', defaultValue: '"default"', description: "default is the 40px field for a header. lg is the 56 to 60px field at the top of a home or directory page." },
+      { prop: "disabled", type: "boolean", description: "Disables the button and its shortcut." },
+    ],
+    accessibility: [
+      "It is a real button, not a fake text field, so screen readers announce what pressing it does. The dialog it opens holds the actual search input.",
+      "aria-keyshortcuts announces the shortcut. The visible hint is hidden from assistive technology so it is not read twice.",
+      "The hint reads ⌘K on Apple devices and Ctrl K elsewhere. It appears after hydration, so the server never shows the wrong key.",
+      "When two triggers are on one page, such as a header and a hero, the shortcut opens search once.",
+    ],
+    keyboard: [
+      { key: "Enter / Space", action: "Opens search." },
+      { key: "⌘K / Ctrl+K", action: "Opens search from anywhere on the page, unless another handler already took the key." },
+    ],
+    related: ["command", "input-group", "kbd"],
   },
   "status-indicator": {
     api: [

@@ -10,6 +10,7 @@ import {
   ArrowLink,
   Countdown,
   LinkList,
+  SearchTrigger,
   LinkListItem,
   SegmentedControl,
   SegmentedControlItem,
@@ -273,5 +274,25 @@ describe("packed @aback-ui/ui", () => {
     expect(screen.getByRole("link", { name: "Profile" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("timer", { name: "Quiz" })).toBeInTheDocument();
     expect(formatCountdown(65_000)).toBe("1:05");
+  });
+
+  it("renders the Aback Tools revamp additions from the published entry point", () => {
+    render(
+      <div>
+        <SearchTrigger placeholder="Search tools" />
+        <Item variant="outline" accent="var(--danger)" asChild>
+          <a href="/tools/pdf">
+            <ItemContent>
+              <ItemTitle>PDF</ItemTitle>
+            </ItemContent>
+          </a>
+        </Item>
+        <ThemeToggle transition="reveal" />
+      </div>,
+    );
+
+    expect(screen.getByRole("button", { name: "Search tools" })).toHaveAttribute("aria-keyshortcuts", "Meta+K Control+K");
+    expect(screen.getByRole("link", { name: "PDF" })).toHaveAttribute("data-accent", "");
+    expect(screen.getByRole("button", { name: "Switch to dark theme" })).toBeInTheDocument();
   });
 });

@@ -28,8 +28,9 @@ const features = [
 ];
 
 const links = [
-  { href: "/docs/components/meter", icon: IconPhoto, title: "Image resizer", text: "Resize a photo to exact pixel dimensions." },
-  { href: "/docs/components/panel", icon: IconFileTypePdf, title: "PDF merger", text: "Combine several PDF files into one document." },
+  // Each link keeps its category's colour for the icon and the hover border.
+  { href: "/docs/components/meter", icon: IconPhoto, title: "Image resizer", text: "Resize a photo to exact pixel dimensions.", accent: "var(--brand-icon)" },
+  { href: "/docs/components/panel", icon: IconFileTypePdf, title: "PDF merger", text: "Combine several PDF files into one document.", accent: "var(--danger)" },
 ];
 
 const initialFiles = [
@@ -59,8 +60,8 @@ export function ItemExample() {
       </ul>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        {links.map(({ href, icon: Icon, title, text }) => (
-          <Item key={title} variant="outline" asChild>
+        {links.map(({ href, icon: Icon, title, text, accent }) => (
+          <Item key={title} variant="outline" accent={accent} asChild>
             <a href={href}>
               <ItemMedia variant="icon">
                 <Icon aria-hidden="true" />

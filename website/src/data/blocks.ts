@@ -120,6 +120,22 @@ export const blockDocs: Record<string, BlockDoc> = {
     ],
     related: ["section-heading", "stat", "button", "cta-banner"],
   },
+  "search-hero": {
+    notes: [
+      "The block renders the page's h1. Use it once, at the top of a home or directory page.",
+      "Pass everything the visitor can find as `searchItems`. The dialog filters and ranks them as they type, matching titles, descriptions, and `keywords`. For a large catalogue, load the items when the dialog opens.",
+      "`popular` items are both the quick links under the field and what the dialog lists before anything is typed, so arrows and Enter work straight away.",
+      "Give `onNavigate` your router's push for client-side navigation. Without it, choosing a result sets `window.location`.",
+      "`accent` takes any CSS colour, so each category can keep its own colour across your site. The preview uses the theme's status colours; its counts and usage line are labelled example data.",
+    ],
+    accessibility: [
+      "The section is labelled by the h1, and the categories are a list under their own h2.",
+      "The search field is a button that opens a modal search dialog with a title. Focus moves into the search input and returns to the button on close.",
+      "Results are a listbox: arrow keys move, Enter opens, Escape closes. An empty search says so and suggests a shorter word.",
+      "Category cards are ordinary links. Their icons are decorative; the title and count are what is read.",
+    ],
+    related: ["hero", "search-trigger", "command", "item"],
+  },
   "feature-grid": {
     notes: [
       "Use three or four features with icons that mean something. Six is the most a reader will scan.",

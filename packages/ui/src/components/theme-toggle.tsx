@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { flushSync } from "react-dom";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 
 import { cn } from "../lib/utils";
@@ -120,9 +121,54 @@ function useTheme(storageKey: string = DEFAULT_STORAGE_KEY): UseThemeResult {
   return { theme, resolvedTheme, setTheme };
 }
 
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (update: () => void) => { ready: Promise<void> };
+};
+
+const REVEAL_DURATION = 500;
+
+/**
+ * Runs `update` inside a view transition and grows the new theme from a circle
+ * at `origin`. Both snapshots are held opaque with normal blending, so only
+ * the circle moves. Without the View Transitions API, or under reduced
+ * motion, `update` runs at once.
+ */
+function revealThemeChange(update: () => void, origin: { x: number; y: number }) {
+  const doc = document as ViewTransitionDocument;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!doc.startViewTransition || reduceMotion) {
+    update();
+    return;
+  }
+  const { x, y } = origin;
+  const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+  // flushSync, so the toggle's own label is already updated in the new snapshot.
+  const transition = doc.startViewTransition(() => flushSync(update));
+  transition.ready
+    .then(() => {
+      const root = document.documentElement;
+      const timing = { duration: REVEAL_DURATION, easing: "cubic-bezier(0.4, 0, 0.2, 1)" };
+      const hold = { opacity: [1, 1], mixBlendMode: ["normal", "normal"] };
+      root.animate(hold, { ...timing, pseudoElement: "::view-transition-old(root)" });
+      root.animate(
+        { ...hold, clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { ...timing, pseudoElement: "::view-transition-new(root)" },
+      );
+    })
+    .catch(() => {
+      // A skipped transition still applied the theme; there is nothing to animate.
+    });
+}
+
 export interface ThemeToggleProps
   extends Omit<ButtonProps, "onClick" | "children" | "asChild"> {
   storageKey?: string;
+  /**
+   * `reveal` grows the new theme from the button in a circle, in browsers with
+   * the View Transitions API. It switches at once under reduced motion and in
+   * other browsers.
+   */
+  transition?: "none" | "reveal";
   /** Accessible name while the light theme is showing. */
   toDarkLabel?: string;
   /** Accessible name while the dark theme is showing. */
@@ -131,10 +177,12 @@ export interface ThemeToggleProps
 
 /**
  * A light and dark switch. The icon follows the `dark` class through CSS, so
- * it is right before hydration; the accessible name follows the state.
+ * it is right before hydration; the accessible name follows the state. Set
+ * `transition="reveal"` for a circular reveal from the button.
  */
 function ThemeToggle({
   storageKey,
+  transition = "none",
   toDarkLabel = "Switch to dark theme",
   toLightLabel = "Switch to light theme",
   variant = "ghost",
@@ -153,7 +201,18 @@ function ThemeToggle({
       size={size}
       aria-label={label}
       title={label}
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      onClick={(event) => {
+        const next = resolvedTheme === "dark" ? "light" : "dark";
+        if (transition !== "reveal") {
+          setTheme(next);
+          return;
+        }
+        const rect = event.currentTarget.getBoundingClientRect();
+        revealThemeChange(() => setTheme(next), {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2,
+        });
+      }}
       className={cn(className)}
       {...props}
     >
