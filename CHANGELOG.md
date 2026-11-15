@@ -2,6 +2,14 @@
 
 All notable changes are recorded here. The project is pre-1.0; minor versions may include API changes with migration notes.
 
+## Unreleased
+
+Website only; nothing in the npm packages changed.
+
+### Changed
+
+- The theming guide's `styles/aback.css` example, the web app manifest's background, and the social cards use the 0.6.0 colours: a `#f9fafb` light canvas and a true black dark one.
+
 ## 0.6.0 - November 2026
 
 The Aback theme moves to the look of the Aback Tools interface revamp, and abackui.com is restyled to match. Token names are unchanged; their values change, so every component looks different after upgrading. See "Upgrading" below.

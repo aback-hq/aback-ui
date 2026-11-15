@@ -64,11 +64,11 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 72px",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#000000",
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
-          color: "#fafafa",
+          color: "#f5f5f5",
           fontFamily: "Geist",
           borderTop: "8px solid #009bf9",
         }}
@@ -105,7 +105,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
           >
             {clip(title, 90)}
           </div>
-          <div style={{ fontSize: 28, lineHeight: 1.4, color: "#a1a1a1", maxWidth: 1000 }}>
+          <div style={{ fontSize: 28, lineHeight: 1.4, color: "#a3a3a3", maxWidth: 1000 }}>
             {clip(route.description, 150)}
           </div>
         </div>
@@ -116,13 +116,13 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 22,
-            color: "#a1a1a1",
+            color: "#a3a3a3",
             borderTop: "1px solid rgba(255,255,255,0.15)",
             paddingTop: 24,
           }}
         >
           <span>{`abackui.com${route.path === "/" ? "" : route.path}`}</span>
-          <span style={{ color: "#fafafa", fontWeight: 600 }}>Open source · React · Tailwind CSS v4</span>
+          <span style={{ color: "#f5f5f5", fontWeight: 600 }}>Open source · React · Tailwind CSS v4</span>
         </div>
       </div>
     ),

@@ -82,14 +82,14 @@ export default function ThemingPage() {
 }
 
 :root {
-  --background: #ffffff;
+  --background: #f9fafb;
   --card: #ffffff;
   --link: #005d95;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --card: #171717;
+  --background: #000000;
+  --card: #0f0f11;
   --link: #33b7ff;
 }`}
           />
