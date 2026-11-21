@@ -75,7 +75,7 @@ export default function ColorConverterPage() {
 
       <h2 id="how-it-converts">How this converter works</h2>
       <p>
-        Everything runs in your browser; nothing is sent anywhere. The converter parses HEX in all four
+        The conversion runs in your browser; the colours you enter are not sent anywhere. The converter parses HEX in all four
         lengths and the <code>rgb()</code>, <code>hsl()</code>, and <code>oklch()</code> functions in both
         modern space-separated and legacy comma syntax. OKLCH values use the OKLab definition by Björn
         Ottosson, and out-of-gamut colours are reduced in chroma at constant lightness and hue. The values

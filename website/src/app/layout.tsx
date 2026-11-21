@@ -80,6 +80,8 @@ export const viewport: Viewport = {
   themeColor: "#009bf9",
 };
 
+const GTM_ID = "GTM-54WS83PN";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -93,6 +95,14 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <head>
+        {/* Google Tag Manager (owner request, 2026-11-22). The queue is set up
+            first, with the gtm.js start event GTM's page triggers wait for. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});`,
+          }}
+        />
+        <script async src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} />
         <ThemeScript defaultTheme="light" />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
       </head>

@@ -17,7 +17,7 @@
     "@aback-ui/ui": "workspace:*",
     "@tabler/icons-react": "^3.49.0",
     "geist": "^1.8.2",
-    "next": "16.4.2",
+    "next": "16.4.6",
     "radix-ui": "^1.8.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
